@@ -3,31 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-surface: #2A2A2A;
+  --text-primary: #F5F5F0;
+  --text-muted: rgba(245,245,240,0.6);
+  --text-subtle: rgba(245,245,240,0.4);
+  --accent-gold: #C9A84C;
+  --accent-gold-hover: #D4B05A;
+  --border: #2A2A2A;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  font-family: var(--font-inter), sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.transition-gold {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
