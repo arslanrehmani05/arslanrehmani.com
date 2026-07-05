@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import "./globals.css";
@@ -31,12 +32,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-41SCGGBT9X";
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} bg-bg-primary text-text-primary antialiased font-sans`}>
         <Navigation />
         {children}
         <Footer />
+        <GoogleAnalytics gaId={gaId} />
       </body>
     </html>
   );

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.10",
     "@sanity/client": "^7.23.0",
     "@supabase/supabase-js": "^2.109.0",
     "lucide-react": "^1.23.0",
