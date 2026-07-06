@@ -32,15 +32,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-41SCGGBT9X";
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} bg-bg-primary text-text-primary antialiased font-sans`}>
+        {gaId && <GoogleAnalytics gaId={gaId} />}
         <Navigation />
         {children}
         <Footer />
-        <GoogleAnalytics gaId={gaId} />
       </body>
     </html>
   );
