@@ -116,13 +116,14 @@ const MOCK_CASE_STUDIES: CaseStudy[] = [
   {
     title: 'TextileMode ERP',
     slug: 'textilemode-erp',
-    industry: 'Textiles & Manufacturing',
-    client: 'TextileMode Manufacturing',
-    problem: 'Daily scheduling and production routing took a team of 4 coordinators over 48 hours to plan and balance across loom capacities every week, leading to production backlogs.',
-    solution: 'Built a custom, lightweight Next.js ERP containing capacity matching algorithms that dynamically routes jobs based on loom speeds, yarn availability, and order dates.',
+    industry: 'Textile Manufacturing',
+    client: 'TextileMode',
+    problem: 'A 27-loom textile manufacturer ran production planning, loom allocation, and financial reporting on paper and spreadsheets — 5 employees spending 40+ hours a week moving numbers by hand.',
+    solution: 'A custom ERP — 5 modules and 11 analytical reports covering production, allocation, and finance — that runs the operation end to end. Live at erp.textilemode.com.',
     results: [
-      { metric: 'Planning Time', value: '48hrs → 10hrs', label: 'Weekly administrative overhead' },
-      { metric: 'Operational Savings', value: '$100,000', label: 'Saved annually in labor costs' }
+      { metric: 'Weekly Manual Work', value: '40+ hrs', label: 'Eliminated' },
+      { metric: 'Roles Replaced', value: '5', label: 'By software' },
+      { metric: 'In Production', value: '10+ months', label: 'With real financial data' }
     ],
     architectureNote: 'The core algorithm compiles machine limitations and yarn parameters, sorting order volumes through constraint-based linear optimization.',
     tools: ['Next.js', 'PostgreSQL', 'Tailwind CSS', 'Vercel'],
@@ -133,15 +134,16 @@ const MOCK_CASE_STUDIES: CaseStudy[] = [
     featured: true
   },
   {
-    title: 'Belhide Ecommerce Intelligence',
-    slug: 'belhide-ecommerce-intelligence',
-    industry: 'Ecommerce & Retail',
+    title: 'Belhide Operational Stack',
+    slug: 'belhide-operational-stack',
+    industry: 'Multi-channel Ecommerce',
     client: 'Belhide Leather Goods',
-    problem: 'Sales tracking, shipping cost reconciliation, and ads analysis was scattered across seven dashboards, requiring daily copy-pasting into spreadsheets.',
-    solution: 'Designed and deployed an integrated automated backend that pulls APIs daily from Shopify, Meta Ads, and DHL, centralizing metrics into a single source of truth.',
+    problem: 'Running a leather goods brand across Shopify, Amazon, Analytics, and Search Console meant every morning started with logging into four dashboards and stitching the picture together by hand.',
+    solution: 'One operational platform that connects all four channels, generates an AI daily briefing, and automates fulfillment routing, shipping cost auditing, and ad analysis. Live at erp.belhide.com.',
     results: [
-      { metric: 'Systems Automated', value: '7 systems', label: 'Integrated data feeds' },
-      { metric: 'Manual Reporting', value: 'Zero', label: 'Manual reporting spreadsheets required' }
+      { metric: 'Channels Unified', value: '4', label: 'Shopify, Amazon, GA, GSC' },
+      { metric: 'AI Briefings', value: 'Daily', label: 'Generated automatically' },
+      { metric: 'Manual Reports', value: '0', label: 'Since launch' }
     ],
     architectureNote: 'An automated cron task triggers API calls, normalizes shipping charges against ledger lines, and flags outliers.',
     tools: ['Next.js', 'Supabase', 'Shopify API', 'Meta Ads API', 'Resend'],

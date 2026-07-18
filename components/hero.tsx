@@ -10,13 +10,13 @@ export default function Hero() {
         {/* Left Side: 55% Text (approx 7 columns in 12-grid) */}
         <div className="lg:col-span-7 flex flex-col justify-center items-start text-left gap-8 animate-fade-in">
           <span className="text-xs font-semibold tracking-widest uppercase text-accent-gold">
-            AI Systems Consultant
+            AI Operational Systems
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-text-primary leading-tight">
-            I build AI systems that replace manual operations.
+            You&apos;re paying salaries for work software should be doing.
           </h1>
           <p className="text-lg md:text-xl text-text-muted max-w-xl font-normal leading-relaxed">
-            Fewer people. Lower costs. Same output. For businesses serious about efficiency.
+            I build AI systems that take over manual operations permanently. The last one eliminated 40+ hours of weekly manual work and replaced 5 roles at a textile manufacturer. It&apos;s live — you can look at it.
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
             <Link
@@ -48,7 +48,7 @@ export default function Hero() {
             <div className="relative w-full h-full rounded-full overflow-hidden">
               <Image
                 src="/headshot.png"
-                alt="Arslan Rehmani - AI Systems Consultant"
+                alt="Arslan Rehmani — AI operational systems builder"
                 fill
                 priority
                 sizes="(max-width: 768px) 288px, (max-width: 1024px) 320px, 384px"

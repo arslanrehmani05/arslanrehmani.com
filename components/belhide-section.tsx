@@ -15,10 +15,10 @@ export default function BelhideSection() {
               Building In Public
             </span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-text-primary leading-tight">
-              One brand. Built entirely by AI systems.
+              I&apos;m my own first client.
             </h2>
             <p className="text-lg text-text-muted max-w-2xl font-normal leading-relaxed">
-              Belhide is a luxury leather goods brand built to serve as a public laboratory for operational efficiency. Every workflow—from Shopify order fulfillment routing and shipping cost auditing, to advertising analysis and customer notifications—is automated using custom-built AI engines. No manual reporting, no human spreadsheets.
+              Belhide is my leather goods brand, and it runs on the same systems I build for clients. Order fulfillment routing, shipping cost audits, ad analysis, customer notifications — automated end to end. When I say a workflow can run without a human, this is where I prove it first.
             </p>
             <div className="flex flex-wrap items-center gap-6 mt-4">
               <Link

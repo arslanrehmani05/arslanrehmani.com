@@ -42,13 +42,13 @@ export default function ToolsSection() {
   const tools = [
     {
       title: 'AI Readiness Audit',
-      description: 'Find manual bottlenecks and operations suitable for automation. Receive a customized operational report.',
+      description: 'Answer questions about how your operation actually runs. Get back a specific read on which of your processes can be automated — and which can’t.',
       badge: 'Coming Soon',
       href: '/tools/audit',
     },
     {
       title: 'Automation ROI Calculator',
-      description: 'Calculate the annual cost of your current manual workflow versus the automated equivalent.',
+      description: 'Put a number on it: your headcount, hours, and salaries in — the annual cost of your manual workflow out.',
       badge: 'Coming Soon',
       href: '/tools/calculator',
     },
@@ -64,7 +64,7 @@ export default function ToolsSection() {
             Free Tools
           </span>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-text-primary leading-tight">
-            Analyse your operational efficiency. Free.
+            Find out what manual work is costing you.
           </h2>
         </div>
 
@@ -106,10 +106,10 @@ export default function ToolsSection() {
         {/* Email Capture Form Box */}
         <div className="bg-bg-secondary border border-border-color p-8 md:p-12 rounded-3xl max-w-3xl mx-auto text-center">
           <h4 className="text-xl font-bold text-text-primary mb-3">
-            Get notified when new tools launch
+            Get notified when the tools go live
           </h4>
           <p className="text-sm text-text-muted mb-8 max-w-lg mx-auto">
-            Input your email below. We write tool releases directly to our database and notify you immediately on rollout.
+            Leave your email and I&apos;ll tell you the day they launch. Nothing else — no newsletter, no drip sequence.
           </p>
 
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 items-stretch justify-center max-w-md mx-auto">
@@ -136,7 +136,7 @@ export default function ToolsSection() {
           {/* Status Messages */}
           {status === 'success' && (
             <p className="text-accent-gold text-sm font-medium mt-4">
-              ✓ Successfully added. We will keep you updated.
+              ✓ Done. I&apos;ll email you at launch.
             </p>
           )}
           {status === 'error' && (

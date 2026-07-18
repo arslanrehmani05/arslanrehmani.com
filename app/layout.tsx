@@ -11,15 +11,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Arslan Rehmani | AI Systems Consultant & Operations Automator",
-  description: "Operations auditing and custom database-backed AI systems that eliminate manual overhead and reduce costs for mid-market businesses.",
+  title: "Arslan Rehmani | AI Systems That Replace Manual Operations",
+  description: "AI operational systems in production — the last one eliminated 40+ hours of weekly manual work and replaced 5 roles at a textile manufacturer.",
   metadataBase: new URL("https://arslanrehmani.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Arslan Rehmani | AI Systems Consultant",
-    description: "I build AI systems that replace manual operations for businesses serious about efficiency.",
+    title: "Arslan Rehmani | AI Systems That Replace Manual Operations",
+    description: "I build AI systems that take over manual operations permanently. Two in production, live at real URLs.",
     url: "https://arslanrehmani.com",
     siteName: "Arslan Rehmani Portfolio",
     locale: "en_US",

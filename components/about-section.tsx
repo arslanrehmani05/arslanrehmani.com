@@ -16,14 +16,14 @@ export default function AboutSection() {
               The Person
             </span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-text-primary leading-tight">
-              27. ACCA qualified. Daily learner since 2016.
+              I came from finance. Now I automate the work I used to do by hand.
             </h2>
             <div className="space-y-4 text-base text-text-muted leading-relaxed font-normal">
               <p>
-                Arslan Rehmani is an ACCA-qualified finance professional turned software engineer. By bridging the gap between rigorous financial control and full-stack software execution, he builds automation tools that directly impact business margins.
+                I&apos;m Arslan Rehmani, 27, based in Karachi. I started in finance — audits, reporting, the manual grind of moving numbers between systems — and taught myself to build software because I was tired of watching businesses pay people to be middleware.
               </p>
               <p>
-                He specializes in auditing operational processes, mapping disjointed data pipelines, and writing custom AI-integrated middleware to replace manual, labor-intensive administration. He is the developer behind TextileMode ERP and the founder of Vanthrope.
+                I built TextileMode ERP, which has run a 27-loom manufacturer&apos;s operations for over 10 months, and the operational stack behind my own brand, Belhide. Through Vanthrope, I build the same class of system for businesses that want their operations to run on software instead of overtime.
               </p>
             </div>
           </div>

@@ -6,17 +6,17 @@ export default function ServicesSection() {
   const services = [
     {
       title: 'Operational Audit',
-      description: 'We audit your existing manual procedures, map data pipelines, and output a detailed automation roadmap with precise ROI projections.',
+      description: 'I go through your actual workflows — who touches what, how often, and why — and hand you a roadmap: which processes can be automated, in what order, and what each is costing you today.',
       href: '/tools#audit',
     },
     {
-      title: 'AI Agent Systems',
-      description: 'We design, build, and deploy production-grade database-backed software systems and custom AI agents that execute human-level operational tasks.',
+      title: 'System Build',
+      description: 'I design, build, and deploy the system: database-backed software with AI agents doing the operational work your staff does manually. Not a prototype — a production system your business runs on.',
       href: '/#contact',
     },
     {
       title: 'Ongoing Optimisation',
-      description: 'We monitor execution accuracy, optimize model prompts, scale systems with your operations, and refine APIs for constant cost reduction.',
+      description: 'Deployed systems get measured, not abandoned. I monitor accuracy, extend coverage as your operation grows, and keep driving the running cost down.',
       href: '/#contact',
     },
   ];
@@ -31,10 +31,10 @@ export default function ServicesSection() {
             The Work
           </span>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-text-primary leading-tight">
-            From operational diagnosis to deployed AI systems.
+            From diagnosis to a deployed system that runs without you.
           </h2>
           <p className="text-base text-text-muted mt-2 max-w-xl font-normal leading-relaxed">
-            We map manual workflows, identify structural inefficiencies, and deploy secure custom AI systems that run 24/7. No vaporware, no theory—just production-grade software that drives margins.
+            I map where your operation leaks hours and money, then build the software that closes the leak — production-grade, running daily, measured in hours saved and roles removed.
           </p>
         </div>
 

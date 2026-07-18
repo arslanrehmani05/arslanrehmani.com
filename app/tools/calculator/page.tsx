@@ -55,7 +55,7 @@ export default function CalculatorPage() {
             Automation ROI Calculator
           </h1>
           <p className="text-base text-text-muted">
-            Determine the direct financial return of automating manual administrative loops within your organization.
+            Headcount, hours, and salaries in — the annual cost of your manual workflow, and what automating it would save, out.
           </p>
         </div>
 

@@ -21,7 +21,7 @@ export default function Footer() {
               <span className="text-accent-gold">{"//"}</span> Arslan Rehmani
             </span>
             <p className="text-sm text-text-muted max-w-xs">
-              Designing, building, and deploying autonomous AI systems to replace manual workflows for mid-market businesses.
+              AI systems that replace manual operations. Two in production, live at real URLs.
             </p>
           </div>
 
@@ -47,10 +47,10 @@ export default function Footer() {
           {/* Column 3: Founder Credit */}
           <div className="flex flex-col gap-4">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-accent-gold">
-              Founder Info
+              Elsewhere
             </h4>
             <p className="text-sm text-text-muted">
-              Founded by Arslan Rehmani, AI Systems Consultant and developer behind Vanthrope.
+              Founder of Vanthrope. Building Belhide in public.
             </p>
             <Link
               href="https://vanthrope.com"

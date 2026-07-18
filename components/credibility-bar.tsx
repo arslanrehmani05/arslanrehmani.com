@@ -1,11 +1,11 @@
 // components/credibility-bar.tsx
 export default function CredibilityBar() {
   const stats = [
-    { value: '10 Years', label: 'Daily Learning' },
-    { value: '2 ERPs', label: 'In Production' },
-    { value: '$100,000+', label: 'Annual Savings' },
-    { value: '3 Industries', label: 'Served' },
-    { value: 'Vanthrope', label: 'Founder' },
+    { value: '2', label: 'Systems in production' },
+    { value: '$100,000+', label: 'Annual savings delivered' },
+    { value: '40+ hrs', label: 'Weekly manual work eliminated' },
+    { value: '5', label: 'Roles replaced by software' },
+    { value: '10+ months', label: 'Live with real financial data' },
   ];
 
   return (

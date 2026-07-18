@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { getCaseStudies } from '@/sanity/lib/client';
 
 export const metadata = {
-  title: 'Case Studies Portfolio | Arslan Rehmani',
-  description: 'Explore details and results of deployed automated systems and customized ERP products.',
+  title: 'Case Studies | Arslan Rehmani',
+  description: 'Case studies of AI operational systems in production — problems, solutions, and audited numbers.',
 };
 
 export default async function WorkIndexPage() {
@@ -17,13 +17,13 @@ export default async function WorkIndexPage() {
         {/* Section Header */}
         <div className="flex flex-col gap-4 mb-16 text-left max-w-2xl">
           <span className="text-xs font-semibold tracking-widest uppercase text-accent-gold">
-            Proven Results
+            The Proof
           </span>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight text-text-primary leading-tight">
             Case Studies
           </h1>
           <p className="text-base text-text-muted leading-relaxed">
-            Technical breakdowns of operational challenges, custom solutions built, and audited metrics showcasing saved time and labor costs.
+            Each of these is a system a business runs on today, at a URL you can visit. Problem, what I built, and the numbers — no rounded figures, no projections.
           </p>
         </div>
 
@@ -74,7 +74,7 @@ export default async function WorkIndexPage() {
                     className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-accent-gold hover:text-accent-gold-hover transition-gold"
                     style={{ minHeight: '44px' }}
                   >
-                    Read Technical Breakdown →
+                    Read the case study →
                   </Link>
                 </div>
               </div>

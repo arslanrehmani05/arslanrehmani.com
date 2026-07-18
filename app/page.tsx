@@ -15,7 +15,7 @@ export default function Home() {
     '@type': 'Person',
     name: 'Arslan Rehmani',
     url: 'https://arslanrehmani.com',
-    jobTitle: 'AI Systems Consultant',
+    jobTitle: 'AI Operational Systems Builder',
     worksFor: {
       '@type': 'Organization',
       name: 'Vanthrope',

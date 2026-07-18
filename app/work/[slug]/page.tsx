@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!caseStudy) return {};
   return {
     title: `${caseStudy.title} Case Study | Arslan Rehmani`,
-    description: `Learn how we automated operations for ${caseStudy.client}: ${caseStudy.solution}`,
+    description: `How I automated operations for ${caseStudy.client}: ${caseStudy.solution}`,
   };
 }
 

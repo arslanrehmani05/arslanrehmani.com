@@ -2,25 +2,25 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Operational Analysis Tools | Arslan Rehmani',
-  description: 'Evaluate your operational efficiency and calculate potential ROI from AI agent automation.',
+  title: 'Free Tools | Arslan Rehmani',
+  description: 'Free tools: find out which of your operations can be automated and what your manual workflows cost per year.',
 };
 
 export default function ToolsIndexPage() {
   const tools = [
     {
       title: 'AI Readiness Audit',
-      description: 'Answer 10 operational questions regarding your staff size, tool count, and spreadsheets. Receive a personalized analysis of your automation readiness.',
+      description: 'Answer questions about how your operation runs — team size, tools, where the spreadsheets live. Get a specific read on what’s automatable and what isn’t.',
       badge: 'Interactive Tool',
       href: '/tools/audit',
-      action: 'Launch Audit Form →'
+      action: 'Start the audit →'
     },
     {
       title: 'Automation ROI Calculator',
-      description: 'Enter your headcount, manual work hours, and salaries to calculate the exact annual labor cost saved through custom software integration.',
+      description: 'Headcount, hours, and salaries in. The annual cost of your manual workflow — and what automating it would save — out.',
       badge: 'Interactive Calculator',
       href: '/tools/calculator',
-      action: 'Launch ROI Calculator →'
+      action: 'Run the numbers →'
     },
   ];
 
@@ -31,13 +31,13 @@ export default function ToolsIndexPage() {
         {/* Page Header */}
         <div className="flex flex-col gap-4 mb-16 text-left">
           <span className="text-xs font-semibold tracking-widest uppercase text-accent-gold">
-            Productivity Suite
+            Free Tools
           </span>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight text-text-primary leading-tight">
-            Operational Analysis Tools
+            What is manual work costing you?
           </h1>
           <p className="text-lg text-text-muted max-w-2xl leading-relaxed">
-            Free diagnostic toolkits designed to analyze your current administrative bottlenecks and calculate the concrete financial benefit of custom software deployment.
+            Two free tools. One tells you which of your processes can realistically be automated; the other puts an annual dollar figure on the manual work you&apos;re doing now.
           </p>
         </div>
 

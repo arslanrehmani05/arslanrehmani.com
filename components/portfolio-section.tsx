@@ -15,7 +15,7 @@ export default async function PortfolioSection() {
             The Proof
           </span>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-text-primary leading-tight">
-            Real systems. Real results.
+            Two production systems. Live at real URLs. Look at them.
           </h2>
         </div>
 
@@ -86,7 +86,7 @@ export default async function PortfolioSection() {
         {/* Footer note */}
         <div className="text-center mt-12">
           <p className="text-xs text-text-subtle font-medium tracking-wide">
-            More case studies added as projects complete.
+            More case studies added as systems ship.
           </p>
         </div>
 

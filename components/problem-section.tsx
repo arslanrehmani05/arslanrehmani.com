@@ -3,18 +3,18 @@ export default function ProblemSection() {
   const cards = [
     {
       num: '01',
-      title: 'Operations that run on people',
-      description: 'Every process that requires a human is a cost, a risk, and a bottleneck. Most businesses have dozens of them and have stopped noticing.',
+      title: 'Your numbers arrive late and by hand',
+      description: 'Month-end reporting assembled in spreadsheets, by people, days after the fact. By the time you see the problem, you’ve been paying for it for weeks.',
     },
     {
       num: '02',
-      title: 'AI is moving faster than your roadmap',
-      description: 'You know the opportunity exists. The question is whether you find someone who can actually build the system before your competitors do.',
+      title: 'Headcount scales with volume',
+      description: 'Every growth spurt means more coordinators, more data entry, more people whose whole job is moving information between systems. Revenue grows; margin doesn’t.',
     },
     {
       num: '03',
-      title: 'The gap between knowing and doing',
-      description: 'Most businesses understand what needs to change. Almost none have someone who can design the system, build it, and deploy it reliably.',
+      title: 'You are the integration layer',
+      description: 'Your tools don’t talk to each other, so you do it for them — chasing statuses, reconciling exports, answering questions a system should answer. That’s the most expensive job in the company.',
     },
   ];
 
@@ -28,7 +28,7 @@ export default function ProblemSection() {
             The Problem
           </span>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-text-primary leading-tight">
-            Most businesses know something is wrong. Almost none know how to fix it.
+            Operational drag doesn&apos;t show up on a P&amp;L line. It shows up everywhere else.
           </h2>
         </div>
 

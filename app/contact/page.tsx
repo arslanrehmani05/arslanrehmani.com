@@ -50,10 +50,10 @@ export default function ContactPage() {
             Contact
           </span>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight text-text-primary leading-tight">
-            Start the conversation.
+            Tell me how the work gets done today.
           </h1>
           <p className="text-base text-text-muted max-w-lg">
-            Let&apos;s outline your operational leaks, estimate implementation scope, and map out automated alternatives.
+            Describe your most manual process — the one that eats hours or depends on one person. I&apos;ll tell you whether software can take it over and what that&apos;s worth.
           </p>
         </div>
 
@@ -61,9 +61,9 @@ export default function ContactPage() {
         <div className="bg-bg-secondary border border-border-color p-8 rounded-3xl">
           {status === 'success' ? (
             <div className="text-center py-12">
-              <span className="text-4xl font-bold text-accent-gold mb-4 block">✓ Submission Received</span>
+              <span className="text-4xl font-bold text-accent-gold mb-4 block">✓ Received</span>
               <p className="text-text-muted text-base max-w-md mx-auto">
-                Thank you for reaching out. Arslan will review your submission and contact you within 24 hours to schedule a consultation.
+                Thanks — I read every submission personally and will reply by email to set up a call.
               </p>
               <button
                 onClick={() => setStatus('idle')}
@@ -128,7 +128,7 @@ export default function ContactPage() {
               {/* Message */}
               <div className="flex flex-col gap-2">
                 <label htmlFor="message" className="text-xs font-semibold text-text-primary uppercase tracking-wider">
-                  Operational Bottlenecks / Project Scope
+                  Your Most Manual Process
                 </label>
                 <textarea
                   id="message"
@@ -136,7 +136,7 @@ export default function ContactPage() {
                   rows={5}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Describe your current manual operations, tools in use, and what you would like to automate..."
+                  placeholder="What's the process, who does it, how many hours a week does it take, and which tools are involved?"
                   className="bg-bg-primary border border-border-color text-text-primary text-sm px-4 py-3 rounded-xl focus:outline-none focus:border-accent-gold transition-gold resize-none"
                 />
               </div>
@@ -149,7 +149,7 @@ export default function ContactPage() {
                   className="w-full bg-accent-gold hover:bg-accent-gold-hover text-bg-primary font-bold text-sm tracking-wide uppercase py-4 rounded-full transition-gold disabled:opacity-50"
                   style={{ minHeight: '44px' }}
                 >
-                  {status === 'loading' ? 'Sending...' : 'Schedule Consultation'}
+                  {status === 'loading' ? 'Sending...' : 'Send it'}
                 </button>
               </div>
 

@@ -17,7 +17,7 @@ export default async function ThinkingSection() {
             The Thinking
           </span>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-text-primary leading-tight">
-            Practitioner knowledge. No theory.
+            Notes from building systems businesses actually run on.
           </h2>
         </div>
 

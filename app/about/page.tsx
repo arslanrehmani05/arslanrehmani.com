@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'About | Arslan Rehmani',
-  description: 'Learn more about Arslan Rehmani, ACCA qualified accountant and AI Systems Consultant.',
+  description: 'Arslan Rehmani builds AI systems that replace manual operations — including TextileMode ERP, live in production for 10+ months.',
 };
 
 export default function AboutPage() {
@@ -15,13 +15,13 @@ export default function AboutPage() {
         {/* Header */}
         <div className="flex flex-col gap-4 mb-12 text-left">
           <span className="text-xs font-semibold tracking-widest uppercase text-accent-gold">
-            About the Founder
+            About
           </span>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight text-text-primary leading-tight">
             Arslan Rehmani
           </h1>
           <p className="text-xl text-accent-gold font-bold leading-normal">
-            ACCA Qualified • Daily Learner Since 2016 • Founder, Vanthrope
+            Builds AI Operational Systems • Founder, Vanthrope • Karachi
           </p>
         </div>
 
@@ -66,13 +66,13 @@ export default function AboutPage() {
           {/* Biography Text (spanning 2 columns) */}
           <div className="md:col-span-2 space-y-6 text-text-muted leading-relaxed font-normal text-base">
             <p>
-              Arslan Rehmani operates at the unique intersection of formal corporate finance and full-stack software engineering. As an ACCA-qualified professional (Association of Chartered Certified Accountants), he understands balance sheets, corporate resource planning, operational risks, and efficiency audits from the ground up.
+              I started in finance. Years of audits, reconciliations, and month-end reporting taught me exactly where businesses bleed hours: the manual work between systems — the exports, the re-keying, the spreadsheet that one person maintains and everyone depends on.
             </p>
             <p>
-              Since 2016, Arslan has dedicated himself to a daily learning path across data structures, system architectures, and modern cloud deployment models. This dual capability allows him to diagnose administrative leaks in mid-market companies and translate them directly into production-grade software.
+              So I learned to build software, and I automated my way out of that work. Then I started doing it for other businesses. TextileMode ERP now runs a 27-loom textile manufacturer&apos;s operations — 5 modules, 11 analytical reports, 40+ hours of weekly manual work gone, live for over 10 months with real financial data.
             </p>
             <p>
-              He created **TextileMode ERP** to solve machine balancing and routing bottlenecks in textiles manufacturing, and **Belhide Ecommerce Intelligence** to automate e-commerce tracking across Shopify and ad systems. Today, through his agency **Vanthrope**, he builds custom automated AI agents to replace manual workflows.
+              I also run Belhide, my own leather goods brand, on an operational stack I built: Shopify, Amazon, Analytics, and Search Console unified, with AI-generated daily briefings and automated fulfillment, shipping audits, and ad analysis. Through Vanthrope, I build these systems for businesses that want operations to scale without headcount.
             </p>
             
             <div className="pt-6">
@@ -81,7 +81,7 @@ export default function AboutPage() {
                 className="inline-flex items-center justify-center bg-accent-gold hover:bg-accent-gold-hover text-bg-primary font-bold text-sm tracking-wide uppercase px-8 py-4 rounded-full transition-gold"
                 style={{ minHeight: '44px' }}
               >
-                Book a consultation
+                Book a call
               </Link>
             </div>
           </div>

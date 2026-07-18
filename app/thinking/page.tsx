@@ -17,13 +17,13 @@ export default async function ThinkingIndexPage() {
         {/* Page Header */}
         <div className="flex flex-col gap-4 mb-16 text-left max-w-2xl">
           <span className="text-xs font-semibold tracking-widest uppercase text-accent-gold">
-            System Insights
+            The Thinking
           </span>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight text-text-primary leading-tight">
-            The Thinking
+            Notes from the build
           </h1>
           <p className="text-base text-text-muted leading-relaxed">
-            Real practitioner knowledge. Focused on operational challenges, architectural design guidelines, and build logs. No theory, no vaporware.
+            What I learn building systems businesses actually run on — operational problems, architecture decisions, and build logs from live deployments.
           </p>
         </div>
 

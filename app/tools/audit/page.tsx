@@ -59,7 +59,7 @@ export default function AuditPage() {
             AI Readiness Audit
           </h1>
           <p className="text-base text-text-muted">
-            Complete the 10 operational parameters below to map manual processes and receive an automated efficiency report.
+            Answer the questions below about how your operation runs. You&apos;ll get a specific read on which of your processes can be automated — and which can&apos;t.
           </p>
         </div>
 
