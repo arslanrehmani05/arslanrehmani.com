@@ -282,7 +282,7 @@ Body (mt-6):
 I build production software for real businesses. The 
 first system I built replaced five employees at a 
 textile manufacturer and has run its daily operations 
-for over ten months. The second runs my own ecommerce 
+for over ten months. The second runs a client's ecommerce 
 brand across five sales channels. Everything on this 
 site is live and testable — because claims are cheap 
 and working software is not.
@@ -370,3 +370,6 @@ Before finishing, verify ZERO instances of:
   hero fade-in
 - Rounded corners other than rounded-2xl / rounded-full
 - Any claim not verifiable at a URL or in a call
+- Belhide described as Arslan's own business or brand. 
+  Belhide is a CLIENT. Never "my brand", "my own 
+  ecommerce brand", or "building in public".

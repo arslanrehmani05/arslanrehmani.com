@@ -22,8 +22,8 @@ export default function AboutSection() {
           <p className="text-base md:text-lg text-text-muted leading-relaxed mt-6">
             I build production software for real businesses. The first system I built
             replaced five employees at a textile manufacturer and has run its daily
-            operations for over ten months. The second runs my own ecommerce brand
-            across five sales channels. Everything on this site is live and testable —
+            operations for over ten months. The second runs a client&apos;s ecommerce
+            brand across five sales channels. Everything on this site is live and testable —
             because claims are cheap and working software is not.
           </p>
 

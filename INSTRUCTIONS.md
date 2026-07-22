@@ -96,6 +96,10 @@ lib/
 - Case study numbers always specific, never rounded
 - Never mention n8n, Zapier, or specific tool names in headlines or hero copy
 - Lead with business outcomes, not technology names
+- **Belhide is a client, never Arslan's own business.** Never describe it as
+  "my brand", "my own ecommerce brand", "my leather goods brand", or frame any
+  work on it as "building in public". Refer to it as a client engagement or
+  leave it unnamed.
 
 ## Copy Standards — Non-Negotiable
 - **NEVER use**: "passionate," "innovative," "cutting-edge," "10 years of learning," "lifelong learner," or any claim that cannot be immediately verified.
