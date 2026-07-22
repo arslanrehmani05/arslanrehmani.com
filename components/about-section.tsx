@@ -1,72 +1,60 @@
 // components/about-section.tsx
 import Image from 'next/image';
-import Link from 'next/link';
+
+const socials = [
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/arslanrehmani' },
+  { label: 'GitHub', href: 'https://github.com/arslanrehmani05' },
+  { label: 'X', href: 'https://x.com/arslanrehmani' },
+];
 
 export default function AboutSection() {
   return (
-    <section id="about" className="bg-bg-primary py-36 border-b border-border-color">
-      <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Section Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
-          {/* Left Column: Text Bio (7 columns on desktop) */}
-          <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-            <span className="text-xs font-semibold tracking-widest uppercase text-accent-gold">
-              The Person
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-text-primary leading-tight">
-              I came from finance. Now I automate the work I used to do by hand.
-            </h2>
-            <div className="space-y-4 text-base text-text-muted leading-relaxed font-normal">
-              <p>
-                I&apos;m Arslan Rehmani, 27, based in Karachi. I started in finance — audits, reporting, the manual grind of moving numbers between systems — and taught myself to build software because I was tired of watching businesses pay people to be middleware.
-              </p>
-              <p>
-                I built TextileMode ERP, which has run a 27-loom manufacturer&apos;s operations for over 10 months, and the operational stack behind my own brand, Belhide. Through Vanthrope, I build the same class of system for businesses that want their operations to run on software instead of overtime.
-              </p>
-            </div>
-          </div>
+    <section id="about" className="bg-bg-primary py-20 md:py-32 scroll-mt-16">
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-11 gap-12 lg:gap-16 items-center">
+        {/* Left — 55% */}
+        <div className="lg:col-span-6">
+          <span className="block text-xs font-semibold tracking-[0.2em] uppercase text-accent-gold mb-4">
+            The Person
+          </span>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight text-text-primary leading-tight">
+            Arslan Rehmani. Founder, Vanthrope.
+          </h2>
+          <p className="text-base md:text-lg text-text-muted leading-relaxed mt-6">
+            I build production software for real businesses. The first system I built
+            replaced five employees at a textile manufacturer and has run its daily
+            operations for over ten months. The second runs my own ecommerce brand
+            across five sales channels. Everything on this site is live and testable —
+            because claims are cheap and working software is not.
+          </p>
 
-          {/* Right Column: Headshot and Social Links (5 columns on desktop) */}
-          <div className="lg:col-span-5 flex flex-col items-center gap-6">
-            <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-3xl p-1 border border-accent-gold bg-bg-secondary overflow-hidden">
-              <div className="relative w-full h-full rounded-2xl overflow-hidden">
-                <Image
-                  src="/headshot.png"
-                  alt="Arslan Rehmani portrait"
-                  fill
-                  sizes="(max-width: 768px) 256px, 288px"
-                  className="object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Social Icons Link row */}
-            <div className="flex gap-6 mt-2">
-              <Link
-                href="https://x.com/arslanrehmani"
+          <div className="flex gap-6 mt-8">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold uppercase tracking-wider text-accent-gold hover:text-accent-gold-hover transition-gold"
+                className="text-accent-gold hover:text-accent-gold-hover hover:underline underline-offset-4 text-sm font-semibold transition-colors duration-200"
                 style={{ minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
               >
-                X (Twitter)
-              </Link>
-              <Link
-                href="https://linkedin.com/in/arslanrehmani"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-bold uppercase tracking-wider text-accent-gold hover:text-accent-gold-hover transition-gold"
-                style={{ minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
-              >
-                LinkedIn
-              </Link>
-            </div>
+                {social.label}
+              </a>
+            ))}
           </div>
-
         </div>
 
+        {/* Right — 45% */}
+        <div className="lg:col-span-5">
+          <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-bg-secondary border border-border-color ring-1 ring-border-gold">
+            <Image
+              src="/headshot.png"
+              alt="Arslan Rehmani"
+              fill
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

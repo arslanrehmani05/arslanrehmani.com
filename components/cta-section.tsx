@@ -3,42 +3,40 @@ import Link from 'next/link';
 
 export default function CtaSection() {
   return (
-    <section 
-      id="contact-cta" 
-      className="py-36 border-b border-border-color flex flex-col items-center justify-center text-center px-6 relative"
+    <section
+      className="bg-bg-primary py-20 md:py-32"
       style={{
-        background: 'radial-gradient(circle, rgba(201, 168, 76, 0.03) 0%, #0A0A0A 100%)'
+        backgroundImage:
+          'radial-gradient(circle at center, rgba(201,168,76,0.06) 0%, transparent 70%)',
       }}
     >
-      <div className="max-w-4xl mx-auto flex flex-col items-center gap-8">
-        
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-text-primary leading-tight max-w-3xl">
-          Bring me your most annoying manual process.
+      <div className="max-w-3xl mx-auto px-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-black tracking-tight text-text-primary leading-tight">
+          If your operations have inefficiency worth eliminating, let&apos;s talk.
         </h2>
-
-        <p className="text-lg md:text-xl text-text-muted max-w-xl font-normal leading-relaxed opacity-60">
-          A 30-minute call. You describe how the work gets done today; I tell you whether software can take it over, and what that&apos;s worth per year. If the answer is no, I&apos;ll say so.
+        <p className="text-base md:text-lg text-text-muted leading-relaxed mt-4">
+          Every engagement starts with understanding your operation. No commitment
+          until the diagnosis is done.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center gap-6 mt-4 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center bg-accent-gold hover:bg-accent-gold-hover text-bg-primary text-base font-bold px-8 py-4 rounded-full transition-gold shadow-lg shadow-accent-gold/10 w-full sm:w-auto"
+            className="inline-flex items-center justify-center bg-accent-gold hover:bg-accent-gold-hover text-black font-semibold px-8 py-4 rounded-full transition-colors duration-200"
             style={{ minHeight: '44px' }}
           >
-            Book the call
+            Start the conversation
           </Link>
           <a
             href="https://vanthrope.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-base font-semibold text-text-primary hover:text-accent-gold transition-gold py-2 px-1"
-            style={{ minHeight: '44px' }}
+            className="text-accent-gold hover:text-accent-gold-hover hover:underline underline-offset-4 font-semibold transition-colors duration-200"
+            style={{ minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
           >
             Learn about Vanthrope →
           </a>
         </div>
-
       </div>
     </section>
   );

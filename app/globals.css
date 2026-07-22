@@ -5,13 +5,15 @@
 :root {
   --bg-primary: #0A0A0A;
   --bg-secondary: #111111;
-  --bg-surface: #2A2A2A;
+  --bg-surface: #161616;
   --text-primary: #F5F5F0;
-  --text-muted: rgba(245,245,240,0.6);
-  --text-subtle: rgba(245,245,240,0.4);
+  --text-muted: rgba(245, 245, 240, 0.62);
+  --text-subtle: rgba(245, 245, 240, 0.38);
   --accent-gold: #C9A84C;
   --accent-gold-hover: #D4B05A;
-  --border: #2A2A2A;
+  --accent-gold-dim: rgba(201, 168, 76, 0.15);
+  --border: #232323;
+  --border-gold: rgba(201, 168, 76, 0.35);
 }
 
 body {
@@ -20,7 +22,22 @@ body {
   font-family: var(--font-inter), sans-serif;
 }
 
-.transition-gold {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+/* The only entrance animation on the site: hero content at page load. */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
+.animate-fade-in {
+  animation: fade-in 500ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in {
+    animation: none;
+  }
+}

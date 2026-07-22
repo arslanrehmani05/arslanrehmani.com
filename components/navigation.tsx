@@ -5,81 +5,78 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
+const links = [
+  { label: 'Work', href: '/#proof' },
+  { label: 'About', href: '/#about' },
+  { label: 'Contact', href: '/contact' },
+];
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-
-  const links = [
-    { label: 'About', href: '/#about' },
-    { label: 'Services', href: '/#services' },
-    { label: 'Work', href: '/work' },
-    { label: 'Thinking', href: '/thinking' },
-    { label: 'Tools', href: '/tools' },
-  ];
-
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-bg-primary/80 backdrop-blur-md border-b border-border-color">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold tracking-tight text-text-primary transition-gold hover:text-accent-gold" style={{ minWidth: '44px', minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}>
-          <span className="text-accent-gold mr-1.5">{"//"}</span> Arslan Rehmani
+    <header className="sticky top-0 z-50 w-full bg-bg-primary/90 backdrop-blur-md border-b border-border-color">
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <Link
+          href="/"
+          className="text-text-primary font-bold tracking-tight transition-colors duration-200 hover:text-accent-gold"
+        >
+          Arslan Rehmani
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Desktop */}
         <nav className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-text-muted transition-gold hover:text-text-primary py-2 px-1"
+              className="text-sm text-text-muted transition-colors duration-200 hover:text-accent-gold"
             >
               {link.label}
             </Link>
           ))}
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center bg-accent-gold hover:bg-accent-gold-hover text-bg-primary text-sm font-bold tracking-wide uppercase px-6 py-3 rounded-full transition-gold"
-            style={{ minHeight: '44px' }}
+            className="inline-flex items-center justify-center bg-accent-gold hover:bg-accent-gold-hover text-black text-sm font-semibold px-5 py-2 rounded-full transition-colors duration-200"
           >
-            Work with me
+            Start a conversation
           </Link>
         </nav>
 
-        {/* Mobile Toggle */}
+        {/* Mobile toggle */}
         <button
-          onClick={toggleMenu}
-          className="md:hidden flex items-center justify-center text-text-primary hover:text-accent-gold transition-gold"
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden flex items-center justify-center text-text-primary transition-colors duration-200 hover:text-accent-gold"
           aria-label="Toggle navigation menu"
+          aria-expanded={isOpen}
           style={{ width: '44px', height: '44px' }}
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Mobile Overlay */}
+      {/* Mobile overlay */}
       {isOpen && (
-        <div className="fixed inset-0 top-20 z-40 bg-bg-primary flex flex-col px-6 py-12 md:hidden">
-          <nav className="flex flex-col gap-6">
-            {links.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-2xl font-semibold text-text-muted hover:text-text-primary transition-gold py-3"
-                style={{ minHeight: '48px' }}
-              >
-                {link.label}
-              </Link>
-            ))}
+        <div className="fixed inset-0 top-16 z-40 bg-bg-primary flex flex-col items-center justify-center gap-8 md:hidden">
+          {links.map((link) => (
             <Link
-              href="/contact"
+              key={link.label}
+              href={link.href}
               onClick={() => setIsOpen(false)}
-              className="inline-flex items-center justify-center bg-accent-gold hover:bg-accent-gold-hover text-bg-primary text-lg font-bold tracking-wide uppercase py-4 rounded-full transition-gold mt-6"
-              style={{ minHeight: '52px' }}
+              className="text-2xl text-text-primary transition-colors duration-200 hover:text-accent-gold"
+              style={{ minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
             >
-              Work with me
+              {link.label}
             </Link>
-          </nav>
+          ))}
+          <Link
+            href="/contact"
+            onClick={() => setIsOpen(false)}
+            className="inline-flex items-center justify-center bg-accent-gold hover:bg-accent-gold-hover text-black font-semibold px-8 py-4 rounded-full transition-colors duration-200 mt-2"
+            style={{ minHeight: '44px' }}
+          >
+            Start a conversation
+          </Link>
         </div>
       )}
     </header>

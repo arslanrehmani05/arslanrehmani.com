@@ -17,7 +17,9 @@ const config: Config = {
         "text-subtle": "var(--text-subtle)",
         "accent-gold": "var(--accent-gold)",
         "accent-gold-hover": "var(--accent-gold-hover)",
+        "accent-gold-dim": "var(--accent-gold-dim)",
         "border-color": "var(--border)",
+        "border-gold": "var(--border-gold)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
