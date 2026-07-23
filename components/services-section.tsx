@@ -20,10 +20,8 @@ export default function ServicesSection() {
   return (
     <section className="bg-bg-primary py-20 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
-        <span className="block text-xs font-semibold tracking-[0.2em] uppercase text-accent-gold mb-4">
-          The Work
-        </span>
-        <h2 className="text-3xl md:text-4xl font-black tracking-tight text-text-primary leading-tight">
+        <span className="eyebrow mb-5">The Work</span>
+        <h2 className="headline text-3xl md:text-[2.75rem] leading-[1.1]">
           From operational diagnosis to deployed systems.
         </h2>
         <p className="text-base md:text-lg text-text-muted leading-relaxed max-w-2xl mt-6 mb-12">
@@ -36,7 +34,7 @@ export default function ServicesSection() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="bg-bg-secondary border border-border-color rounded-2xl p-6 md:p-8 flex flex-col"
+              className="bg-bg-secondary border border-border-color hover:border-border-gold rounded-2xl p-6 md:p-8 flex flex-col transition-colors duration-200"
             >
               <h3 className="text-lg md:text-xl font-bold text-text-primary">
                 {service.title}

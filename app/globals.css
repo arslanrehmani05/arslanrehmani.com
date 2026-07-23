@@ -11,6 +11,7 @@
   --text-subtle: rgba(245, 245, 240, 0.38);
   --accent-gold: #C9A84C;
   --accent-gold-hover: #D4B05A;
+  --accent-gold-bright: #E7CE87;
   --accent-gold-dim: rgba(201, 168, 76, 0.15);
   --border: #232323;
   --border-gold: rgba(201, 168, 76, 0.35);
@@ -22,22 +23,90 @@ body {
   font-family: var(--font-inter), sans-serif;
 }
 
+/* Fraunces is a high-contrast display serif; let it optically size for headlines. */
+.font-serif {
+  font-optical-sizing: auto;
+}
+
+/* Film grain over the whole page — kills banding on the dark field and adds
+   texture. Fixed, non-interactive, very low opacity. */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 /* The only entrance animation on the site: hero content at page load. */
 @keyframes fade-in {
   from {
     opacity: 0;
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .animate-fade-in {
-  animation: fade-in 500ms ease-out both;
+  animation: fade-in 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in {
     animation: none;
+  }
+  .grain-overlay {
+    display: none;
+  }
+}
+
+@layer components {
+  /* Section eyebrow — the small gold label, now with a leading hairline tick. */
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-xs font-semibold tracking-[0.2em] uppercase text-accent-gold;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply block h-px w-8;
+    background-color: rgba(201, 168, 76, 0.5);
+  }
+
+  /* Editorial display headline. */
+  .headline {
+    @apply font-serif font-medium tracking-tight text-text-primary;
+    letter-spacing: -0.015em;
+  }
+
+  /* Primary CTA — refined metallic gold with a soft glow, not a flat fill. */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full px-8 py-4 text-sm font-semibold text-black transition-all duration-200;
+    background-image: linear-gradient(180deg, var(--accent-gold-bright) 0%, var(--accent-gold) 55%, #B8964070 100%);
+    background-color: var(--accent-gold);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0 8px 24px -8px rgba(201, 168, 76, 0.5);
+    min-height: 44px;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 10px 30px -8px rgba(201, 168, 76, 0.7);
+    transform: translateY(-1px);
+  }
+
+  /* Secondary CTA — hairline outline that warms to gold. */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-full px-8 py-4 text-sm font-semibold text-text-primary border border-border-color transition-all duration-200;
+    min-height: 44px;
+  }
+  .btn-ghost:hover {
+    @apply border-accent-gold text-accent-gold;
+    transform: translateY(-1px);
+  }
+
+  /* Gold text link with an underline that reveals on hover. */
+  .link-gold {
+    @apply inline-flex items-center text-sm font-semibold text-accent-gold transition-colors duration-200 hover:text-accent-gold-hover;
   }
 }

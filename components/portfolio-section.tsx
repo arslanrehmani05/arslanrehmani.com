@@ -61,10 +61,8 @@ export default function PortfolioSection() {
   return (
     <section id="proof" className="bg-bg-primary py-20 md:py-32 scroll-mt-16">
       <div className="max-w-6xl mx-auto px-6">
-        <span className="block text-xs font-semibold tracking-[0.2em] uppercase text-accent-gold mb-4">
-          The Proof
-        </span>
-        <h2 className="text-3xl md:text-4xl font-black tracking-tight text-text-primary leading-tight">
+        <span className="eyebrow mb-5">The Proof</span>
+        <h2 className="headline text-3xl md:text-[2.75rem] leading-[1.1]">
           Live products. Real systems. Use them yourself.
         </h2>
         <p className="text-base md:text-lg text-text-muted leading-relaxed max-w-2xl mt-6 mb-12">
@@ -82,7 +80,7 @@ export default function PortfolioSection() {
                 {product.tag}
               </span>
 
-              <h3 className="text-lg md:text-xl font-bold text-text-primary mt-4">
+              <h3 className="font-serif text-xl md:text-2xl font-medium text-text-primary mt-4">
                 {product.name}
               </h3>
 

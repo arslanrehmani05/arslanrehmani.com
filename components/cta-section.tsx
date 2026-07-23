@@ -11,20 +11,17 @@ export default function CtaSection() {
       }}
     >
       <div className="max-w-3xl mx-auto px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-black tracking-tight text-text-primary leading-tight">
-          If your operations have inefficiency worth eliminating, let&apos;s talk.
+        <h2 className="headline text-3xl md:text-5xl leading-[1.1]">
+          If your operations have inefficiency worth eliminating,{' '}
+          <span className="italic text-accent-gold">let&apos;s talk.</span>
         </h2>
-        <p className="text-base md:text-lg text-text-muted leading-relaxed mt-4">
+        <p className="text-base md:text-lg text-text-muted leading-relaxed mt-6 max-w-xl mx-auto">
           Every engagement starts with understanding your operation. No commitment
           until the diagnosis is done.
         </p>
 
         <div className="flex justify-center mt-10">
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center bg-accent-gold hover:bg-accent-gold-hover text-black font-semibold px-8 py-4 rounded-full transition-colors duration-200"
-            style={{ minHeight: '44px' }}
-          >
+          <Link href="/contact" className="btn-primary">
             Start the conversation
           </Link>
         </div>

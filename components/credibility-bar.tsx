@@ -22,7 +22,7 @@ export default function CredibilityBar() {
               {idx > 0 && (
                 <div className="hidden md:block absolute left-0 top-0 h-full w-px bg-border-color" />
               )}
-              <span className="block text-2xl md:text-3xl font-black text-accent-gold">
+              <span className="block font-serif text-3xl md:text-4xl font-medium text-accent-gold">
                 {stat.value}
               </span>
               <span className="block text-sm text-text-muted mt-1">

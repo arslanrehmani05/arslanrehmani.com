@@ -58,10 +58,8 @@ export default function ContactPage() {
           </div>
         ) : (
           <div className="w-full max-w-lg">
-            <span className="block text-xs font-semibold tracking-[0.2em] uppercase text-accent-gold mb-4">
-              Contact
-            </span>
-            <h1 className="text-3xl md:text-4xl font-black tracking-tight text-text-primary leading-tight">
+            <span className="eyebrow mb-5">Contact</span>
+            <h1 className="headline text-3xl md:text-5xl leading-[1.1]">
               Start the conversation.
             </h1>
             <p className="text-base md:text-lg text-text-muted leading-relaxed mt-4">
@@ -128,8 +126,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full bg-accent-gold hover:bg-accent-gold-hover text-black font-semibold px-8 py-4 rounded-full transition-colors duration-200 disabled:opacity-50 mt-1"
-                style={{ minHeight: '44px' }}
+                className="btn-primary w-full disabled:opacity-50 mt-1"
               >
                 {status === 'loading' ? 'Sending' : 'Send'}
               </button>

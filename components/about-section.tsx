@@ -13,11 +13,10 @@ export default function AboutSection() {
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-11 gap-12 lg:gap-16 items-center">
         {/* Left — 55% */}
         <div className="lg:col-span-6">
-          <span className="block text-xs font-semibold tracking-[0.2em] uppercase text-accent-gold mb-4">
-            The Person
-          </span>
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight text-text-primary leading-tight">
-            Arslan Rehmani. I build the systems, not slideware.
+          <span className="eyebrow mb-5">The Person</span>
+          <h2 className="headline text-3xl md:text-[2.75rem] leading-[1.1]">
+            Arslan Rehmani. I build the systems, not{' '}
+            <span className="italic text-accent-gold">slideware.</span>
           </h2>
           <p className="text-base md:text-lg text-text-muted leading-relaxed mt-6">
             I build production software for real businesses. The first system I built
