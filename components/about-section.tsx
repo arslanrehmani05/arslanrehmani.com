@@ -46,7 +46,7 @@ export default function AboutSection() {
         <div className="lg:col-span-5">
           <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-bg-secondary border border-border-color ring-1 ring-border-gold">
             <Image
-              src="/headshot.png"
+              src="/headshot.jpg"
               alt="Arslan Rehmani"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
