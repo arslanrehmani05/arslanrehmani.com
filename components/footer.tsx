@@ -8,9 +8,9 @@ const navLinks = [
 ];
 
 const externalLinks = [
-  { label: 'Vanthrope →', href: 'https://vanthrope.com' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/arslanrehmani' },
   { label: 'GitHub', href: 'https://github.com/arslanrehmani05' },
+  { label: 'X', href: 'https://x.com/arslanrehmani' },
 ];
 
 export default function Footer() {

@@ -17,7 +17,7 @@ export default function AboutSection() {
             The Person
           </span>
           <h2 className="text-3xl md:text-4xl font-black tracking-tight text-text-primary leading-tight">
-            Arslan Rehmani. Founder, Vanthrope.
+            Arslan Rehmani. I build the systems, not slideware.
           </h2>
           <p className="text-base md:text-lg text-text-muted leading-relaxed mt-6">
             I build production software for real businesses. The first system I built

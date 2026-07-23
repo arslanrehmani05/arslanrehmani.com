@@ -40,7 +40,7 @@ export default function Hero() {
           </div>
 
           <p className="text-sm text-text-subtle mt-8">
-            Arslan Rehmani — Founder, Vanthrope
+            Arslan Rehmani — Operational AI Systems
           </p>
         </div>
 

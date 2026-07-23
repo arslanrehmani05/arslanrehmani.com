@@ -13,11 +13,6 @@ export default function Home() {
     name: 'Arslan Rehmani',
     url: 'https://arslanrehmani.com',
     jobTitle: 'Operational AI Systems Builder',
-    worksFor: {
-      '@type': 'Organization',
-      name: 'Vanthrope',
-      url: 'https://vanthrope.com',
-    },
     sameAs: [
       'https://linkedin.com/in/arslanrehmani',
       'https://github.com/arslanrehmani05',
