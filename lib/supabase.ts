@@ -10,17 +10,27 @@ export const supabase = supabaseUrl && supabaseAnonKey && supabaseUrl !== 'place
   : null;
 
 // Expose helper to log operations locally in development if Supabase is offline
-export async function insertLead(email: string, source: string) {
+export interface LeadExtra {
+  sourceTool?: string;
+  toolData?: Record<string, unknown>;
+}
+
+export async function insertLead(email: string, source: string, extra?: LeadExtra) {
+  const row = {
+    email,
+    source,
+    created_at: new Date().toISOString(),
+    ...(extra?.sourceTool ? { source_tool: extra.sourceTool } : {}),
+    ...(extra?.toolData ? { tool_data: extra.toolData } : {}),
+  };
+
   if (supabase) {
-    const { data, error } = await supabase
-      .from('leads')
-      .insert([{ email, source, created_at: new Date().toISOString() }])
-      .select();
+    const { data, error } = await supabase.from('leads').insert([row]).select();
     if (error) throw error;
     return data;
   } else {
-    console.log(`[MOCK SUPABASE] Saved Lead: Email=${email}, Source=${source}`);
-    return [{ id: 'mock-uuid', email, source, created_at: new Date().toISOString() }];
+    console.log(`[MOCK SUPABASE] Saved Lead: Email=${email}, Source=${source}`, extra ?? '');
+    return [{ id: 'mock-uuid', ...row }];
   }
 }
 
