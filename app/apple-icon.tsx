@@ -1,12 +1,12 @@
 import { ImageResponse } from 'next/og';
 
 export const size = {
-  width: 32,
-  height: 32,
+  width: 180,
+  height: 180,
 };
 export const contentType = 'image/png';
 
-export default function Icon() {
+export default function AppleIcon() {
   return new ImageResponse(
     (
       <div
@@ -14,17 +14,18 @@ export default function Icon() {
           width: '100%',
           height: '100%',
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
           background: '#0A0A0A',
-          borderRadius: '8px',
-          border: '1px solid rgba(201, 168, 76, 0.4)',
+          borderRadius: '36px',
+          border: '2px solid rgba(201, 168, 76, 0.5)',
           position: 'relative',
         }}
       >
         <div
           style={{
-            fontSize: '18px',
+            fontSize: '92px',
             fontFamily: 'Georgia, serif',
             fontWeight: '600',
             fontStyle: 'italic',
@@ -32,12 +33,21 @@ export default function Icon() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            letterSpacing: '-1px',
-            marginTop: '-1px',
+            letterSpacing: '-4px',
           }}
         >
           AR
         </div>
+        <div
+          style={{
+            width: '40px',
+            height: '2px',
+            background: '#C9A84C',
+            marginTop: '8px',
+            borderRadius: '1px',
+            opacity: 0.8,
+          }}
+        />
       </div>
     ),
     {
