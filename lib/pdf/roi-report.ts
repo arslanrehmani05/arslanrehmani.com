@@ -56,26 +56,8 @@ export async function generateRoiReportPdf(params: RoiReportParams): Promise<Uin
   drawLine(`Estimated payback period: ${results.paybackPeriodMonths} months`, { gap: 32 });
 
   drawLine(`${industry.label} Context`, { font: bold, size: 13, color: GOLD, gap: 20 });
-
-  const words = industry.paragraph.split(' ');
-  const maxCharsPerLine = 78;
-  let line = '';
-  for (const word of words) {
-    const candidate = line ? `${line} ${word}` : word;
-    if (candidate.length > maxCharsPerLine) {
-      drawLine(line, { size: 10, color: MUTED, gap: 15 });
-      line = word;
-    } else {
-      line = candidate;
-    }
-  }
-  if (line) drawLine(line, { size: 10, color: MUTED, gap: 15 });
-
-  y -= 8;
-  drawLine(
-    `Typical automation reduction in this range: ${industry.automationReductionRange} of current manual hours.`,
-    { size: 10, color: MUTED, gap: 24 }
-  );
+  drawLine(industry.typicalDrag.slice(0, 80), { size: 10, color: MUTED, gap: 15 });
+  drawLine(industry.commentary.slice(0, 80), { size: 10, color: MUTED, gap: 24 });
 
   drawLine('Want to talk through what this looks like for your business?', { font: bold, size: 12, gap: 16 });
   drawLine('arslanrehmani.com/contact', { size: 11, color: GOLD, gap: 16 });

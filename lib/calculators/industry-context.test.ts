@@ -1,18 +1,18 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { INDUSTRY_CONTEXT } from './industry-context';
+import { INDUSTRY_CONTEXTS, IndustryType } from './industry-context';
 
-const EXPECTED_KEYS = ['ecommerce', 'manufacturing', 'professional_services', 'logistics', 'retail', 'other'];
+const EXPECTED_KEYS: IndustryType[] = ['ecommerce', 'manufacturing', 'services', 'logistics', 'retail', 'other'];
 
-test('has exactly the 6 expected industry keys', () => {
-  assert.deepEqual(Object.keys(INDUSTRY_CONTEXT).sort(), EXPECTED_KEYS.sort());
+test('has exactly expected industry keys', () => {
+  assert.deepEqual(Object.keys(INDUSTRY_CONTEXTS).sort(), EXPECTED_KEYS.sort());
 });
 
-test('every entry has a non-empty label, paragraph, and reduction range', () => {
+test('every entry has non-empty label, typicalDrag, and commentary', () => {
   for (const key of EXPECTED_KEYS) {
-    const entry = INDUSTRY_CONTEXT[key as keyof typeof INDUSTRY_CONTEXT];
+    const entry = INDUSTRY_CONTEXTS[key];
     assert.ok(entry.label.length > 0, `${key} missing label`);
-    assert.ok(entry.paragraph.length > 40, `${key} paragraph too short`);
-    assert.match(entry.automationReductionRange, /^\d+-\d+%$/, `${key} range malformed`);
+    assert.ok(entry.typicalDrag.length > 10, `${key} typicalDrag too short`);
+    assert.ok(entry.commentary.length > 10, `${key} commentary too short`);
   }
 });

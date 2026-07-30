@@ -6,8 +6,12 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
 const links = [
-  { label: 'Work', href: '/#proof' },
-  { label: 'About', href: '/#about' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Services', href: '/services' },
+  { label: "See What's Costing You", href: '/diagnostics' },
+  { label: 'About', href: '/about' },
+  { label: 'Speaking', href: '/speaking' },
+  { label: 'Media', href: '/media' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -25,12 +29,16 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-7">
           {links.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm text-text-muted transition-colors duration-200 hover:text-accent-gold"
+              className={`text-sm transition-colors duration-200 ${
+                link.href === '/diagnostics'
+                  ? 'text-accent-gold font-semibold hover:text-accent-gold-hover'
+                  : 'text-text-muted hover:text-accent-gold'
+              }`}
             >
               {link.label}
             </Link>
@@ -57,13 +65,17 @@ export default function Navigation() {
 
       {/* Mobile overlay */}
       {isOpen && (
-        <div className="fixed inset-0 top-16 z-40 bg-bg-primary flex flex-col items-center justify-center gap-8 md:hidden">
+        <div className="fixed inset-0 top-16 z-40 bg-bg-primary flex flex-col items-center justify-center gap-5 md:hidden px-6">
           {links.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-2xl text-text-primary transition-colors duration-200 hover:text-accent-gold"
+              className={`text-lg transition-colors duration-200 ${
+                link.href === '/diagnostics'
+                  ? 'text-accent-gold font-bold'
+                  : 'text-text-primary hover:text-accent-gold'
+              }`}
               style={{ minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
             >
               {link.label}
@@ -72,7 +84,7 @@ export default function Navigation() {
           <Link
             href="/contact"
             onClick={() => setIsOpen(false)}
-            className="btn-primary mt-2"
+            className="btn-primary mt-4 w-full max-w-xs"
           >
             Start a conversation
           </Link>

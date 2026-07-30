@@ -1,4 +1,6 @@
+// app/page.tsx
 import Hero from '@/components/hero';
+import OperationalScan from '@/components/operational-scan';
 import CredibilityBar from '@/components/credibility-bar';
 import ProblemSection from '@/components/problem-section';
 import ServicesSection from '@/components/services-section';
@@ -23,6 +25,7 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
       <Hero />
+      <OperationalScan />
       <CredibilityBar />
       <ProblemSection />
       <ServicesSection />

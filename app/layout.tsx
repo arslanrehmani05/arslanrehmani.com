@@ -3,6 +3,7 @@ import { Inter, Fraunces } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import AskArslanChat from "@/components/ask-arslan-chat";
 import "./globals.css";
 
 const inter = Inter({
@@ -49,9 +50,9 @@ export default function RootLayout({
         <div className="grain-overlay" aria-hidden="true" />
         <Navigation />
         {children}
+        <AskArslanChat />
         <Footer />
       </body>
     </html>
   );
 }
-
