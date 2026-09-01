@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'About | Arslan Rehmani — Operational AI Systems Builder',
-    description: 'Founder of Vanthrope. Building systems that replace manual work permanently. Live proof software and verifiable metrics.',
+    description: 'AI Operational Systems Builder & ERP Architect. Building custom software that replaces manual work permanently. Live proof software and verifiable metrics.',
     url: 'https://arslanrehmani.com/about',
     siteName: 'Arslan Rehmani',
     locale: 'en_US',
@@ -45,7 +45,7 @@ export default function AboutPage() {
             <span className="italic text-accent-gold">Code over claims.</span>
           </h1>
           <p className="text-base md:text-lg text-text-muted leading-relaxed mt-6">
-            I am Arslan Rehmani, founder of Vanthrope, based in Karachi, Pakistan. I walk into businesses, diagnose operational drag, and engineer custom software systems that replace manual overhead permanently.
+            I am Arslan Rehmani, an AI Operational Systems Builder & ERP Architect based in Karachi, Pakistan. I walk into businesses, diagnose operational drag, and engineer custom software systems that replace manual overhead permanently.
           </p>
         </div>
 

@@ -28,8 +28,8 @@ export const metadata: Metadata = {
 
 const verifiedFacts = [
   { label: 'Full Name', value: 'Arslan Rehmani' },
-  { label: 'Role / Title', value: 'Operational AI Systems Builder' },
-  { label: 'Company', value: 'Founder, Vanthrope' },
+  { label: 'Role / Title', value: 'AI Operational Systems Builder & ERP Architect' },
+  { label: 'Practice', value: 'Independent AI Engineering & Software Systems' },
   { label: 'Location', value: 'Karachi, Pakistan' },
   { label: 'Primary Proof System', value: 'TextileMode ERP (erp.textilemode.com)' },
   { label: 'Client Engagement Stack', value: 'Belhide Operational Stack (erp.belhide.com)' },
@@ -62,7 +62,7 @@ export default function MediaPage() {
 
             <div className="bg-bg-secondary border border-border-color rounded-2xl p-6 md:p-8 space-y-4">
               <p className="text-sm md:text-base text-text-primary leading-relaxed">
-                &ldquo;Arslan Rehmani is an operational AI systems builder and founder of Vanthrope, based in Karachi, Pakistan. He specializes in engineering production ERP software and automated channel pipelines that replace repetitive manual overhead for SMB manufacturing companies and ecommerce brands.&rdquo;
+                &ldquo;Arslan Rehmani is an operational AI systems builder and ERP architect based in Karachi, Pakistan. He specializes in engineering production ERP software and automated channel pipelines that replace repetitive manual overhead for SMB manufacturing companies and ecommerce brands.&rdquo;
               </p>
               <p className="text-xs text-text-muted leading-relaxed">
                 &ldquo;His primary operational build, TextileMode ERP, eliminated five full-time manual administrative roles and 40+ hours of weekly manual drag at a textile plant managing 27 looms. All systems built by Arslan are deployed to client-owned infrastructure without generic SaaS middleware.&rdquo;

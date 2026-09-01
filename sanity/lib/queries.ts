@@ -1,7 +1,17 @@
 // sanity/lib/queries.ts
 
-// GROQ Queries for when Sanity is live
 export const allArticlesQuery = `*[_type == "article"] | order(publishedAt desc) {
+  title,
+  "slug": slug.current,
+  category,
+  excerpt,
+  readTime,
+  publishedAt,
+  featured,
+  keywords
+}`;
+
+export const featuredArticlesQuery = `*[_type == "article" && featured == true] | order(publishedAt desc) [0...3] {
   title,
   "slug": slug.current,
   category,
@@ -18,10 +28,29 @@ export const articleBySlugQuery = `*[_type == "article" && slug.current == $slug
   body,
   readTime,
   publishedAt,
+  keywords,
   seo {
     metaTitle,
-    metaDescription
+    metaDescription,
+    canonicalUrl
   }
+}`;
+
+export const allCaseStudiesQuery = `*[_type == "caseStudy"] | order(publishedAt desc) {
+  title,
+  "slug": slug.current,
+  industry,
+  client,
+  liveUrl,
+  problem,
+  solution,
+  results[] {
+    metric,
+    value,
+    label
+  },
+  tools,
+  publishedAt
 }`;
 
 export const featuredCaseStudiesQuery = `*[_type == "caseStudy" && featured == true] | order(publishedAt desc) {
@@ -29,6 +58,7 @@ export const featuredCaseStudiesQuery = `*[_type == "caseStudy" && featured == t
   "slug": slug.current,
   industry,
   client,
+  liveUrl,
   problem,
   solution,
   results[] {
@@ -43,6 +73,7 @@ export const caseStudyBySlugQuery = `*[_type == "caseStudy" && slug.current == $
   "slug": slug.current,
   industry,
   client,
+  liveUrl,
   problem,
   solution,
   results[] {
@@ -55,5 +86,6 @@ export const caseStudyBySlugQuery = `*[_type == "caseStudy" && slug.current == $
     caption
   },
   architectureNote,
-  tools
+  tools,
+  publishedAt
 }`;

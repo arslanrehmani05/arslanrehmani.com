@@ -8,9 +8,12 @@ export interface Article {
   body: any; // Block Content
   readTime: number;
   publishedAt: string;
+  featured?: boolean;
+  keywords?: string[];
   seo?: {
-    metaTitle: string;
-    metaDescription: string;
+    metaTitle?: string;
+    metaDescription?: string;
+    canonicalUrl?: string;
   };
 }
 
@@ -19,6 +22,7 @@ export interface CaseStudy {
   slug: string;
   industry: string;
   client: string;
+  liveUrl?: string;
   problem: string;
   solution: string;
   results: {
