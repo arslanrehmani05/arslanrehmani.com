@@ -10,7 +10,6 @@ export const studioTheme = buildLegacyTheme({
   '--gray-base': '#111111',
 
   '--component-bg': '#0A0A0A',
-  '--component-sidebar-bg': '#111111',
 
   /* Brand Colors */
   '--brand-primary': '#C9A84C',
