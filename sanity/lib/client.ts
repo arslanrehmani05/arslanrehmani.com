@@ -10,6 +10,8 @@ import {
 
 const projectId = process.env.SANITY_PROJECT_ID || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
+const apiVersion = process.env.SANITY_API_VERSION || '2024-03-01';
+const token = process.env.SANITY_API_TOKEN || process.env.SANITY_TOKEN;
 
 export const isSanityConfigured = Boolean(projectId && projectId !== 'placeholder-id');
 
@@ -17,9 +19,9 @@ export const client = isSanityConfigured
   ? createClient({
       projectId: projectId!,
       dataset,
-      apiVersion: '2024-03-01',
+      apiVersion,
       useCdn: process.env.NODE_ENV === 'production',
-      token: process.env.SANITY_API_TOKEN,
+      token,
     })
   : null;
 
