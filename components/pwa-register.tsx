@@ -138,13 +138,15 @@ export default function PwaRegister() {
           <div className="flex items-start justify-between gap-3">
             <div className="space-y-1">
               <p className="text-xs uppercase tracking-wider text-[#C9A84C] font-semibold">
-                App Ready
+                {typeof window !== 'undefined' && window.location.pathname.startsWith('/studio') ? 'Studio App Ready' : 'Website App Ready'}
               </p>
               <h4 className="text-sm font-bold text-[#F5F5F0]">
-                Install Arslan Rehmani Workspace
+                {typeof window !== 'undefined' && window.location.pathname.startsWith('/studio') ? 'Install Arslan Studio App' : 'Install Arslan Rehmani App'}
               </h4>
               <p className="text-xs text-neutral-400">
-                Access Sanity Studio, AI Audit tools, and case studies directly from your Home Screen.
+                {typeof window !== 'undefined' && window.location.pathname.startsWith('/studio')
+                  ? 'Install Sanity Studio as a standalone desktop or mobile CMS app.'
+                  : 'Access AI Audit tools, ROI calculator, and case studies directly from your Home Screen.'}
               </p>
             </div>
             <button
@@ -161,7 +163,7 @@ export default function PwaRegister() {
               className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-[#C9A84C] hover:bg-[#D4B05A] text-black font-semibold rounded-xl text-xs transition-colors shadow-md"
             >
               <Download className="w-3.5 h-3.5" />
-              Install App
+              {typeof window !== 'undefined' && window.location.pathname.startsWith('/studio') ? 'Install Studio App' : 'Install Website App'}
             </button>
           </div>
         </div>

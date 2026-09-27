@@ -9,8 +9,11 @@ const PRECACHE_ASSETS = [
   '/tools/audit',
   '/tools/calculator',
   '/favicon.svg',
+  '/studio-icon.svg',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
+  '/icons/studio-192.png',
+  '/icons/studio-512.png',
 ];
 
 // Install Event — precache core assets
