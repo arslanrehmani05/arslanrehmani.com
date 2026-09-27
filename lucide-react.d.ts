@@ -1,0 +1,47 @@
+declare module 'lucide-react' {
+  import * as React from 'react';
+  export const WifiOff: React.ComponentType<any>;
+  export const RefreshCw: React.ComponentType<any>;
+  export const ArrowLeft: React.ComponentType<any>;
+  export const Download: React.ComponentType<any>;
+  export const X: React.ComponentType<any>;
+  export const ExternalLink: React.ComponentType<any>;
+  export const Check: React.ComponentType<any>;
+  export const ShieldCheck: React.ComponentType<any>;
+  export const ArrowRight: React.ComponentType<any>;
+  export const Database: React.ComponentType<any>;
+  export const Cpu: React.ComponentType<any>;
+  export const LayoutGrid: React.ComponentType<any>;
+  export const CheckCircle2: React.ComponentType<any>;
+  export const Clock: React.ComponentType<any>;
+  export const FileText: React.ComponentType<any>;
+  export const Layers: React.ComponentType<any>;
+  export const Wrench: React.ComponentType<any>;
+  export const Mic: React.ComponentType<any>;
+  export const Radio: React.ComponentType<any>;
+  export const Users: React.ComponentType<any>;
+  export const Mail: React.ComponentType<any>;
+  export const ArrowUpRight: React.ComponentType<any>;
+  export const MessageSquare: React.ComponentType<any>;
+  export const Send: React.ComponentType<any>;
+  export const Sparkles: React.ComponentType<any>;
+  export const Bot: React.ComponentType<any>;
+  export const Calendar: React.ComponentType<any>;
+  export const Calculator: React.ComponentType<any>;
+  export const AlertCircle: React.ComponentType<any>;
+  export const Share2: React.ComponentType<any>;
+  export const FileSpreadsheet: React.ComponentType<any>;
+  export const Server: React.ComponentType<any>;
+  export const Menu: React.ComponentType<any>;
+  export const Copy: React.ComponentType<any>;
+  export const Home: React.ComponentType<any>;
+  export const FileCode: React.ComponentType<any>;
+  export const Search: React.ComponentType<any>;
+  export const AlertTriangle: React.ComponentType<any>;
+  export const Building2: React.ComponentType<any>;
+  export const TrendingDown: React.ComponentType<any>;
+  
+  export type LucideIcon = React.ComponentType<any>;
+  const content: any;
+  export default content;
+}

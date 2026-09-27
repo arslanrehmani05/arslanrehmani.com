@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import AskArslanChat from "@/components/ask-arslan-chat";
+import PwaRegister from "@/components/pwa-register";
 import "./globals.css";
 
 const inter = Inter({
@@ -19,6 +20,14 @@ const fraunces = Fraunces({
   style: ["normal", "italic"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#0A0A0A",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+};
+
 export const metadata: Metadata = {
   title: "Arslan Rehmani | Operational AI Systems",
   description: "I build systems that replace manual work permanently. Custom operational software for manufacturing companies and ecommerce brands.",
@@ -28,12 +37,20 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
     ],
+    shortcut: "/favicon.ico",
     apple: [
-      { url: "/apple-icon", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Arslan R.",
   },
   openGraph: {
     title: "Arslan Rehmani | Operational AI Systems",
@@ -60,8 +77,10 @@ export default function RootLayout({
         <Navigation />
         {children}
         <AskArslanChat />
+        <PwaRegister />
         <Footer />
       </body>
     </html>
   );
 }
+
