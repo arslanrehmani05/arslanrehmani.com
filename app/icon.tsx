@@ -19,31 +19,34 @@ export default function Icon() {
           width: '100%',
           height: '100%',
           display: 'flex',
-          background: '#0A0A0A',
+          background: '#080808',
           borderRadius: '7px',
         }}
       >
         <defs>
-          <linearGradient id="ar-site-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient id="ar-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#F3E5AB" />
             <stop offset="45%" stopColor="#C9A84C" />
             <stop offset="100%" stopColor="#9A7B2C" />
           </linearGradient>
-          <radialGradient id="ar-site-bg-grad" cx="50%" cy="50%" r="75%">
+          <radialGradient id="ar-bg-grad" cx="50%" cy="50%" r="75%">
             <stop offset="0%" stopColor="#161616" />
-            <stop offset="100%" stopColor="#0A0A0A" />
+            <stop offset="100%" stopColor="#080808" />
           </radialGradient>
         </defs>
 
-        <rect x="1" y="1" width="30" height="30" rx="7" fill="url(#ar-site-bg-grad)" stroke="url(#ar-site-gold-grad)" strokeWidth="1.2" strokeOpacity="0.9" />
-        <rect x="2.5" y="2.5" width="27" height="27" rx="5.5" fill="none" stroke="#C9A84C" strokeWidth="0.5" strokeOpacity="0.3" />
+        <rect x="1" y="1" width="30" height="30" rx="7" fill="url(#ar-bg-grad)" stroke="url(#ar-gold-grad)" strokeWidth="1.2" strokeOpacity="0.85" />
+        <rect x="2.5" y="2.5" width="27" height="27" rx="5.5" fill="none" stroke="#C9A84C" strokeWidth="0.5" strokeOpacity="0.25" />
 
         <g strokeLinecap="round" strokeLinejoin="round">
-          <path d="M 21.5 12 C 21.5 9.8, 18.5 8.5, 16 8.5 C 12.5 8.5, 10.5 10.8, 10.5 13 C 10.5 17, 21.5 15.5, 21.5 19.5 C 21.5 22, 19 23.5, 16 23.5 C 12.8 23.5, 10.2 21.8, 10.2 19.5" stroke="url(#ar-site-gold-grad)" strokeWidth="2.2" />
-          <path d="M 21.5 8.5 L 23.5 6.5" stroke="#F5F5F0" strokeWidth="1.8" />
+          <path d="M 9 22.5 L 15 9.5" stroke="#F5F5F0" strokeWidth="2.2" />
+          <path d="M 15 9.5 V 22.5" stroke="#F5F5F0" strokeWidth="2.2" />
+          <path d="M 11 17.5 H 18.5" stroke="url(#ar-gold-grad)" strokeWidth="2" />
+          <path d="M 15 9.5 H 20 C 22.8 9.5, 22.8 15.5, 20 15.5 H 15" stroke="url(#ar-gold-grad)" strokeWidth="2" />
+          <path d="M 17.5 15.5 L 23 22.5" stroke="url(#ar-gold-grad)" strokeWidth="2.2" />
         </g>
 
-        <circle cx="23.5" cy="6.5" r="1.1" fill="#F3E5AB" />
+        <circle cx="15" cy="9.5" r="1.1" fill="#F3E5AB" />
       </svg>
     ),
     {
