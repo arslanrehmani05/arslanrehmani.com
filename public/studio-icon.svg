@@ -1,51 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
   <defs>
-    <!-- Warm Sanity Terracotta / Coral Studio Gradient -->
-    <linearGradient id="studio-coral-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF7A60" />
-      <stop offset="50%" stop-color="#F03E2F" />
-      <stop offset="100%" stop-color="#B82215" />
+    <!-- Executive Metallic Gold & Studio Amber Linear Gradient -->
+    <linearGradient id="studio-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D77F" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#8C6D1F" />
     </linearGradient>
 
-    <!-- Glowing Terracotta Radial Accent -->
-    <radialGradient id="studio-glow-grad" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#F03E2F" stop-opacity="0.25" />
-      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0" />
-    </radialGradient>
-    
-    <!-- Obsidian Container Background Gradient -->
+    <linearGradient id="studio-accent-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E55638" />
+      <stop offset="100%" stop-color="#F5D77F" />
+    </linearGradient>
+
+    <!-- Deep Carbon Squircle Background -->
     <radialGradient id="studio-bg-grad" cx="50%" cy="50%" r="75%">
-      <stop offset="0%" stop-color="#161413" />
-      <stop offset="100%" stop-color="#090808" />
+      <stop offset="0%" stop-color="#1A1A1D" />
+      <stop offset="100%" stop-color="#09090B" />
     </radialGradient>
   </defs>
 
-  <!-- Outer squircle background with studio coral border -->
-  <rect x="1" y="1" width="30" height="30" rx="7" fill="url(#studio-bg-grad)" stroke="url(#studio-coral-grad)" stroke-width="1.2" stroke-opacity="0.85" />
-  
-  <!-- Subtle inner glow background -->
-  <circle cx="16" cy="16" r="12" fill="url(#studio-glow-grad)" />
+  <!-- Squircle Base -->
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="url(#studio-bg-grad)" stroke="url(#studio-gold-grad)" stroke-width="1.2" stroke-opacity="0.9" />
+  <rect x="2.5" y="2.5" width="27" height="27" rx="5.5" fill="none" stroke="#D4AF37" stroke-width="0.5" stroke-opacity="0.25" />
 
-  <!-- Inner perimeter frame -->
-  <rect x="2.5" y="2.5" width="27" height="27" rx="5.5" fill="none" stroke="#F03E2F" stroke-width="0.5" stroke-opacity="0.2" />
-
-  <!-- Studio Starburst Emblem Motif -->
-  <g stroke="url(#studio-coral-grad)" stroke-linecap="round" stroke-width="1.8">
-    <!-- Vertical & Horizontal Primary Rays -->
-    <line x1="16" y1="7.5" x2="16" y2="24.5" />
-    <line x1="7.5" y1="16" x2="24.5" y2="16" />
+  <!-- 3D Studio Content Isometric Block / Prism Geometry -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top Face -->
+    <polygon points="16,7 23,11 16,15 9,11" fill="url(#studio-gold-grad)" fill-opacity="0.25" stroke="url(#studio-gold-grad)" stroke-width="1.6" />
     
-    <!-- Diagonal Secondary Rays -->
-    <line x1="10" y1="10" x2="22" y2="22" />
-    <line x1="22" y1="10" x2="10" y2="22" />
-
-    <!-- Interstitial Fine Rays -->
-    <line x1="13" y1="8" x2="19" y2="24" stroke-width="1.2" opacity="0.8" />
-    <line x1="8" y1="13" x2="24" y2="19" stroke-width="1.2" opacity="0.8" />
-    <line x1="19" y1="8" x2="13" y2="24" stroke-width="1.2" opacity="0.8" />
-    <line x1="24" y1="13" x2="8" y2="19" stroke-width="1.2" opacity="0.8" />
+    <!-- Left Face -->
+    <polygon points="9,11 16,15 16,24 9,20" fill="url(#studio-accent-grad)" fill-opacity="0.2" stroke="url(#studio-gold-grad)" stroke-width="1.6" />
+    
+    <!-- Right Face -->
+    <polygon points="16,15 23,11 23,20 16,24" fill="url(#studio-gold-grad)" fill-opacity="0.4" stroke="url(#studio-gold-grad)" stroke-width="1.6" />
+    
+    <!-- Central Studio Core Accent Node -->
+    <circle cx="16" cy="15" r="1.5" fill="#F5F5F0" />
   </g>
-  
-  <!-- Center Core Node -->
-  <circle cx="16" cy="16" r="1.5" fill="#FFB0A0" />
 </svg>
