@@ -2,9 +2,9 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Arslan Studio | Content Management',
-    short_name: 'Arslan Studio',
-    description: 'Sanity Studio CMS for managing articles, case studies, and brand content.',
+    name: 'Studio',
+    short_name: 'Studio',
+    description: 'Sanity Studio CMS for managing articles, case studies, and content.',
     start_url: '/studio',
     scope: '/studio',
     display: 'standalone',
@@ -12,6 +12,12 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: '#0A0A0A',
     theme_color: '#0A0A0A',
     icons: [
+      {
+        src: '/studio-icon.svg',
+        sizes: 'any',
+        type: 'image/svg+xml',
+        purpose: 'any',
+      },
       {
         src: '/icons/studio-192.png',
         sizes: '192x192',

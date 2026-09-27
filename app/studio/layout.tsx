@@ -9,11 +9,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Arslan Studio | CMS Content Management',
-  description: 'Sanity Studio CMS for managing articles, case studies, and brand content.',
+  title: 'Studio',
+  description: 'Sanity Studio CMS for managing articles, case studies, and content.',
   manifest: '/studio/manifest.webmanifest',
   icons: {
     icon: [
+      { url: '/studio-icon.svg', type: 'image/svg+xml' },
       { url: '/icons/studio-192.png', sizes: '192x192', type: 'image/png' },
     ],
     apple: [
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'Arslan Studio',
+    title: 'Studio',
   },
 };
 

@@ -141,7 +141,7 @@ export default function PwaRegister() {
                 {typeof window !== 'undefined' && window.location.pathname.startsWith('/studio') ? 'Studio App Ready' : 'Website App Ready'}
               </p>
               <h4 className="text-sm font-bold text-[#F5F5F0]">
-                {typeof window !== 'undefined' && window.location.pathname.startsWith('/studio') ? 'Install Arslan Studio App' : 'Install Arslan Rehmani App'}
+                {typeof window !== 'undefined' && window.location.pathname.startsWith('/studio') ? 'Install Studio App' : 'Install Arslan Rehmani App'}
               </h4>
               <p className="text-xs text-neutral-400">
                 {typeof window !== 'undefined' && window.location.pathname.startsWith('/studio')
