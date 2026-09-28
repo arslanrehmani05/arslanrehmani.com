@@ -1,5 +1,5 @@
 // sanity/schemaTypes/index.ts
-import { article } from './article';
-import { caseStudy } from './caseStudy';
+import { SchemaTypeDefinition } from 'sanity';
 
-export const schemaTypes = [article, caseStudy];
+// Existing schemas are preserved in ./article and ./caseStudy to add features one by one
+export const schemaTypes: SchemaTypeDefinition[] = [];
