@@ -1,9 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
-import AskArslanChat from "@/components/ask-arslan-chat";
+import SiteShell from "@/components/site-shell";
 import PwaRegister from "@/components/pwa-register";
 import "./globals.css";
 
@@ -73,12 +71,8 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${fraunces.variable} bg-bg-primary text-text-primary antialiased font-sans`}>
         {gaId && <GoogleAnalytics gaId={gaId} />}
-        <div className="grain-overlay" aria-hidden="true" />
-        <Navigation />
-        {children}
-        <AskArslanChat />
+        <SiteShell>{children}</SiteShell>
         <PwaRegister />
-        <Footer />
       </body>
     </html>
   );
