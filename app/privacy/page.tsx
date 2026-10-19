@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main className="bg-bg-primary min-h-screen py-16 md:py-28">
+    <main className="bg-bg-primary min-h-screen pt-8 pb-16 md:pt-10 md:pb-20">
       <div className="max-w-4xl mx-auto px-6">
         {/* Breadcrumb / Eyebrow */}
         <span className="eyebrow mb-4">Legal & Compliance</span>

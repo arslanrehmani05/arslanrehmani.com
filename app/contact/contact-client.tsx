@@ -93,21 +93,21 @@ export default function ContactClient() {
   };
 
   return (
-    <main className="bg-bg-primary min-h-screen py-16 md:py-28">
+    <main className="bg-bg-primary min-h-screen pt-8 pb-16 md:pt-10 md:pb-20">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header Section */}
-        <div className="max-w-3xl mb-16">
-          <span className="eyebrow mb-4">Direct Communication</span>
+        <div className="max-w-3xl mb-10">
+          <span className="eyebrow mb-3">Direct Communication</span>
           <h1 className="headline text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
             Start the conversation.
           </h1>
-          <p className="text-base md:text-lg text-text-muted leading-relaxed mt-6">
+          <p className="text-base md:text-lg text-text-muted leading-relaxed mt-4">
             Every business email address below routes directly to its intended purpose. Select the appropriate channel or send a message directly using the form below. Responses are sent within 24 business hours.
           </p>
         </div>
 
         {/* Purpose-Driven Email Cards Grid */}
-        <div className="mb-20">
+        <div className="mb-12">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-text-primary mb-6">
             Business Email Directory
           </h2>
@@ -168,7 +168,7 @@ export default function ContactClient() {
         </div>
 
         {/* Main Contact Form & Context Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start border-t border-border-color pt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start border-t border-border-color pt-10">
           {/* Left Context */}
           <div className="lg:col-span-5">
             <span className="eyebrow mb-3">Direct Form</span>

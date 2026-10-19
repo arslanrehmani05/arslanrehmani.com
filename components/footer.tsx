@@ -66,15 +66,15 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-bg-primary border-t border-border-color pt-16 pb-12 text-text-muted">
+    <footer className="bg-bg-primary border-t border-border-color pt-10 pb-8 text-text-muted">
       <div className="max-w-6xl mx-auto px-6">
         {/* Embedded Interactive Ask Arslan Console */}
-        <div className="mb-14">
+        <div className="mb-8">
           <AskArslanChat />
         </div>
 
         {/* Top Header: Brand & Newsletter */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-12 border-b border-border-color">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-8 border-b border-border-color">
           {/* Brand */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div>
@@ -144,7 +144,7 @@ export default function Footer() {
         </div>
 
         {/* Middle Navigation & Email Shortcuts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 py-12 border-b border-border-color">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 py-8 border-b border-border-color">
           {/* Email Shortcuts — 5 cols */}
           <div className="lg:col-span-5">
             <h4 className="text-xs font-semibold uppercase tracking-widest text-text-primary mb-4">

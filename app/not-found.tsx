@@ -4,7 +4,7 @@ import { ArrowLeft, Home, FileCode, Wrench, Mail } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <main className="bg-bg-primary min-h-[80vh] py-24 flex items-center justify-center">
+    <main className="bg-bg-primary min-h-[60vh] py-12 md:py-16 flex items-center justify-center">
       <div className="max-w-2xl mx-auto px-6 text-center">
         <span className="eyebrow mb-4 justify-center">404 Error</span>
         <h1 className="headline text-4xl md:text-6xl text-text-primary mb-6">

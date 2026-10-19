@@ -35,11 +35,11 @@ const proofMetrics = [
 
 export default function AboutPage() {
   return (
-    <main className="bg-bg-primary min-h-screen py-16 md:py-28">
+    <main className="bg-bg-primary min-h-screen pt-8 pb-16 md:pt-10 md:pb-20">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header Hero */}
-        <div className="max-w-3xl mb-16">
-          <span className="eyebrow mb-4">Background & Approach</span>
+        <div className="max-w-3xl mb-10">
+          <span className="eyebrow mb-3">Background & Approach</span>
           <h1 className="headline text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
             Systems over slideware.{' '}
             <span className="italic text-accent-gold">Code over claims.</span>

@@ -11,11 +11,11 @@ export default async function ThinkingIndexPage() {
   const articles = await getArticles();
 
   return (
-    <main className="flex flex-col min-h-screen bg-bg-primary pt-36 pb-20">
+    <main className="flex flex-col min-h-screen bg-bg-primary pt-8 pb-16 md:pt-10 md:pb-20">
       <div className="max-w-6xl mx-auto px-6 w-full">
         
         {/* Page Header */}
-        <div className="flex flex-col gap-4 mb-16 text-left max-w-2xl">
+        <div className="flex flex-col gap-3 mb-10 text-left max-w-2xl">
           <span className="text-xs font-semibold tracking-widest uppercase text-accent-gold">
             The Thinking
           </span>

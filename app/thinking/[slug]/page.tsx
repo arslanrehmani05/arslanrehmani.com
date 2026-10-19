@@ -77,7 +77,7 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
   };
 
   return (
-    <main className="flex flex-col min-h-screen bg-bg-primary pt-36 pb-20">
+    <main className="flex flex-col min-h-screen bg-bg-primary pt-8 pb-16 md:pt-10 md:pb-20">
       {/* Inject JSON-LD */}
       <script
         type="application/ld+json"

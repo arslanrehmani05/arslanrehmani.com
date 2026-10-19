@@ -16,7 +16,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <main className="bg-bg-primary min-h-[80vh] py-24 flex items-center justify-center px-4">
+    <main className="bg-bg-primary min-h-[60vh] py-12 md:py-16 flex items-center justify-center px-4">
       <div className="max-w-md w-full bg-[#111111] border border-[#2A2A2A] rounded-[24px] p-8 text-center space-y-6 shadow-2xl">
         <div className="w-14 h-14 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center mx-auto text-red-400">
           <AlertCircle className="w-7 h-7" />
