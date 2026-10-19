@@ -37,6 +37,8 @@ const nextConfig = {
     return [
       { source: '/work', destination: '/#proof', permanent: true },
       { source: '/about', destination: '/#about', permanent: true },
+      { source: '/speaking', destination: '/contact', permanent: true },
+      { source: '/media', destination: '/contact', permanent: true },
     ];
   },
 };

@@ -37,13 +37,6 @@ export const BUSINESS_EMAILS: Record<string, BusinessEmail> = {
     purpose: 'Project-specific discussions, ongoing client work, software projects, and implementation communication',
     description: 'For ongoing project work, software build specifications, architecture reviews, and technical implementations.',
   },
-  media: {
-    id: 'media',
-    email: 'media@arslanrehmani.com',
-    label: 'Media & Speaking',
-    purpose: 'Podcast invitations, interviews, speaking engagements, press, conferences, and media inquiries',
-    description: 'For podcast invitations, keynote speaking requests, press inquiries, conference panels, and interviews.',
-  },
 };
 
 export const EMAIL_LIST = Object.values(BUSINESS_EMAILS);

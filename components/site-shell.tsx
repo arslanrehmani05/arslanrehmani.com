@@ -4,7 +4,6 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
-import AskArslanChat from '@/components/ask-arslan-chat';
 
 export default function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -21,7 +20,6 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
       <div className="grain-overlay" aria-hidden="true" />
       <Navigation />
       {children}
-      <AskArslanChat />
       <Footer />
     </>
   );

@@ -176,7 +176,7 @@ export default function ContactClient() {
               Describe your operational drag.
             </h2>
             <p className="text-sm md:text-base text-text-muted leading-relaxed mt-4">
-              Whether you need to replace manual overhead, integrate multiple sales channels, build custom ERP modules, or discuss a speaking engagement — send your details and I will reply within 24 hours.
+              Whether you need to replace manual overhead, integrate multiple sales channels, or build custom ERP software modules — send your details and I will reply within 24 hours.
             </p>
 
             <div className="mt-8 space-y-4 bg-bg-secondary border border-border-color rounded-2xl p-6">

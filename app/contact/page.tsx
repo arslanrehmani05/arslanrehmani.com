@@ -4,13 +4,13 @@ import ContactClient from './contact-client';
 
 export const metadata: Metadata = {
   title: 'Contact | Arslan Rehmani — Operational AI Systems',
-  description: 'Start a conversation about custom operational software, ERP implementation, business automation, speaking, or media inquiries.',
+  description: 'Start a conversation about custom operational software, ERP implementation, business automation, or an operational audit.',
   alternates: {
     canonical: '/contact',
   },
   openGraph: {
     title: 'Contact | Arslan Rehmani — Operational AI Systems',
-    description: 'Direct purpose-driven business emails and contact form for operational audits, custom software builds, speaking engagements, and media inquiries.',
+    description: 'Direct purpose-driven business emails and contact form for operational audits and custom software builds.',
     url: 'https://arslanrehmani.com/contact',
     siteName: 'Arslan Rehmani',
     locale: 'en_US',
