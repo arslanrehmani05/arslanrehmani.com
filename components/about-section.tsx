@@ -9,7 +9,7 @@ const socials = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="bg-bg-primary py-20 md:py-32 scroll-mt-16">
+    <section id="about" className="bg-bg-primary py-12 md:py-16 scroll-mt-16">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-11 gap-12 lg:gap-16 items-center">
         {/* Left — 55% */}
         <div className="lg:col-span-6">

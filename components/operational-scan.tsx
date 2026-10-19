@@ -477,10 +477,10 @@ export default function OperationalScan() {
   };
 
   return (
-    <section className="bg-bg-primary py-20 md:py-32 border-y border-border-color relative overflow-hidden">
+    <section className="bg-bg-primary py-12 md:py-16 border-y border-border-color relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Eyebrow & Title */}
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mb-8">
           <span className="eyebrow mb-3">Homepage Flagship Scanner</span>
           <h2 className="headline text-3xl md:text-5xl leading-[1.1]">
             Run an Operational Scan on your business.

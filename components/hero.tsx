@@ -15,10 +15,10 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-6 min-h-[88vh] py-24 md:py-32 grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-center">
+      <div className="relative max-w-6xl mx-auto px-6 pt-8 pb-14 md:pt-12 md:pb-20 grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
         {/* Left column — 60% */}
         <div className="lg:col-span-3 animate-fade-in">
-          <span className="eyebrow mb-6">Operational AI Systems</span>
+          <span className="eyebrow mb-4">Operational AI Systems</span>
 
           <h1 className="headline text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.02] mt-2">
             I build systems that replace manual work.{' '}

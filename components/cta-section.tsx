@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function CtaSection() {
   return (
     <section
-      className="bg-bg-primary py-20 md:py-32"
+      className="bg-bg-primary py-14 md:py-20"
       style={{
         backgroundImage:
           'radial-gradient(circle at center, rgba(201,168,76,0.06) 0%, transparent 70%)',

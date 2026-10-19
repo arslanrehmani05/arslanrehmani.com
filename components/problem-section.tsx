@@ -19,7 +19,7 @@ const cards = [
 
 export default function ProblemSection() {
   return (
-    <section className="bg-bg-primary py-20 md:py-32">
+    <section className="bg-bg-primary py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-6">
         <span className="eyebrow mb-5">The Problem</span>
         <h2 className="headline text-3xl md:text-[2.75rem] leading-[1.1] max-w-3xl">
