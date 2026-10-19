@@ -1,27 +1,27 @@
 // lib/ai.ts
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
 import Groq from 'groq-sdk';
 
-const geminiApiKey = process.env.GEMINI_API_KEY || process.env.NEXT_PUBLIC_GEMINI_API_KEY || '';
+const geminiApiKey = process.env.GEMINI_API_KEY || '';
 const groqApiKey = process.env.GROQ_API_KEY || '';
 
-const genAI = geminiApiKey ? new GoogleGenerativeAI(geminiApiKey) : null;
+const ai = geminiApiKey ? new GoogleGenAI({ apiKey: geminiApiKey }) : null;
 const groq = groqApiKey ? new Groq({ apiKey: groqApiKey }) : null;
 
 export async function generateAiCompletion(
   prompt: string,
   systemInstruction?: string
 ): Promise<string> {
-  // 1. Try Gemini Flash Lite
-  if (genAI) {
+  // 1. Try Gemini
+  if (ai) {
     try {
-      const model = genAI.getGenerativeModel({
-        model: 'gemini-1.5-flash-latest',
-        systemInstruction: systemInstruction || undefined,
+      const response = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: prompt,
+        config: systemInstruction ? { systemInstruction } : undefined,
       });
 
-      const result = await model.generateContent(prompt);
-      const text = result.response.text();
+      const text = response.text;
       if (text && text.trim().length > 0) {
         return text;
       }
