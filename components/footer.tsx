@@ -1,9 +1,8 @@
 // components/footer.tsx
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { Mail, Check, ArrowRight } from 'lucide-react';
+import { Mail, ArrowRight } from 'lucide-react';
 import { EMAIL_LIST } from '@/lib/emails';
 import AskArslanChat from '@/components/ask-arslan-chat';
 
@@ -36,35 +35,6 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newsletterEmail) return;
-    setNewsletterStatus('loading');
-
-    try {
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: newsletterEmail,
-          source: 'footer-newsletter',
-        }),
-      });
-
-      if (response.ok) {
-        setNewsletterStatus('success');
-        setNewsletterEmail('');
-      } else {
-        setNewsletterStatus('error');
-      }
-    } catch {
-      setNewsletterStatus('error');
-    }
-  };
-
   return (
     <footer className="bg-bg-primary border-t border-border-color pt-10 pb-8 text-text-muted">
       <div className="max-w-6xl mx-auto px-6">
@@ -73,10 +43,10 @@ export default function Footer() {
           <AskArslanChat />
         </div>
 
-        {/* Top Header: Brand & Newsletter */}
+        {/* Top Header: Brand & Direct Action */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-8 border-b border-border-color">
           {/* Brand */}
-          <div className="lg:col-span-6 flex flex-col justify-between">
+          <div className="lg:col-span-7 flex flex-col justify-between">
             <div>
               <Link href="/" className="font-serif text-2xl font-medium tracking-tight text-text-primary hover:text-accent-gold transition-colors">
                 Arslan Rehmani
@@ -84,62 +54,30 @@ export default function Footer() {
               <p className="text-sm text-accent-gold mt-1 font-medium">
                 Operational AI Systems Builder
               </p>
-              <p className="text-sm text-text-muted leading-relaxed mt-3 max-w-md">
+              <p className="text-sm text-text-muted leading-relaxed mt-3 max-w-lg">
                 I build systems that replace manual work permanently. Custom operational software for manufacturing companies and ecommerce brands. Based in Karachi, Pakistan.
               </p>
             </div>
           </div>
 
-          {/* Newsletter Placeholder */}
-          <div className="lg:col-span-6 bg-bg-secondary border border-border-color rounded-2xl p-6 md:p-8 flex flex-col justify-between">
+          {/* Direct Engagement Card */}
+          <div className="lg:col-span-5 bg-bg-secondary border border-border-color rounded-2xl p-6 md:p-8 flex flex-col justify-between gap-4">
             <div>
-              <span className="eyebrow mb-2">Newsletter</span>
+              <span className="eyebrow mb-2">Direct Engagement</span>
               <h3 className="headline text-xl text-text-primary">
-                Operational Insights
+                Eliminate your manual drag.
               </h3>
               <p className="text-sm text-text-muted mt-2">
-                Occasional technical notes on building production ERPs, operational automation, and eliminating manual drag.
+                Every engagement starts with understanding your specific operational workflows. No pitch, no slideware.
               </p>
             </div>
-
-            <form onSubmit={handleNewsletterSubmit} className="mt-6">
-              {newsletterStatus === 'success' ? (
-                <div className="flex items-center gap-2 text-sm text-accent-gold bg-accent-gold-dim border border-border-gold rounded-xl px-4 py-3">
-                  <Check className="w-4 h-4 shrink-0" />
-                  <span>Subscribed. You will receive technical updates directly.</span>
-                </div>
-              ) : (
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <div className="relative flex-1">
-                    <label htmlFor="footer-newsletter-email" className="sr-only">
-                      Email address for newsletter
-                    </label>
-                    <input
-                      id="footer-newsletter-email"
-                      type="email"
-                      required
-                      placeholder="your.email@company.com"
-                      value={newsletterEmail}
-                      onChange={(e) => setNewsletterEmail(e.target.value)}
-                      className="w-full bg-bg-primary border border-border-color rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-subtle focus:border-accent-gold focus:outline-none transition-colors"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={newsletterStatus === 'loading'}
-                    className="btn-primary !px-6 !py-3 !text-sm shrink-0 flex items-center justify-center gap-2"
-                  >
-                    {newsletterStatus === 'loading' ? 'Joining...' : 'Subscribe'}
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              )}
-              {newsletterStatus === 'error' && (
-                <p className="text-xs text-red-400 mt-2">
-                  Subscription failed. Please check your email and try again.
-                </p>
-              )}
-            </form>
+            <Link
+              href="/contact"
+              className="btn-primary !px-6 !py-3 !text-sm w-fit flex items-center gap-2"
+            >
+              <span>Start a conversation</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
 
