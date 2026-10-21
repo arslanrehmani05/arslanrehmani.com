@@ -6,10 +6,9 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
 const links = [
-  { label: 'Projects', href: '/projects' },
+  { label: 'Case Studies', href: '/projects' },
   { label: 'Services', href: '/services' },
   { label: "See What's Costing You", href: '/diagnostics' },
-  { label: 'About', href: '/about' },
 ];
 
 export default function Navigation() {

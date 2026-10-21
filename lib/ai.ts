@@ -64,9 +64,5 @@ function mockAiResponse(prompt: string): string {
     });
   }
 
-  if (prompt.toLowerCase().includes('ask arslan') || prompt.toLowerCase().includes('digital twin')) {
-    return "I build custom operational software and ERPs that replace manual work permanently. For example, TextileMode ERP replaced 5 full-time administrative roles at a textile manufacturer and eliminated 40+ hours of weekly manual work. How can I help streamline your operation?";
-  }
-
   return "Based on your operational inputs, your primary bottlenecks stem from manual data entry and disconnected tools. Implementing custom ERP modules and automated API pipelines typically eliminates 80%+ of recurring administrative drag within 4 to 8 weeks.";
 }

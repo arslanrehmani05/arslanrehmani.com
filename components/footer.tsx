@@ -4,12 +4,10 @@
 import Link from 'next/link';
 import { Mail, ArrowRight } from 'lucide-react';
 import { EMAIL_LIST } from '@/lib/emails';
-import AskArslanChat from '@/components/ask-arslan-chat';
 
 const navLinks = [
-  { label: 'Projects', href: '/projects' },
+  { label: 'Case Studies', href: '/projects' },
   { label: 'Services', href: '/services' },
-  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -38,11 +36,6 @@ export default function Footer() {
   return (
     <footer className="bg-bg-primary border-t border-border-color pt-10 pb-8 text-text-muted">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Embedded Interactive Ask Arslan Console */}
-        <div className="mb-8">
-          <AskArslanChat />
-        </div>
-
         {/* Top Header: Brand & Direct Action */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-8 border-b border-border-color">
           {/* Brand */}
