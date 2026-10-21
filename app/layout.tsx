@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 import SiteShell from "@/components/site-shell";
 import PwaRegister from "@/components/pwa-register";
 import "./globals.css";
@@ -65,12 +65,34 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const gaId =
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID &&
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID !== "G-41SCGGBT9X"
+      ? process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+      : "G-JXZNH0R4ZZ";
 
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Google Tag (gtag.js) */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        />
+        <Script
+          id="google-tag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${gaId}');
+            `,
+          }}
+        />
+      </head>
       <body className={`${inter.variable} ${fraunces.variable} bg-bg-primary text-text-primary antialiased font-sans`}>
-        {gaId && <GoogleAnalytics gaId={gaId} />}
         <SiteShell>{children}</SiteShell>
         <PwaRegister />
       </body>
