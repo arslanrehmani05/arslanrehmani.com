@@ -24,7 +24,7 @@ export default function AboutSection() {
           </div>
 
           <div>
-            <span className="eyebrow mb-2">The Person</span>
+            <span className="eyebrow mb-2">About</span>
             <h2 className="headline text-2xl md:text-3xl text-text-primary">
               Arslan Rehmani
             </h2>
