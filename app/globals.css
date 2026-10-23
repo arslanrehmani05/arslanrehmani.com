@@ -2,45 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   LEFTCLICK.AI DESIGN SYSTEM (DARK BY DEFAULT)
+   Canonical Design:
+   - Canvas: #111113 (LeftClick Dark Obsidian)
+   - Font: DM Sans (400, 500 Medium, -0.035em tight tracking)
+   - Primary Accent: #f0f0f2 (Crisp Off-White)
+   - Surfaces: hsla(0, 0%, 100%, 0.05) glassmorphism
+   - Light Mode: #f7f7f8 via html[data-theme="light"]
+   ============================================================ */
+
 :root {
-  --bg-primary: #0A0A0A;
-  --bg-secondary: #111111;
-  --bg-surface: #161616;
-  --text-primary: #F5F5F0;
-  --text-muted: rgba(245, 245, 240, 0.62);
-  --text-subtle: rgba(245, 245, 240, 0.38);
-  --accent-gold: #C9A84C;
-  --accent-gold-hover: #D4B05A;
-  --accent-gold-bright: #E7CE87;
-  --accent-gold-dim: rgba(201, 168, 76, 0.15);
-  --border: #232323;
-  --border-gold: rgba(201, 168, 76, 0.35);
+  /* LeftClick Dark Mode (Default) */
+  --bg-primary: #111113;
+  --bg-secondary: hsla(0, 0%, 100%, 0.05);
+  --bg-surface: hsla(0, 0%, 100%, 0.08);
+  --text-primary: #f0f0f2;
+  --text-muted: hsla(0, 0%, 100%, 0.55);
+  --text-subtle: hsla(0, 0%, 100%, 0.35);
+  --accent-gold: #f0f0f2;
+  --accent-gold-hover: #ffffff;
+  --accent-gold-bright: #ffffff;
+  --accent-gold-dim: hsla(0, 0%, 100%, 0.08);
+  --border: hsla(0, 0%, 100%, 0.08);
+  --border-gold: hsla(0, 0%, 100%, 0.16);
+}
+
+/* LeftClick Light Mode (when data-theme="light") */
+html[data-theme="light"] {
+  --bg-primary: #f7f7f8;
+  --bg-secondary: #ffffff;
+  --bg-surface: #ffffff;
+  --text-primary: #000000;
+  --text-muted: rgba(0, 0, 0, 0.55);
+  --text-subtle: rgba(0, 0, 0, 0.40);
+  --accent-gold: #000000;
+  --accent-gold-hover: #222222;
+  --accent-gold-bright: #000000;
+  --accent-gold-dim: rgba(0, 0, 0, 0.06);
+  --border: rgba(0, 0, 0, 0.07);
+  --border-gold: rgba(0, 0, 0, 0.15);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-dmsans), Arial, sans-serif;
+  background-image: 
+    radial-gradient(ellipse 80% 60% at 50% 30%, #1a1a2e 0%, #111113 70%),
+    radial-gradient(circle at 15% 30%, hsla(0, 0%, 100%, 0.03) 0, transparent 50%),
+    radial-gradient(circle at 85% 70%, hsla(0, 0%, 100%, 0.02) 0, transparent 50%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Fraunces is a high-contrast display serif; let it optically size for headlines. */
-.font-serif {
-  font-optical-sizing: auto;
+html[data-theme="light"] body {
+  background-image: none !important;
 }
 
-/* Film grain over the whole page — kills banding on the dark field and adds
-   texture. Fixed, non-interactive, very low opacity. */
-.grain-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.4;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* The only entrance animation on the site: hero content at page load. */
+/* Entrance animation */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -60,53 +87,77 @@ body {
   .animate-fade-in {
     animation: none;
   }
-  .grain-overlay {
-    display: none;
-  }
 }
 
 @layer components {
-  /* Section eyebrow — the small gold label, now with a leading hairline tick. */
+  /* LeftClick Eyebrow: clean tracking with no lines */
   .eyebrow {
-    @apply inline-flex items-center gap-3 text-xs font-semibold tracking-[0.2em] uppercase text-accent-gold;
-  }
-  .eyebrow::before {
-    content: "";
-    @apply block h-px w-8;
-    background-color: rgba(201, 168, 76, 0.5);
+    @apply inline-flex items-center text-xs font-medium tracking-[0.14em] uppercase text-text-subtle;
+    font-family: var(--font-dmsans), sans-serif;
   }
 
-  /* Editorial display headline. */
+  /* LeftClick Geometric Headlines */
   .headline {
-    @apply font-serif font-medium tracking-tight text-text-primary;
-    letter-spacing: -0.015em;
+    @apply font-sans font-medium text-text-primary;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
   }
 
-  /* Primary CTA — refined metallic gold with a soft glow, not a flat fill. */
+  /* LeftClick Signature Pill Button */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full px-8 py-4 text-sm font-semibold text-black transition-all duration-200;
-    background-image: linear-gradient(180deg, var(--accent-gold-bright) 0%, var(--accent-gold) 55%, #B8964070 100%);
-    background-color: var(--accent-gold);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0 8px 24px -8px rgba(201, 168, 76, 0.5);
+    @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-medium transition-all duration-200 cursor-pointer;
+    font-family: var(--font-dmsans), sans-serif;
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
     min-height: 44px;
   }
   .btn-primary:hover {
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 10px 30px -8px rgba(201, 168, 76, 0.7);
     transform: translateY(-1px);
+    opacity: 0.92;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45);
   }
 
-  /* Secondary CTA — hairline outline that warms to gold. */
+  /* LeftClick Secondary Frosted Pill */
   .btn-ghost {
-    @apply inline-flex items-center justify-center rounded-full px-8 py-4 text-sm font-semibold text-text-primary border border-border-color transition-all duration-200;
+    @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-medium text-text-primary border border-border-color transition-all duration-200 cursor-pointer;
+    font-family: var(--font-dmsans), sans-serif;
+    background-color: var(--bg-secondary);
     min-height: 44px;
   }
   .btn-ghost:hover {
-    @apply border-accent-gold text-accent-gold;
+    @apply border-border-gold;
     transform: translateY(-1px);
+    background-color: var(--bg-surface);
   }
 
-  /* Gold text link with an underline that reveals on hover. */
+  /* LeftClick Link */
   .link-gold {
-    @apply inline-flex items-center text-sm font-semibold text-accent-gold transition-colors duration-200 hover:text-accent-gold-hover;
+    @apply inline-flex items-center text-sm font-medium text-text-primary transition-opacity duration-200 hover:opacity-80;
   }
+}
+
+/* LeftClick Glassmorphism card surfaces */
+.bg-bg-secondary {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1rem !important;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+html[data-theme="light"] .bg-bg-secondary {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 6px 20px rgba(0, 0, 0, 0.02);
+}
+html[data-theme="light"] .bg-bg-secondary:hover {
+  border-color: rgba(0, 0, 0, 0.14) !important;
+}
+
+html[data-theme="light"] header {
+  background-color: rgba(247, 247, 248, 0.90) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+html[data-theme="light"] footer {
+  background-color: #f0f0f2 !important;
+  border-top-color: rgba(0, 0, 0, 0.06) !important;
 }

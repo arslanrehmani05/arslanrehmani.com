@@ -5,6 +5,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
+import BrandLogo from '@/components/brand-logo';
+
 const links = [
   { label: 'Case Studies', href: '/projects' },
   { label: 'Services', href: '/services' },
@@ -19,9 +21,10 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="font-serif text-lg font-medium tracking-tight text-text-primary transition-colors duration-200 hover:text-accent-gold"
+          className="group text-base sm:text-lg font-medium tracking-tight text-text-primary hover:opacity-85 transition-opacity flex items-center gap-2.5"
         >
-          Arslan Rehmani
+          <BrandLogo className="w-7 h-7" />
+          <span>Arslan Rehmani</span>
         </Link>
 
         {/* Desktop */}

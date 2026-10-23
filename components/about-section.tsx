@@ -13,7 +13,7 @@ export default function AboutSection() {
       <div className="max-w-3xl mx-auto px-6 text-center">
         {/* Centered Circular Portrait & Identity */}
         <div className="flex flex-col items-center pb-8 border-b border-border-color">
-          <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden shrink-0 border-2 border-border-gold shadow-xl shadow-black/60 bg-bg-secondary ring-4 ring-accent-gold/10 mb-5">
+          <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden shrink-0 border border-white/20 shadow-2xl shadow-black/60 bg-bg-secondary ring-2 ring-white/10 mb-5">
             <Image
               src="/headshot.jpg"
               alt="Arslan Rehmani"
@@ -28,7 +28,7 @@ export default function AboutSection() {
           <h2 className="headline text-3xl md:text-4xl text-text-primary">
             Arslan Rehmani
           </h2>
-          <p className="text-sm md:text-base font-medium text-accent-gold mt-1.5">
+          <p className="text-sm md:text-base font-medium text-text-muted mt-1.5">
             Operational AI Systems Builder
           </p>
         </div>
@@ -36,7 +36,7 @@ export default function AboutSection() {
         {/* Centered Copy & Links */}
         <div className="pt-8 max-w-2xl mx-auto">
           <h3 className="headline text-xl md:text-2xl text-text-primary leading-snug">
-            I build the systems, not <span className="italic text-accent-gold">slideware.</span>
+            I build the systems, not <span className="italic">slideware.</span>
           </h3>
           <p className="text-base text-text-muted leading-relaxed mt-4">
             I build production software for real businesses. The first system I built
@@ -53,10 +53,10 @@ export default function AboutSection() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent-gold hover:text-accent-gold-hover hover:underline underline-offset-4 text-sm font-semibold transition-colors duration-200"
+                className="text-text-primary hover:opacity-75 text-sm font-medium transition-opacity"
                 style={{ minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
               >
-                {social.label}
+                {social.label} →
               </a>
             ))}
           </div>

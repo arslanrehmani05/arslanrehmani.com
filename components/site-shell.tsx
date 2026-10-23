@@ -4,6 +4,7 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
+import ThemeToggle from '@/components/theme-toggle';
 
 export default function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -17,10 +18,10 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <div className="grain-overlay" aria-hidden="true" />
       <Navigation />
       {children}
       <Footer />
+      <ThemeToggle />
     </>
   );
 }

@@ -22,8 +22,8 @@ const config: Config = {
         "border-gold": "var(--border-gold)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        serif: ["var(--font-fraunces)", "Georgia", "serif"],
+        sans: ["var(--font-dmsans)", "Arial", "sans-serif"],
+        serif: ["var(--font-dmsans)", "Arial", "sans-serif"],
       },
     },
   },

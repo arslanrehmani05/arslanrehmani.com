@@ -1,25 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import Script from "next/script";
 import SiteShell from "@/components/site-shell";
 import PwaRegister from "@/components/pwa-register";
 import "./globals.css";
 
-const inter = Inter({
+// LeftClick primary font: DM Sans
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-// Display serif for headlines — high-contrast, editorial authority.
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+  variable: "--font-dmsans",
+  weight: ["400", "500", "700"],
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0A0A0A",
+  themeColor: "#111113",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -72,7 +66,7 @@ export default function RootLayout({
       : "G-JXZNH0R4ZZ";
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         {/* Google Tag (gtag.js) */}
         <Script
@@ -91,8 +85,19 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.getItem('theme_mode') === 'light') {
+                  document.documentElement.setAttribute('data-theme', 'light');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
       </head>
-      <body className={`${inter.variable} ${fraunces.variable} bg-bg-primary text-text-primary antialiased font-sans`}>
+      <body className={`${dmSans.variable} bg-bg-primary text-text-primary antialiased font-sans`}>
         <SiteShell>{children}</SiteShell>
         <PwaRegister />
       </body>

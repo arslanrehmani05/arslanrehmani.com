@@ -1,6 +1,5 @@
 // app/api/audit/route.ts
 import { NextResponse } from 'next/server';
-import { generateAiCompletion } from '@/lib/ai';
 import { insertLead, insertToolSubmission } from '@/lib/supabase';
 
 function generateLocalReport(answers: any) {
@@ -46,34 +45,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Answers are required' }, { status: 400 });
     }
 
-    let reportData: any;
-
-    try {
-      const prompt = `Analyze these operational parameters for a business and provide a structured JSON operational readiness report:
-      - Team size: ${answers.teamSize || 3}
-      - Hours spent per week on manual reporting: ${answers.reportingHours || 12}
-      - Number of disconnected tools: ${answers.disconnectedTools || 4}
-      - Excel/Spreadsheet inventory: ${answers.excelInventory || 'yes'}
-      - Primary bottleneck: ${answers.biggestTimeSink || 'Manual Data Entry'}
-      
-      Return ONLY a raw valid JSON object (no markdown, no backticks) matching this structure:
-      {
-        "score": 52,
-        "summary": "Short 2-sentence summary",
-        "metrics": {
-          "hoursWastedPerYear": 600,
-          "potentialSavings": "$27,000"
-        },
-        "bottlenecks": ["Bottleneck 1", "Bottleneck 2"],
-        "recommendations": ["Recommendation 1", "Recommendation 2", "Recommendation 3"]
-      }`;
-
-      const aiText = await generateAiCompletion(prompt);
-      const cleanJson = aiText.replace(/```json/g, '').replace(/```/g, '').trim();
-      reportData = JSON.parse(cleanJson);
-    } catch {
-      reportData = generateLocalReport(answers);
-    }
+    const reportData = generateLocalReport(answers);
 
     // Lead Capture to Supabase
     try {

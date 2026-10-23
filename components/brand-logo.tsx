@@ -1,0 +1,33 @@
+import React from 'react';
+
+export default function BrandLogo({ className = 'w-7 h-7' }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`${className} shrink-0 transition-transform duration-200 group-hover:scale-105`}
+    >
+      {/* Outer rounded squircle container */}
+      <rect
+        width="32"
+        height="32"
+        rx="8"
+        className="fill-bg-secondary stroke-border-color"
+        strokeWidth="1.2"
+      />
+
+      {/* Solid, bold architectural AR Monogram */}
+      <g className="fill-text-primary">
+        {/* 'A' Left stem and vertical spine */}
+        <path d="M 7 23.5 L 14.5 7.5 H 17.5 V 23.5 H 14.5 V 14 L 9.5 23.5 H 7 Z" />
+
+        {/* 'R' Upper bowl */}
+        <path d="M 17.5 7.5 H 21.5 C 24.2 7.5 25.5 9 25.5 11.5 C 25.5 14 24.2 15.5 21.5 15.5 H 17.5 V 7.5 Z" />
+
+        {/* 'R' Dynamic kick */}
+        <path d="M 20 15 L 25.5 23.5 H 21.8 L 17.5 16.8 V 15 H 20 Z" />
+      </g>
+    </svg>
+  );
+}

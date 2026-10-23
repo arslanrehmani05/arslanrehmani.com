@@ -2,5 +2,5 @@
   "name": "Arslan Rehmani - Operational AI Systems",
   "description": "Custom operational software, ERP architecture, and automation systems for SMB manufacturing and ecommerce.",
   "permissions": [],
-  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "capabilities": []
 }

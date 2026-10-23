@@ -4,6 +4,7 @@
 import Link from 'next/link';
 import { Mail, ArrowRight } from 'lucide-react';
 import { EMAIL_LIST } from '@/lib/emails';
+import BrandLogo from '@/components/brand-logo';
 
 const navLinks = [
   { label: 'Case Studies', href: '/projects' },
@@ -41,10 +42,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-7 flex flex-col justify-between">
             <div>
-              <Link href="/" className="font-serif text-2xl font-medium tracking-tight text-text-primary hover:text-accent-gold transition-colors">
-                Arslan Rehmani
+              <Link href="/" className="group text-2xl font-medium tracking-tight text-text-primary hover:opacity-85 transition-opacity flex items-center gap-3">
+                <BrandLogo className="w-8 h-8" />
+                <span>Arslan Rehmani</span>
               </Link>
-              <p className="text-sm text-accent-gold mt-1 font-medium">
+              <p className="text-sm text-text-muted mt-2 font-medium">
                 Operational AI Systems Builder
               </p>
               <p className="text-sm text-text-muted leading-relaxed mt-3 max-w-lg">

@@ -31,15 +31,15 @@ export default function ProblemSection() {
           {cards.map((card) => (
             <div
               key={card.num}
-              className="group bg-bg-secondary border border-border-color border-t-2 border-t-accent-gold rounded-2xl p-6 md:p-8 transition-colors duration-200 hover:border-t-accent-gold-hover"
+              className="bg-bg-secondary border border-border-color hover:border-border-gold rounded-2xl p-6 md:p-8 flex flex-col transition-all duration-200"
             >
-              <span className="block font-serif text-2xl text-accent-gold">
-                {card.num}
-              </span>
-              <h3 className="text-lg md:text-xl font-bold text-text-primary mt-4">
+              <div className="text-[11px] font-mono tracking-widest text-text-subtle uppercase mb-3">
+                STEP {card.num}
+              </div>
+              <h3 className="text-xl font-medium text-text-primary tracking-tight">
                 {card.title}
               </h3>
-              <p className="text-base text-text-muted leading-relaxed mt-3">
+              <p className="text-sm md:text-base text-text-muted leading-relaxed mt-3">
                 {card.body}
               </p>
             </div>
