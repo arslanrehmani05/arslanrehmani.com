@@ -9,38 +9,48 @@ export default function BrandLogo({ className = 'w-7 h-7' }: { className?: strin
       className={`${className} shrink-0 transition-transform duration-200 group-hover:scale-105`}
       aria-hidden="true"
     >
-      {/* Outer squircle tile with dynamic LeftClick theme background and subtle border */}
+      {/* Outer squircle matching LeftClick theme */}
       <rect
         x="1"
         y="1"
         width="30"
         height="30"
-        rx="7.5"
+        rx="7"
         className="fill-bg-secondary stroke-border-color"
         strokeWidth="1.2"
       />
 
-      {/* Solid Architectural AR Monogram in dynamic LeftClick theme color */}
-      <g className="fill-text-primary">
-        {/* Central Shared Vertical Column */}
-        <rect x="13.2" y="7.5" width="2.8" height="17" rx="0.5" />
+      {/* Subtle inner perimeter frame for executive depth */}
+      <rect
+        x="2.5"
+        y="2.5"
+        width="27"
+        height="27"
+        rx="5.5"
+        className="stroke-border-color opacity-50"
+        strokeWidth="0.5"
+      />
 
-        {/* 'A' Left Diagonal Strut */}
-        <polygon points="6.5,24.5 9.8,24.5 15.2,7.5 12.6,7.5" />
+      {/* Signature Monogram Mark in dynamic LeftClick theme color */}
+      <g strokeLinecap="round" strokeLinejoin="round" className="stroke-text-primary">
+        {/* 'A' Left Diagonal Stem */}
+        <path d="M 9 22.5 L 15 9.5" strokeWidth="2.2" />
 
-        {/* 'A' Horizontal Bridge */}
-        <rect x="9.5" y="16.5" width="4.5" height="2.4" />
+        {/* Central Shared Vertical Stem */}
+        <path d="M 15 9.5 V 22.5" strokeWidth="2.2" />
 
-        {/* 'R' Precision Upper Bowl with Crisp Negative Space Cutout */}
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M 14.5 7.5 H 19.8 C 23.4 7.5 23.4 15.5 19.8 15.5 H 14.5 V 7.5 Z M 16.0 9.9 V 13.1 H 19.5 C 21.1 13.1 21.1 9.9 19.5 9.9 H 16.0 Z"
-        />
+        {/* 'A' Crossbar */}
+        <path d="M 11 17.5 H 18.5" strokeWidth="2" />
 
-        {/* 'R' Angular Kick */}
-        <polygon points="15.8,14.6 18.8,14.6 25,24.5 21.8,24.5" />
+        {/* 'R' Precision Upper Loop */}
+        <path d="M 15 9.5 H 20 C 22.8 9.5, 22.8 15.5, 20 15.5 H 15" strokeWidth="2" />
+
+        {/* 'R' Dynamic Diagonal Leg */}
+        <path d="M 17.5 15.5 L 23 22.5" strokeWidth="2.2" />
       </g>
+
+      {/* Signature Precision Node at Apex */}
+      <circle cx="15" cy="9.5" r="1.1" className="fill-text-primary" />
     </svg>
   );
 }

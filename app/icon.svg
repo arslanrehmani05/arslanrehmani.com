@@ -1,43 +1,79 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
   <defs>
-    <!-- Metallic Gold Linear Gradient -->
-    <linearGradient id="ar-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F3E5AB" />
-      <stop offset="45%" stop-color="#C9A84C" />
-      <stop offset="100%" stop-color="#9A7B2C" />
-    </linearGradient>
-    
-    <!-- Deep Obsidian Radial Background Gradient -->
-    <radialGradient id="ar-bg-grad" cx="50%" cy="50%" r="75%">
-      <stop offset="0%" stop-color="#161616" />
-      <stop offset="100%" stop-color="#080808" />
-    </radialGradient>
+    <style>
+      :root {
+        --bg-color: #111113;
+        --border-color: rgba(255, 255, 255, 0.22);
+        --inner-frame: rgba(255, 255, 255, 0.10);
+        --glyph-color: #f0f0f2;
+        --accent-color: #ffffff;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg-color: #f7f7f8;
+          --border-color: rgba(0, 0, 0, 0.14);
+          --inner-frame: rgba(0, 0, 0, 0.06);
+          --glyph-color: #000000;
+          --accent-color: #111113;
+        }
+      }
+      .bg-rect {
+        fill: var(--bg-color);
+        stroke: var(--border-color);
+        stroke-width: 1.2px;
+      }
+      .inner-frame {
+        stroke: var(--inner-frame);
+        stroke-width: 0.5px;
+      }
+      .mark-stem {
+        stroke: var(--glyph-color);
+        stroke-width: 2.2px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .mark-accent {
+        stroke: var(--accent-color);
+        stroke-width: 2px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .mark-leg {
+        stroke: var(--accent-color);
+        stroke-width: 2.2px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .apex-node {
+        fill: var(--accent-color);
+      }
+    </style>
   </defs>
 
-  <!-- Outer squircle background with gold precision border -->
-  <rect x="1" y="1" width="30" height="30" rx="7" fill="url(#ar-bg-grad)" stroke="url(#ar-gold-grad)" stroke-width="1.2" stroke-opacity="0.85" />
-  
-  <!-- Subtle inner perimeter frame for executive depth -->
-  <rect x="2.5" y="2.5" width="27" height="27" rx="5.5" fill="none" stroke="#C9A84C" stroke-width="0.5" stroke-opacity="0.25" />
+  <!-- Outer Squircle Tile -->
+  <rect x="1" y="1" width="30" height="30" rx="7" class="bg-rect" />
 
-  <!-- Monogram Mark "AR" -->
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Subtle Inner Perimeter Frame for Executive Depth -->
+  <rect x="2.5" y="2.5" width="27" height="27" rx="5.5" fill="none" class="inner-frame" />
+
+  <!-- Signature Monogram Mark -->
+  <g fill="none">
     <!-- 'A' Left Diagonal Stem -->
-    <path d="M 9 22.5 L 15 9.5" stroke="#F5F5F0" stroke-width="2.2" />
-    
-    <!-- Central Shared Vertical Stem ('A' & 'R') -->
-    <path d="M 15 9.5 V 22.5" stroke="#F5F5F0" stroke-width="2.2" />
-    
-    <!-- 'A' Signature Gold Crossbar -->
-    <path d="M 11 17.5 H 18.5" stroke="url(#ar-gold-grad)" stroke-width="2" />
-    
-    <!-- 'R' Precision Gold Upper Loop -->
-    <path d="M 15 9.5 H 20 C 22.8 9.5, 22.8 15.5, 20 15.5 H 15" stroke="url(#ar-gold-grad)" stroke-width="2" />
-    
-    <!-- 'R' Dynamic Gold Diagonal Leg -->
-    <path d="M 17.5 15.5 L 23 22.5" stroke="url(#ar-gold-grad)" stroke-width="2.2" />
+    <path d="M 9 22.5 L 15 9.5" class="mark-stem" />
+
+    <!-- Central Shared Vertical Stem -->
+    <path d="M 15 9.5 V 22.5" class="mark-stem" />
+
+    <!-- 'A' Crossbar -->
+    <path d="M 11 17.5 H 18.5" class="mark-accent" />
+
+    <!-- 'R' Precision Upper Loop -->
+    <path d="M 15 9.5 H 20 C 22.8 9.5, 22.8 15.5, 20 15.5 H 15" class="mark-accent" />
+
+    <!-- 'R' Dynamic Diagonal Leg -->
+    <path d="M 17.5 15.5 L 23 22.5" class="mark-leg" />
   </g>
-  
+
   <!-- Signature Precision Node at Apex -->
-  <circle cx="15" cy="9.5" r="1.1" fill="#F3E5AB" />
+  <circle cx="15" cy="9.5" r="1.1" class="apex-node" />
 </svg>
