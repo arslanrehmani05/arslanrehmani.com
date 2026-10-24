@@ -7,26 +7,39 @@ export default function BrandLogo({ className = 'w-7 h-7' }: { className?: strin
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={`${className} shrink-0 transition-transform duration-200 group-hover:scale-105`}
+      aria-hidden="true"
     >
-      {/* Outer rounded squircle container */}
+      {/* Outer squircle tile with dynamic LeftClick theme background and subtle border */}
       <rect
-        width="32"
-        height="32"
-        rx="8"
+        x="1"
+        y="1"
+        width="30"
+        height="30"
+        rx="7.5"
         className="fill-bg-secondary stroke-border-color"
         strokeWidth="1.2"
       />
 
-      {/* Solid, bold architectural AR Monogram */}
+      {/* Solid Architectural AR Monogram in dynamic LeftClick theme color */}
       <g className="fill-text-primary">
-        {/* 'A' Left stem and vertical spine */}
-        <path d="M 7 23.5 L 14.5 7.5 H 17.5 V 23.5 H 14.5 V 14 L 9.5 23.5 H 7 Z" />
+        {/* Central Shared Vertical Column */}
+        <rect x="13.2" y="7.5" width="2.8" height="17" rx="0.5" />
 
-        {/* 'R' Upper bowl */}
-        <path d="M 17.5 7.5 H 21.5 C 24.2 7.5 25.5 9 25.5 11.5 C 25.5 14 24.2 15.5 21.5 15.5 H 17.5 V 7.5 Z" />
+        {/* 'A' Left Diagonal Strut */}
+        <polygon points="6.5,24.5 9.8,24.5 15.2,7.5 12.6,7.5" />
 
-        {/* 'R' Dynamic kick */}
-        <path d="M 20 15 L 25.5 23.5 H 21.8 L 17.5 16.8 V 15 H 20 Z" />
+        {/* 'A' Horizontal Bridge */}
+        <rect x="9.5" y="16.5" width="4.5" height="2.4" />
+
+        {/* 'R' Precision Upper Bowl with Crisp Negative Space Cutout */}
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M 14.5 7.5 H 19.8 C 23.4 7.5 23.4 15.5 19.8 15.5 H 14.5 V 7.5 Z M 16.0 9.9 V 13.1 H 19.5 C 21.1 13.1 21.1 9.9 19.5 9.9 H 16.0 Z"
+        />
+
+        {/* 'R' Angular Kick */}
+        <polygon points="15.8,14.6 18.8,14.6 25,24.5 21.8,24.5" />
       </g>
     </svg>
   );

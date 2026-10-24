@@ -1,11 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#111113" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
-  <g fill="#F0F0F2">
-    <!-- 'A' Left stem and vertical spine -->
-    <path d="M 7 23.5 L 14.5 7.5 H 17.5 V 23.5 H 14.5 V 14 L 9.5 23.5 H 7 Z"/>
-    <!-- 'R' Upper bowl -->
-    <path d="M 17.5 7.5 H 21.5 C 24.2 7.5 25.5 9 25.5 11.5 C 25.5 14 24.2 15.5 21.5 15.5 H 17.5 V 7.5 Z"/>
-    <!-- 'R' Dynamic kick -->
-    <path d="M 20 15 L 25.5 23.5 H 21.8 L 17.5 16.8 V 15 H 20 Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <style>
+      :root {
+        --bg: #111113;
+        --border: rgba(255, 255, 255, 0.18);
+        --glyph: #f0f0f2;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f7f7f8;
+          --border: rgba(0, 0, 0, 0.14);
+          --glyph: #000000;
+        }
+      }
+      .bg-tile {
+        fill: var(--bg);
+        stroke: var(--border);
+        stroke-width: 1.2px;
+      }
+      .ar-glyph {
+        fill: var(--glyph);
+      }
+    </style>
+  </defs>
+
+  <!-- Squircle Canvas Container -->
+  <rect x="1" y="1" width="30" height="30" rx="7.5" class="bg-tile" />
+
+  <!-- Solid Architectural AR Monogram -->
+  <g class="ar-glyph">
+    <!-- Central Shared Vertical Column -->
+    <rect x="13.2" y="7.5" width="2.8" height="17" rx="0.5" />
+
+    <!-- 'A' Left Diagonal Strut -->
+    <polygon points="6.5,24.5 9.8,24.5 15.2,7.5 12.6,7.5" />
+
+    <!-- 'A' Horizontal Bridge -->
+    <rect x="9.5" y="16.5" width="4.5" height="2.4" />
+
+    <!-- 'R' Precision Upper Bowl with Negative Space Cutout -->
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M 14.5 7.5 H 19.8 C 23.4 7.5 23.4 15.5 19.8 15.5 H 14.5 V 7.5 Z M 16.0 9.9 V 13.1 H 19.5 C 21.1 13.1 21.1 9.9 19.5 9.9 H 16.0 Z"
+    />
+
+    <!-- 'R' Angular Kick -->
+    <polygon points="15.8,14.6 18.8,14.6 25,24.5 21.8,24.5" />
   </g>
 </svg>
