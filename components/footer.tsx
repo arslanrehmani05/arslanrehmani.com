@@ -25,6 +25,7 @@ const legalLinks = [
   { label: 'Cookie Policy', href: '/cookies' },
   { label: 'Disclaimer', href: '/disclaimer' },
   { label: 'Accessibility', href: '/accessibility' },
+  { label: 'Brand Identity Lab', href: '/logo-preview' },
 ];
 
 const socialLinks = [

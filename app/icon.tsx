@@ -44,15 +44,20 @@ export default function Icon() {
           strokeWidth="0.5"
         />
 
-        <g strokeLinecap="round" strokeLinejoin="round">
-          <path d="M 9 22.5 L 15 9.5" stroke="#f0f0f2" strokeWidth="2.2" />
-          <path d="M 15 9.5 V 22.5" stroke="#f0f0f2" strokeWidth="2.2" />
-          <path d="M 11 17.5 H 18.5" stroke="#ffffff" strokeWidth="2" />
-          <path d="M 15 9.5 H 20 C 22.8 9.5, 22.8 15.5, 20 15.5 H 15" stroke="#ffffff" strokeWidth="2" />
-          <path d="M 17.5 15.5 L 23 22.5" stroke="#ffffff" strokeWidth="2.2" />
+        <g>
+          {/* Left Wing (Solid Crisp Light) */}
+          <path
+            d="M 15.2 6.5 L 7.5 22.5 L 12 22.5 L 15.2 16 Z"
+            fill="#f0f0f2"
+          />
+          {/* Right Wing (Balanced Depth Facet) */}
+          <path
+            d="M 16.8 6.5 L 16.8 16 L 20 22.5 L 24.5 22.5 Z"
+            fill="rgba(240, 240, 242, 0.45)"
+          />
+          {/* Central Precision Core Node */}
+          <circle cx="16" cy="11.5" r="1.1" fill="#ffffff" />
         </g>
-
-        <circle cx="15" cy="9.5" r="1.1" fill="#ffffff" />
       </svg>
     ),
     {

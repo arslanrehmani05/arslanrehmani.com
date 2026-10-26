@@ -5,16 +5,18 @@
         --bg-color: #111113;
         --border-color: rgba(255, 255, 255, 0.22);
         --inner-frame: rgba(255, 255, 255, 0.10);
-        --glyph-color: #f0f0f2;
-        --accent-color: #ffffff;
+        --lead-facet: #f0f0f2;
+        --trail-facet: rgba(240, 240, 242, 0.45);
+        --core-node: #ffffff;
       }
       @media (prefers-color-scheme: light) {
         :root {
           --bg-color: #f7f7f8;
-          --border-color: rgba(0, 0, 0, 0.14);
-          --inner-frame: rgba(0, 0, 0, 0.06);
-          --glyph-color: #000000;
-          --accent-color: #111113;
+          --border-color: rgba(0, 0, 0, 0.16);
+          --inner-frame: rgba(0, 0, 0, 0.08);
+          --lead-facet: #000000;
+          --trail-facet: rgba(0, 0, 0, 0.45);
+          --core-node: #000000;
         }
       }
       .bg-rect {
@@ -26,26 +28,14 @@
         stroke: var(--inner-frame);
         stroke-width: 0.5px;
       }
-      .mark-stem {
-        stroke: var(--glyph-color);
-        stroke-width: 2.2px;
-        stroke-linecap: round;
-        stroke-linejoin: round;
+      .lead-wing {
+        fill: var(--lead-facet);
       }
-      .mark-accent {
-        stroke: var(--accent-color);
-        stroke-width: 2px;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-      .mark-leg {
-        stroke: var(--accent-color);
-        stroke-width: 2.2px;
-        stroke-linecap: round;
-        stroke-linejoin: round;
+      .trail-wing {
+        fill: var(--trail-facet);
       }
       .apex-node {
-        fill: var(--accent-color);
+        fill: var(--core-node);
       }
     </style>
   </defs>
@@ -53,27 +43,18 @@
   <!-- Outer Squircle Tile -->
   <rect x="1" y="1" width="30" height="30" rx="7" class="bg-rect" />
 
-  <!-- Subtle Inner Perimeter Frame for Executive Depth -->
+  <!-- Subtle Inner Perimeter Frame for Depth -->
   <rect x="2.5" y="2.5" width="27" height="27" rx="5.5" fill="none" class="inner-frame" />
 
-  <!-- Signature Monogram Mark -->
-  <g fill="none">
-    <!-- 'A' Left Diagonal Stem -->
-    <path d="M 9 22.5 L 15 9.5" class="mark-stem" />
+  <!-- The Kinetic Apex Vector Mark -->
+  <g>
+    <!-- Left Wing (Solid Crisp Light) -->
+    <path d="M 15.2 6.5 L 7.5 22.5 L 12 22.5 L 15.2 16 Z" class="lead-wing" />
 
-    <!-- Central Shared Vertical Stem -->
-    <path d="M 15 9.5 V 22.5" class="mark-stem" />
+    <!-- Right Wing (Balanced Depth Facet) -->
+    <path d="M 16.8 6.5 L 16.8 16 L 20 22.5 L 24.5 22.5 Z" class="trail-wing" />
 
-    <!-- 'A' Crossbar -->
-    <path d="M 11 17.5 H 18.5" class="mark-accent" />
-
-    <!-- 'R' Precision Upper Loop -->
-    <path d="M 15 9.5 H 20 C 22.8 9.5, 22.8 15.5, 20 15.5 H 15" class="mark-accent" />
-
-    <!-- 'R' Dynamic Diagonal Leg -->
-    <path d="M 17.5 15.5 L 23 22.5" class="mark-leg" />
+    <!-- Central Precision Core Node -->
+    <circle cx="16" cy="11.5" r="1.1" class="apex-node" />
   </g>
-
-  <!-- Signature Precision Node at Apex -->
-  <circle cx="15" cy="9.5" r="1.1" class="apex-node" />
 </svg>
