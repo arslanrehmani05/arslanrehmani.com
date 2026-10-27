@@ -1,74 +1,95 @@
 // components/hero.tsx
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+'use client';
 
-const stats = [
-  { value: '5', label: 'Roles replaced' },
-  { value: '40+', label: 'Hrs/wk manual saved' },
-  { value: '27', label: 'Weaving looms live' },
-  { value: '10+', label: 'Months in production' },
+import { useState } from 'react';
+import Link from 'next/link';
+import { ArrowRight, ShieldCheck, MapPin, Wrench, BookOpen } from 'lucide-react';
+import { getPlaceholdersList } from '@/lib/facts';
+import PipelineMiniDemo from '@/components/pipeline-mini-demo';
+
+const HEADLINE_OPTIONS = [
+  'Your business data, finally right.',
+  'Spreadsheets and paper to secure systems that reconcile.',
 ];
 
 export default function Hero() {
+  const [headlineIndex, setHeadlineIndex] = useState(0);
+  const placeholders = getPlaceholdersList();
+
   return (
-    <section className="relative bg-bg-primary overflow-hidden">
-      {/* LeftClick atmospheric ambient glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[750px] w-full max-w-[1200px] rounded-full blur-3xl opacity-75"
-        style={{
-          background:
-            'radial-gradient(ellipse 80% 60% at 50% 30%, rgba(26, 26, 46, 0.7) 0%, rgba(17, 17, 19, 0) 70%)',
-        }}
-      />
-
-      <div className="relative max-w-4xl mx-auto px-6 pt-12 pb-16 md:pt-16 md:pb-24 text-center animate-fade-in">
-        <span className="eyebrow mb-4 justify-center">Operational AI Systems</span>
-
-        <h1 className="headline text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.05] mt-2 max-w-3xl mx-auto">
-          I build systems that replace manual work.{' '}
-          <span className="italic text-text-primary">Permanently.</span>
-        </h1>
-
-        <p className="text-base md:text-lg text-text-muted leading-relaxed max-w-2xl mx-auto mt-6">
-          Custom operational software for manufacturing companies and ecommerce
-          brands — fewer people doing repetitive work, lower operating costs, same
-          or better output.
-        </p>
-
-        {/* LeftClick 4-metric proof row right in the hero */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl mx-auto mt-10 pt-8 border-t border-border-color">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <span className="block text-2xl sm:text-3xl font-medium tracking-tight text-text-primary">
-                {stat.value}
-              </span>
-              <span className="block text-xs text-text-muted mt-1 leading-tight">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* LeftClick signature pill CTA with nested circular arrow badge */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-          <Link
-            href="#proof"
-            className="btn-primary !pl-6 !pr-2 !py-2 flex items-center gap-3 group"
-          >
-            <span>See the work</span>
-            <span className="w-8 h-8 rounded-full bg-[#111113] text-[#f0f0f2] flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:translate-x-0.5">
-              <ArrowRight className="w-3.5 h-3.5" />
+    <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 border-b border-border-color bg-bg-primary overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 space-y-12">
+        <div className="max-w-4xl space-y-8">
+          {/* Location & Availability Line Stated Plainly Near Top */}
+          <div className="inline-flex flex-wrap items-center gap-2 sm:gap-3 px-3.5 py-1.5 rounded-full bg-bg-secondary border border-border-color text-xs text-text-muted">
+            <span className="inline-flex items-center gap-1.5 text-text-primary font-medium">
+              <MapPin className="w-3.5 h-3.5 text-accent-gold" />
+              <span>{placeholders.BASE_LOCATION}</span>
             </span>
-          </Link>
-          <Link href="/contact" className="btn-ghost !px-6 !py-3 !text-sm">
-            Start a conversation
-          </Link>
+            <span className="text-border-color">&bull;</span>
+            <span>Working overlap: {placeholders.OVERLAP || placeholders.OVERLAP_WINDOWS}</span>
+            <span className="hidden sm:inline text-border-color">&bull;</span>
+            <span className="hidden sm:inline">On-site visits: {placeholders.VISITS || placeholders.VISIT_POLICY}</span>
+          </div>
+
+          {/* Headline with subtle A/B toggle for review */}
+          <div className="space-y-3">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary leading-[1.08]">
+              {HEADLINE_OPTIONS[headlineIndex]}
+            </h1>
+            <button
+              type="button"
+              onClick={() => setHeadlineIndex((prev) => (prev === 0 ? 1 : 0))}
+              className="text-[11px] font-mono text-text-subtle hover:text-text-muted transition-colors underline underline-offset-4"
+              title="Click to toggle alternate headline variant"
+            >
+              Alternate headline: &ldquo;{HEADLINE_OPTIONS[headlineIndex === 0 ? 1 : 0]}&rdquo;
+            </button>
+          </div>
+
+          {/* Who it is for & positioning: One sentence */}
+          <p className="text-lg sm:text-xl text-text-muted leading-relaxed max-w-3xl">
+            I build secure, reliable data systems and agentic systems that do real operational work inside strict guardrails, for small and mid-sized businesses (and teams inside bigger ones) still running on spreadsheets, paper registers and disconnected tools.
+          </p>
+
+          {/* Primary & Secondary CTAs */}
+          <div className="pt-2 flex flex-wrap items-center gap-4">
+            <Link
+              href="/contact"
+              className="btn-primary !px-8 !py-4 !text-base font-semibold flex items-center justify-center gap-2"
+            >
+              <span>Book a 20-minute discovery call</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              href="/tools"
+              className="btn-ghost !px-6 !py-4 !text-sm font-medium flex items-center justify-center gap-2 text-text-primary hover:border-text-primary/40"
+            >
+              <Wrench className="w-4 h-4 text-accent-gold" />
+              <span>Try a tool</span>
+            </Link>
+
+            <Link
+              href="/work"
+              className="btn-ghost !px-6 !py-4 !text-sm font-medium flex items-center justify-center gap-2 text-text-primary hover:border-text-primary/40"
+            >
+              <BookOpen className="w-4 h-4 text-accent-gold" />
+              <span>Read a case study</span>
+            </Link>
+          </div>
+
+          {/* Truth Gate Trust Note */}
+          <div className="pt-2 flex items-center gap-2 text-xs font-mono text-text-subtle">
+            <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+            <span>The Truth Gate: Every metric on this site is backed by verified evidence in facts.json.</span>
+          </div>
         </div>
 
-        <p className="text-xs text-text-subtle mt-10 tracking-wide">
-          Arslan Rehmani <span className="text-text-subtle/60">·</span> Operational AI Systems
-        </p>
+        {/* Inline Mini-Demo: 20-second Staging/Validation/Review Loop with Synthetic Data */}
+        <div className="pt-4">
+          <PipelineMiniDemo />
+        </div>
       </div>
     </section>
   );

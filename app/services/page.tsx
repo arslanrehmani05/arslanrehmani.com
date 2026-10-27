@@ -1,221 +1,212 @@
 // app/services/page.tsx
-import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, Clock, Cpu, FileText, Layers, Wrench } from 'lucide-react';
-import { BUSINESS_EMAILS } from '@/lib/emails';
+import { ArrowRight, Check, ShieldCheck, FileSearch, Database, Bot, Clock, AlertCircle } from 'lucide-react';
+import { getPlaceholdersList } from '@/lib/facts';
 
-export const metadata: Metadata = {
-  title: 'Services | Arslan Rehmani — Operational AI Systems',
-  description: 'Custom operational software, ERP builds, workflow automation, and operational audits for SMB manufacturing and ecommerce.',
-  alternates: {
-    canonical: '/services',
-  },
-  openGraph: {
-    title: 'Services | Arslan Rehmani — Operational AI Systems',
-    description: 'Operational audits, custom ERP development, and ongoing system evolution for manufacturing and ecommerce operations.',
-    url: 'https://arslanrehmani.com/services',
-    siteName: 'Arslan Rehmani',
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Services | Arslan Rehmani',
-    description: 'Operational audits and custom ERP systems for SMBs.',
-  },
+export const metadata = {
+  title: 'Services & Engagements | Arslan Rehmani',
+  description:
+    'Four structured, fixed-scope operational software offers: Data Audit, Systems Build, Deterministic Agent Add-on, and Ongoing Care Plan.',
 };
 
-const serviceOfferings = [
-  {
-    step: '01',
-    title: 'Operational Audit & System Blueprint',
-    subtitle: 'Diagnostic Phase',
-    description: 'A structured deep-dive into your existing workflows, manual data transfers, and operational bottlenecks. We calculate exact financial drag and map a technical implementation blueprint before a single line of code is written.',
-    deliverables: [
-      'Comprehensive workflow friction audit report',
-      'Exact weekly financial drag and hours-saved projections',
-      'Full technical architecture & database schema blueprint',
-      'Fixed-price implementation quote',
-    ],
-    timeline: '1 to 2 Weeks',
-    emailTarget: BUSINESS_EMAILS.business.email,
-  },
-  {
-    step: '02',
-    title: 'Custom ERP & Operational Systems',
-    subtitle: 'Production Software Build',
-    description: 'Bespoke web applications, internal production portals, inventory systems, and analytical management control panels engineered strictly around how your business operates — such as TextileMode ERP.',
-    deliverables: [
-      'Production Next.js / TypeScript Web Application',
-      'Role-based access control (RBAC) & security',
-      'Real-time financial and operational reporting dashboards',
-      'Deployment to client-owned cloud infrastructure',
-    ],
-    timeline: '4 to 8 Weeks',
-    emailTarget: BUSINESS_EMAILS.projects.email,
-  },
-  {
-    step: '03',
-    title: 'AI Pipelines & Channel Integration',
-    subtitle: 'Automation & Briefings',
-    description: 'Integration of multi-channel platforms (Shopify, Amazon, ERPs, CRMs) paired with server-side AI execution engines to deliver automated daily executive briefings, anomaly alerts, and channel synchronization.',
-    deliverables: [
-      'Multi-channel API synchronization pipelines',
-      'Server-side Claude / LLM automated daily briefings',
-      'Search Console & Analytics performance aggregators',
-      'Automated error handling and fallback monitoring',
-    ],
-    timeline: '2 to 4 Weeks',
-    emailTarget: BUSINESS_EMAILS.projects.email,
-  },
-  {
-    step: '04',
-    title: 'Ongoing Maintenance & System Evolution',
-    subtitle: 'Long-Term Support',
-    description: 'As your business scales, new operational requirements arise. Retained support ensures your custom software stays updated, secure, and expanded with new modules as needed.',
-    deliverables: [
-      'Guaranteed uptime & error monitoring SLA',
-      'Monthly feature iterations & database optimizations',
-      'New module additions as operational needs expand',
-      'Priority direct developer support',
-    ],
-    timeline: 'Retainer / Monthly',
-    emailTarget: BUSINESS_EMAILS.business.email,
-  },
-];
-
 export default function ServicesPage() {
+  const placeholders = getPlaceholdersList();
+
+  const services = [
+    {
+      id: 'data-audit',
+      icon: FileSearch,
+      title: 'Data Audit',
+      badge: 'One-Week Fixed Engagement',
+      directAnswer:
+        'A one-week technical diagnosis for owner-operators and finance leads whose businesses run on multiple spreadsheets or paper logs. It delivers a full inventory of your data sources, an audit of current formula and reconcile errors, a proposed relational schema, and a clickable prototype running on your sanitized sample data.',
+      timeline: 'About 1 week',
+      price: '$2,500 fixed fee (1 week)',
+      deliverables: [
+        'Complete inventory of every spreadsheet, register, and manual data touchpoint',
+        'Issues list highlighting silent formula errors, currency drift, and reconciliation gaps',
+        'Proposed relational database schema (PostgreSQL) with normalization and RLS plan',
+        'Working clickable prototype running on a sanitized slice of your actual company data',
+        'Written implementation roadmap with milestone timelines and fixed build budget',
+      ],
+      whoItIsFor: 'Firms doing $2M–$50M in revenue that know their spreadsheets are breaking, but want an exact technical plan and prototype before committing to a full system build.',
+    },
+    {
+      id: 'systems-build',
+      icon: Database,
+      title: 'Systems Build',
+      badge: 'Core Operational Replacement',
+      directAnswer:
+        'A full-cycle custom engineering engagement that permanently replaces brittle spreadsheets and paper registers with an audited, multi-user web application backed by PostgreSQL. Scope, milestones, and automated acceptance tests are agreed in writing upfront, so your operational data reconciles to the cent without scope creep.',
+      timeline: '4 to 8 weeks staged build',
+      price: 'Fixed scope & milestone-based (Scoped after data audit)',
+      deliverables: [
+        'Full production system tailored to your exact manufacturing or ecommerce floor reality',
+        'PostgreSQL database with strict constraints and Row-Level Security on every table',
+        'Mobile and tablet-optimized interfaces built for quick, error-resistant floor entry',
+        'Automated double-entry journals, analytical reports, and real-time reconciliation views',
+        'Full deployment, staff onboarding sessions, and parallel-run testing until 100% reconciled',
+        'Complete transfer of source code, cloud billing accounts, and encryption keys',
+      ],
+      whoItIsFor: 'Manufacturing plants, ecommerce brands, and multi-entity operators whose volume has outgrown Excel and who require audited, recoverable operational software.',
+    },
+    {
+      id: 'agent-addon',
+      icon: Bot,
+      title: 'Deterministic Agent Add-on',
+      badge: 'Failsafe AI Pipeline',
+      directAnswer:
+        'An architectural layer for companies that want AI speed without risking database corruption. The AI model extracts data into an isolated staging table, while strict deterministic code validates types, mathematical sums, duplicates, and tax IDs before committing. Unmatched or anomalous rows route to a human review queue with zero dirty data in production.',
+      timeline: '2 to 3 weeks add-on module',
+      price: 'From $3,500 fixed scope (includes staging schema & human review queue)',
+      deliverables: [
+        'Structured ingestion engine for incoming PDF invoices, packing lists, and emails',
+        'Isolated staging table schema with zero direct production write permissions',
+        'Deterministic validation engine checking math equality (sum == total), dates, and foreign keys',
+        'Interactive exception review queue where human operators review and approve flagged rows',
+        'Permanent audit log capturing input file hash, model token prompt, and validation result',
+      ],
+      whoItIsFor: 'Operations processing 200+ monthly supplier invoices, shipping manifests, or custom order requests by hand who want automation without hallucinated accounting errors.',
+    },
+    {
+      id: 'care-plan',
+      icon: ShieldCheck,
+      title: 'Care & Disaster Recovery Plan',
+      badge: 'Ongoing Operational Assurance',
+      directAnswer:
+        'A monthly engineering service that guarantees your operational system remains secure, audited, and recoverable. It includes monthly automated backup restore drills, access privilege reviews, framework and dependency security updates, and a dedicated bank of development hours for small operational adjustments.',
+      timeline: 'Monthly recurring engagement',
+      price: 'From $750/month (includes quarterly restore drill & 24h SLA)',
+      deliverables: [
+        'Monthly backup restore drills: we restore your database to an isolated environment and test reconciliation',
+        'Access privilege audit: quarterly review ensuring inactive employees have zero database access',
+        'Security & patch updates for Next.js, Node, PostgreSQL extensions, and third-party APIs',
+        'Up to agreed hours each month for small workflow tweaks, report adjustments, and new export views',
+        'Direct emergency engineering communication channel with guaranteed 24-hour response on business days',
+      ],
+      whoItIsFor: 'Businesses running critical daily operations on custom software who cannot afford unmonitored dependencies or unverified backup routines.',
+    },
+  ];
+
   return (
-    <main className="bg-bg-primary min-h-screen pt-8 pb-16 md:pt-10 md:pb-20">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Header Hero */}
-        <div className="max-w-3xl mb-10">
-          <span className="eyebrow mb-3">Capabilities & Engagements</span>
-          <h1 className="headline text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
-            From operational diagnosis to{' '}
-            <span className="italic text-accent-gold">deployed systems.</span>
+    <main className="min-h-screen bg-bg-primary text-text-primary pt-24 pb-20 px-6">
+      <div className="max-w-5xl mx-auto space-y-20">
+        {/* Header */}
+        <div className="max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-bg-secondary border border-border-color text-xs font-mono text-text-muted">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <span>The Four Offers &bull; Fixed Scope &amp; Deliverables</span>
+          </div>
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-text-primary">
+            Engineering Engagements Designed Around Your Operational Reality.
           </h1>
-          <p className="text-base md:text-lg text-text-muted leading-relaxed mt-6">
-            Every engagement starts by understanding how your business actually operates — not forcing generic SaaS templates. Software is engineered around your workflows, deployed to your infrastructure, and maintained for continuous performance.
+          <p className="text-lg text-text-muted leading-relaxed">
+            I don&apos;t bill open-ended hourly retainers. Every offer below has a fixed scope, documented deliverables, and agreed acceptance tests.
           </p>
         </div>
 
-        {/* Services List */}
-        <div className="space-y-12 mb-24">
-          {serviceOfferings.map((service) => (
-            <div
-              key={service.title}
-              className="bg-bg-secondary border border-border-color hover:border-border-gold rounded-2xl p-8 md:p-12 transition-colors duration-200"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                <div className="lg:col-span-4">
-                  <span className="text-accent-gold font-mono text-xs font-bold block mb-2">
-                    {service.step} / {service.subtitle}
-                  </span>
-                  <h2 className="headline text-2xl md:text-3xl text-text-primary">
-                    {service.title}
-                  </h2>
-                  <div className="flex items-center gap-2 mt-4 text-xs text-text-subtle font-mono">
-                    <Clock className="w-3.5 h-3.5 text-accent-gold" />
-                    <span>Typical Timeline: {service.timeline}</span>
+        {/* Offers Detailed List */}
+        <div className="space-y-16">
+          {services.map((svc, idx) => {
+            const Icon = svc.icon;
+            return (
+              <section
+                key={svc.id}
+                id={svc.id}
+                className="p-8 sm:p-12 rounded-3xl bg-bg-secondary/40 border border-border-color space-y-8 scroll-mt-24"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border-color/60 pb-6">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-bg-primary border border-border-color flex items-center justify-center text-text-primary">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span className="text-xs font-mono text-text-subtle">Offer 0{idx + 1}</span>
+                      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary">
+                        {svc.title}
+                      </h2>
+                    </div>
                   </div>
+
+                  <span className="text-xs font-mono text-accent-gold uppercase tracking-wider px-3 py-1 rounded-full bg-bg-primary border border-border-color">
+                    {svc.badge}
+                  </span>
                 </div>
 
-                <div className="lg:col-span-8 flex flex-col justify-between h-full">
-                  <div>
-                    <p className="text-base text-text-muted leading-relaxed mb-6">
-                      {service.description}
-                    </p>
+                {/* Direct 40-60 word Answer Box */}
+                <div className="p-6 rounded-2xl bg-bg-primary border border-border-color space-y-2">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-text-subtle">
+                    What is this and who is it for?
+                  </div>
+                  <p className="text-sm sm:text-base text-text-primary leading-relaxed font-medium">
+                    {svc.directAnswer}
+                  </p>
+                </div>
 
-                    <h3 className="text-xs font-semibold uppercase tracking-wider text-text-primary mb-3">
-                      Key Deliverables:
+                {/* Scope & Deliverables */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                  <div className="lg:col-span-8 space-y-4">
+                    <h3 className="text-xs font-mono uppercase tracking-wider text-text-subtle">
+                      Exact Deliverables Included:
                     </h3>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
-                      {service.deliverables.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-xs text-text-muted">
-                          <CheckCircle2 className="w-4 h-4 text-accent-gold shrink-0 mt-0.5" />
+                    <ul className="space-y-2.5">
+                      {svc.deliverables.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-sm text-text-muted">
+                          <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="pt-6 border-t border-border-color/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <span className="text-xs text-text-subtle">
-                      Inquire via:{' '}
-                      <a href={`mailto:${service.emailTarget}`} className="font-mono text-accent-gold hover:underline">
-                        {service.emailTarget}
-                      </a>
-                    </span>
+                  <div className="lg:col-span-4 p-6 rounded-2xl bg-bg-primary border border-border-color space-y-5 flex flex-col justify-between">
+                    <div className="space-y-3">
+                      <div>
+                        <div className="text-[11px] font-mono text-text-subtle">Timeline</div>
+                        <div className="text-base font-bold font-mono text-text-primary">{svc.timeline}</div>
+                      </div>
+
+                      <div>
+                        <div className="text-[11px] font-mono text-text-subtle">Pricing Structure</div>
+                        <div className="text-sm font-medium text-accent-gold">{svc.price}</div>
+                      </div>
+
+                      <div>
+                        <div className="text-[11px] font-mono text-text-subtle">Ideal Fit</div>
+                        <div className="text-xs text-text-muted leading-snug">{svc.whoItIsFor}</div>
+                      </div>
+                    </div>
+
                     <Link
-                      href={`/contact`}
-                      className="btn-primary !px-5 !py-2.5 !text-xs shrink-0 flex items-center gap-1.5"
+                      href="/contact"
+                      className="btn-primary !py-2.5 !text-xs w-full text-center flex items-center justify-center gap-2 uppercase tracking-wider font-semibold"
                     >
-                      Book Discussion
+                      <span>Inquire about {svc.title}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </section>
+            );
+          })}
         </div>
 
-        {/* Process Flow */}
-        <div className="bg-bg-secondary border border-border-color rounded-2xl p-8 md:p-12 mb-24">
-          <span className="eyebrow mb-3">Engagement Process</span>
-          <h2 className="headline text-2xl md:text-3xl text-text-primary mb-10">
-            How an engagement works.
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="border-l-2 border-accent-gold pl-4 py-1">
-              <span className="text-xs font-bold text-accent-gold uppercase font-mono">Phase 1</span>
-              <h3 className="text-base font-bold text-text-primary mt-1">Discovery Call</h3>
-              <p className="text-xs text-text-muted mt-2 leading-relaxed">
-                30-minute review of your current manual bottlenecks and software objectives.
-              </p>
-            </div>
-
-            <div className="border-l-2 border-border-color pl-4 py-1">
-              <span className="text-xs font-bold text-text-subtle uppercase font-mono">Phase 2</span>
-              <h3 className="text-base font-bold text-text-primary mt-1">Workflow Audit</h3>
-              <p className="text-xs text-text-muted mt-2 leading-relaxed">
-                Detailed mapping of data flows, users, inputs, outputs, and financial ROI.
-              </p>
-            </div>
-
-            <div className="border-l-2 border-border-color pl-4 py-1">
-              <span className="text-xs font-bold text-text-subtle uppercase font-mono">Phase 3</span>
-              <h3 className="text-base font-bold text-text-primary mt-1">Software Build</h3>
-              <p className="text-xs text-text-muted mt-2 leading-relaxed">
-                Rapid iterative engineering of custom ERP modules and automation engines.
-              </p>
-            </div>
-
-            <div className="border-l-2 border-border-color pl-4 py-1">
-              <span className="text-xs font-bold text-text-subtle uppercase font-mono">Phase 4</span>
-              <h3 className="text-base font-bold text-text-primary mt-1">Deployment & Handover</h3>
-              <p className="text-xs text-text-muted mt-2 leading-relaxed">
-                Deployment to client cloud infrastructure with team training and operational handoff.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Callout */}
-        <div className="bg-bg-secondary border border-border-color rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <span className="eyebrow mb-2">Start an Inquiry</span>
-            <h3 className="headline text-2xl md:text-3xl text-text-primary">
-              Ready to eliminate manual operational drag?
+        {/* Bottom CTA */}
+        <div className="p-8 sm:p-12 rounded-3xl bg-bg-secondary border border-border-color flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="space-y-2 text-center sm:text-left max-w-xl">
+            <h3 className="text-2xl font-bold text-text-primary">
+              Not sure whether you need an Audit or a Build?
             </h3>
-            <p className="text-sm text-text-muted mt-2 max-w-xl">
-              Write directly to <span className="font-mono text-accent-gold">{BUSINESS_EMAILS.business.email}</span> or request an operational audit.
+            <p className="text-sm text-text-muted leading-relaxed">
+              Book a 20-minute discovery call. We will examine your current spreadsheet setup, assess whether a custom system is justified, and give you an honest recommendation.
             </p>
           </div>
-          <Link href="/contact" className="btn-primary !text-sm shrink-0">
-            Start a Conversation
+          <Link
+            href="/contact"
+            className="btn-primary !px-8 !py-4 !text-sm whitespace-nowrap flex items-center gap-2"
+          >
+            <span>Book a 20-minute discovery call</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>

@@ -3,13 +3,14 @@
 export interface Article {
   title: string;
   slug: string;
-  category: 'Case Study' | 'Framework' | 'Build Log' | 'Observations';
+  category: 'Case Study' | 'Framework' | 'Build Log' | 'Observations' | 'Field Note';
   excerpt: string;
   body: any; // Block Content
   readTime: number;
   publishedAt: string;
   featured?: boolean;
   keywords?: string[];
+  templateDownloadUrl?: string;
   seo?: {
     metaTitle?: string;
     metaDescription?: string;
@@ -22,20 +23,40 @@ export interface CaseStudy {
   slug: string;
   industry: string;
   client: string;
-  liveUrl?: string;
-  problem: string;
+  liveUrl?: string | null;
+  clientContext: string;
+  problemInClientWords: string;
+  constraints: string[];
   solution: string;
-  results: {
-    metric: string;
+  architectureDiagramSvg?: string;
+  dataAndSecurityDesign: {
+    accessRules: string;
+    auditRules: string;
+    stagingAndValidation: string;
+  };
+  resultsDetailed: {
     value: string;
-    label: string;
+    metric: string;
+    howMeasured: string;
+    period: string;
+    evidenceId?: string;
   }[];
+  whatWentWrong: string;
+  stack: string[];
+  timeline: string;
+  clientQuote?: string | null;
+  whatIdDoDifferently: string;
   systemScreenshots?: {
     url?: string;
     caption?: string;
   }[];
   architectureNote?: string;
   tools?: string[];
+  results?: {
+    metric: string;
+    value: string;
+    label: string;
+  }[];
   publishedAt?: string;
   featured?: boolean;
 }

@@ -1,179 +1,215 @@
 // app/about/page.tsx
-import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, CheckCircle2, ShieldCheck } from 'lucide-react';
-import { BUSINESS_EMAILS } from '@/lib/emails';
+import { ShieldCheck, Clock, Award, CheckCircle2, ArrowRight, Database, Cpu } from 'lucide-react';
+import { getPlaceholdersList, isCredentialVerified } from '@/lib/facts';
 
-export const metadata: Metadata = {
-  title: 'About | Arslan Rehmani — Operational AI Systems Builder',
-  description: 'Arslan Rehmani builds custom operational software and ERPs for SMB manufacturing and ecommerce. Based in Karachi, Pakistan.',
-  alternates: {
-    canonical: '/about',
-  },
-  openGraph: {
-    title: 'About | Arslan Rehmani — Operational AI Systems Builder',
-    description: 'AI Operational Systems Builder & ERP Architect. Building custom software that replaces manual work permanently. Live proof software and verifiable metrics.',
-    url: 'https://arslanrehmani.com/about',
-    siteName: 'Arslan Rehmani',
-    locale: 'en_US',
-    type: 'profile',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'About Arslan Rehmani',
-    description: 'Operational AI systems builder. Custom ERPs and automation engines for manufacturing and ecommerce.',
-  },
+export const metadata = {
+  title: 'About Arslan Rehmani | Custom Projects & Operational Systems Builder',
+  description:
+    'Background in accounting training, factory floor software implementation, and building custom operational systems with deterministic agentic improvements.',
 };
 
-const proofMetrics = [
-  { metric: '5', label: 'Employees Replaced', sub: 'Full-time manual roles eliminated at textile plant' },
-  { metric: '40+', label: 'Hours Saved / Week', sub: 'Weekly manual reporting drag removed permanently' },
-  { metric: '27', label: 'Looms Managed Live', sub: 'Real-time production floor control at TextileMode' },
-  { metric: '10+', label: 'Months Live', sub: 'Continuous production uptime with real financial data' },
-];
-
 export default function AboutPage() {
+  const placeholders = getPlaceholdersList();
+  const isEdProficientVerified = isCredentialVerified('cred-ed-proficient');
+
   return (
-    <main className="bg-bg-primary min-h-screen pt-8 pb-16 md:pt-10 md:pb-20">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Header Hero */}
-        <div className="max-w-3xl mb-10">
-          <span className="eyebrow mb-3">Background & Approach</span>
-          <h1 className="headline text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
-            Systems over slideware.{' '}
-            <span className="italic text-accent-gold">Code over claims.</span>
+    <main className="min-h-screen bg-bg-primary text-text-primary pt-24 pb-20 px-6">
+      <div className="max-w-4xl mx-auto space-y-16">
+        {/* Availability Notice — zero mention of physical location or address */}
+        <div className="p-4 rounded-2xl bg-bg-secondary/60 border border-border-color flex flex-wrap items-center gap-3 text-xs text-text-muted">
+          <span className="inline-flex items-center gap-1.5 text-text-primary font-medium">
+            <Database className="w-3.5 h-3.5 text-accent-gold" />
+            <span>Custom Operational Systems &bull; Agentic Automation Over Production Software</span>
+          </span>
+          <span className="text-border-color">&bull;</span>
+          <span>Working overlap: {placeholders.OVERLAP_WINDOWS}</span>
+          <span className="text-border-color">&bull;</span>
+          <span>On-site visits: {placeholders.VISIT_POLICY}</span>
+        </div>
+
+        {/* Header Block */}
+        <div className="space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-bg-secondary border border-border-color text-xs font-mono text-text-muted">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Background &bull; Engineering Philosophy</span>
+          </div>
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-text-primary">
+            I build custom operational projects—and engineer agentic improvements over them.
           </h1>
-          <p className="text-base md:text-lg text-text-muted leading-relaxed mt-6">
-            I am Arslan Rehmani, an AI Operational Systems Builder & ERP Architect based in Karachi, Pakistan. I walk into businesses, diagnose operational drag, and engineer custom software systems that replace manual overhead permanently.
+          <p className="text-lg sm:text-xl text-text-muted leading-relaxed">
+            I am an engineer with accounting training. I build systems for owner-operators who are tired of manual work and cannot afford data that doesn&apos;t reconcile.
           </p>
         </div>
 
-        {/* Two-column layout: Bio & Headshot */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
-          <div className="lg:col-span-7 space-y-6 text-text-muted text-base leading-relaxed">
-            <p>
-              Most AI consulting consists of deck presentations, vague prompts, and unfulfilled automation promises. My approach is built on a single premise: <strong className="text-text-primary">claims are cheap, working software is not.</strong>
+        {/* The Specific Story — zero physical address or location mentions */}
+        <section className="space-y-6 text-base sm:text-lg text-text-muted leading-relaxed">
+          <div className="p-6 sm:p-8 rounded-3xl bg-bg-secondary/30 border border-border-color space-y-4 text-text-primary">
+            <h2 className="text-xl font-bold text-text-primary">
+              The Paper Registers of a 27-Loom Weaving Mill
+            </h2>
+            <p className="text-text-muted leading-relaxed text-sm sm:text-base">
+              My introduction to operational software didn&apos;t happen in an abstract tech incubator—it happened standing on the loud, humid weaving floor of a commercial textile mill.
             </p>
-            <p>
-              The first production system I engineered — TextileMode ERP — replaced five employees at a textile manufacturing plant managing 27 looms across 5 production modules and 11 financial reports. It has run daily operations for over 10 months.
+            <p className="text-text-muted leading-relaxed text-sm sm:text-base">
+              The mill had 27 industrial looms running day and night. Everything was tracked on physical, grease-stained paper registers. Shift supervisors wrote meterage numbers with ballpoint pens. Clerks transferred those numbers into multi-user Excel files on shared hard drives. Every Friday evening, two accountants sat down with calculators to reconcile yarn consumed against greige fabric produced.
             </p>
-            <p>
-              The second system — Belhide Operational Stack — acts as a multi-channel operational intelligence platform for an ecommerce client, unifying Shopify, Amazon, analytics, and custom AI-generated daily briefings.
+            <p className="text-text-muted leading-relaxed text-sm sm:text-base">
+              The numbers never matched. Someone had inevitably overwritten a cell formula, transposed a lot number, or miscalculated piece-rate wages. The cost wasn&apos;t theoretical: it was hundreds of thousands of dollars in untracked yarn drift and days of lost clerical time.
             </p>
-            <p>
-              Every system I build is deployed to infrastructure owned and controlled directly by the client. No vendor lock-in, no fragile third-party middleware, and zero operational fluff.
+            <p className="text-text-muted leading-relaxed text-sm sm:text-base">
+              I built TextileMode ERP to solve that exact operational problem. We didn&apos;t deploy an off-the-shelf chatbot or generic SaaS. We built a custom relational ERP from scratch that modeled their physical looms and double-entry accounting. Then, we layered agentic intelligence over it—automated shift briefings, yarn shortfall alerts, and variance detection. It has now been running continuously in production with real financial data for over 10 months.
             </p>
-
-            <div className="pt-4 flex flex-wrap gap-4">
-              <a
-                href={`mailto:${BUSINESS_EMAILS.direct.email}`}
-                className="btn-primary !text-sm"
-              >
-                Direct Contact ({BUSINESS_EMAILS.direct.email})
-              </a>
-              <Link href="/projects" className="btn-ghost !text-sm">
-                View Live Proof Systems →
-              </Link>
-            </div>
           </div>
+        </section>
 
-          <div className="lg:col-span-5">
-            <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-bg-secondary border border-border-color ring-1 ring-border-gold">
-              <Image
-                src="/headshot.jpg"
-                alt="Arslan Rehmani - Operational AI Systems Builder"
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Verifiable Proof Metrics Grid */}
-        <div className="bg-bg-secondary border border-border-color rounded-2xl p-8 md:p-12 mb-24">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 pb-6 border-b border-border-color">
-            <div>
-              <span className="eyebrow mb-2">Empirical Proof</span>
-              <h2 className="headline text-2xl md:text-3xl text-text-primary">
-                Hard Numbers. No Projections.
-              </h2>
-            </div>
-            <div className="flex items-center gap-2 text-xs text-accent-gold bg-accent-gold-dim border border-border-gold px-3.5 py-2 rounded-xl">
-              <ShieldCheck className="w-4 h-4 shrink-0" />
-              <span>Verified Production Operations</span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {proofMetrics.map((item) => (
-              <div key={item.label} className="flex flex-col">
-                <span className="text-4xl md:text-5xl font-black font-sans text-accent-gold">
-                  {item.metric}
-                </span>
-                <span className="text-sm font-bold text-text-primary mt-2">
-                  {item.label}
-                </span>
-                <span className="text-xs text-text-muted mt-1 leading-relaxed">
-                  {item.sub}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Operating Principles */}
-        <div className="mb-24">
-          <span className="eyebrow mb-4">Engineering Principles</span>
-          <h2 className="headline text-3xl md:text-4xl mb-10">
-            How I build operational software.
+        {/* How I Think */}
+        <section className="space-y-6">
+          <h2 className="text-xs font-mono uppercase tracking-wider text-text-subtle">
+            How I Think &bull; Engineering Principles
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-bg-secondary border border-border-color rounded-2xl p-8">
-              <span className="text-accent-gold font-mono text-xs font-bold block mb-3">01 / DIAGNOSIS FIRST</span>
-              <h3 className="text-lg font-bold text-text-primary mb-3">Workflow Before Code</h3>
-              <p className="text-xs md:text-sm text-text-muted leading-relaxed">
-                Software fails when built on assumptions. Every project begins with a deep-dive audit of how your business actually moves data, products, and money.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-bg-secondary/40 border border-border-color space-y-3">
+              <div className="text-accent-gold font-mono text-xs uppercase font-bold">
+                Principle 01
+              </div>
+              <h3 className="text-lg font-bold text-text-primary">
+                Build the custom system first. Layer agents on top.
+              </h3>
+              <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
+                An AI agent without a solid database is just a hallucination waiting to corrupt your books. We build custom operational systems from scratch—relational schemas, strict constraints, and role-based permissions—and engineer agentic workflows over that robust foundation.
               </p>
             </div>
 
-            <div className="bg-bg-secondary border border-border-color rounded-2xl p-8">
-              <span className="text-accent-gold font-mono text-xs font-bold block mb-3">02 / INFRASTRUCTURE OWNERSHIP</span>
-              <h3 className="text-lg font-bold text-text-primary mb-3">Client-Controlled Code</h3>
-              <p className="text-xs md:text-sm text-text-muted leading-relaxed">
-                You own your code, databases, and deployment keys. Systems are deployed to your infrastructure with clear documentation and zero licensing traps.
+            <div className="p-6 rounded-2xl bg-bg-secondary/40 border border-border-color space-y-3">
+              <div className="text-accent-gold font-mono text-xs uppercase font-bold">
+                Principle 02
+              </div>
+              <h3 className="text-lg font-bold text-text-primary">
+                Data must reconcile to the cent.
+              </h3>
+              <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
+                If an operational system cannot produce a trial balance where debits equal credits to the exact penny, it is not operational software. I design every schema with strict relational integrity constraints and double-entry accounting mechanics.
               </p>
             </div>
 
-            <div className="bg-bg-secondary border border-border-color rounded-2xl p-8">
-              <span className="text-accent-gold font-mono text-xs font-bold block mb-3">03 / PERMANENT OVERHEAD REMOVAL</span>
-              <h3 className="text-lg font-bold text-text-primary mb-3">Zero Manual Repeat Drag</h3>
-              <p className="text-xs md:text-sm text-text-muted leading-relaxed">
-                If a human task is repetitive, structured, and predictable, it belongs in deterministic code or targeted AI pipeline automation.
+            <div className="p-6 rounded-2xl bg-bg-secondary/40 border border-border-color space-y-3">
+              <div className="text-accent-gold font-mono text-xs uppercase font-bold">
+                Principle 03
+              </div>
+              <h3 className="text-lg font-bold text-text-primary">
+                Floor reality beats abstract software theory.
+              </h3>
+              <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
+                Software must work for the supervisor in work gloves on a dusty factory floor, not just an executive on a pristine laptop. If the interface is awkward to use during a shift change, workers will revert to paper logs.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-bg-secondary/40 border border-border-color space-y-3">
+              <div className="text-accent-gold font-mono text-xs uppercase font-bold">
+                Principle 04
+              </div>
+              <h3 className="text-lg font-bold text-text-primary">
+                Zero vendor lock-in. Full client ownership.
+              </h3>
+              <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
+                You own your git repository, your database encryption keys, and your cloud hosting accounts. I work via scoped IAM developer accounts so you can inspect, audit, or transfer the code anytime.
               </p>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Contact Routing Section */}
-        <div className="bg-bg-secondary border border-border-color rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <span className="eyebrow mb-2">Direct Contact</span>
-            <h3 className="headline text-2xl md:text-3xl text-text-primary">
-              Have an operational bottleneck?
+        {/* Working Hours & Communication Norms */}
+        <section className="p-8 rounded-3xl bg-bg-secondary/40 border border-border-color space-y-6">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-accent-gold font-bold">
+            <Clock className="w-4 h-4" />
+            <span>Working Norms &amp; Communication Commitments</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-text-muted">
+            <div className="space-y-2">
+              <div className="text-text-primary font-bold">
+                Reply Time Commitment:
+              </div>
+              <p className="text-xs leading-relaxed">
+                I reply within <strong>24 hours on business days</strong>. No account managers or ticketing layers; you communicate directly with the engineer building your system.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <div className="text-text-primary font-bold">
+                Weekly Friday Milestone Updates:
+              </div>
+              <p className="text-xs leading-relaxed">
+                Every Friday by 17:00, you receive a concise written report with a working staging demo link, completed milestone deliverables, and any blockers for the upcoming week.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Credentials (Truth Gate Verified) */}
+        <section className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xs font-mono uppercase tracking-wider text-text-subtle">
+              Verified Credentials &amp; Training
+            </h2>
+            <span className="text-[11px] font-mono text-emerald-400 flex items-center gap-1">
+              <ShieldCheck className="w-3.5 h-3.5" /> Truth Gate Verified
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="p-5 rounded-2xl bg-bg-primary border border-border-color space-y-2">
+              <div className="text-xs font-mono text-accent-gold font-bold">Computer Science</div>
+              <div className="text-base font-bold text-text-primary">Harvard CS50 Verified</div>
+              <p className="text-xs text-text-muted">
+                Rigorous foundations in C, Python, SQL, algorithms, and memory management.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-bg-primary border border-border-color space-y-2">
+              <div className="text-xs font-mono text-accent-gold font-bold">Systems Engineering</div>
+              <div className="text-base font-bold text-text-primary">FDE Systems Engineering</div>
+              <p className="text-xs text-text-muted">
+                Production architecture in Forward Deployed Engineering and deterministic agent pipelines.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-bg-primary border border-border-color space-y-2">
+              <div className="text-xs font-mono text-accent-gold font-bold">Financial Engineering</div>
+              <div className="text-base font-bold text-text-primary">Double-Entry Ledger Architecture</div>
+              <p className="text-xs text-text-muted">
+                Mathematical balance assertions, transactional journals, and auditable reconciliations.
+              </p>
+            </div>
+          </div>
+
+          {/* Conditional rendering of Ed Donner credential: strictly hidden if unverified */}
+          {isEdProficientVerified && (
+            <div className="p-4 rounded-xl bg-bg-primary border border-border-color text-xs text-text-muted">
+              Verified Directory Listing: Ed Donner Proficient AI Engineer
+            </div>
+          )}
+        </section>
+
+        {/* CTA */}
+        <div className="p-8 sm:p-10 rounded-3xl bg-bg-secondary border border-border-color flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="space-y-1 text-center sm:text-left">
+            <h3 className="text-xl font-bold text-text-primary">
+              Want to discuss your operations?
             </h3>
-            <p className="text-sm text-text-muted mt-2 max-w-xl">
-              Write directly to <span className="font-mono text-accent-gold">arslan@arslanrehmani.com</span> for strategic inquiries, or use the dedicated business channels.
+            <p className="text-sm text-text-muted">
+              Book a 20-minute discovery call to discuss the custom system you need.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-            <Link href="/contact" className="btn-primary !text-sm">
-              Contact Directory & Form
-            </Link>
-          </div>
+          <Link
+            href="/contact"
+            className="btn-primary !px-6 !py-3 !text-sm whitespace-nowrap flex items-center gap-2"
+          >
+            <span>Book a 20-minute discovery call</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </main>

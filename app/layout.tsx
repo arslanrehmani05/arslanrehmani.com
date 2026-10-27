@@ -3,9 +3,10 @@ import { DM_Sans } from "next/font/google";
 import Script from "next/script";
 import SiteShell from "@/components/site-shell";
 import PwaRegister from "@/components/pwa-register";
+import CookieConsent from "@/components/cookie-consent";
 import "./globals.css";
 
-// LeftClick primary font: DM Sans
+// Primary font: DM Sans
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dmsans",
@@ -21,8 +22,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Arslan Rehmani | Operational AI Systems",
-  description: "I build systems that replace manual work permanently. Custom operational software for manufacturing companies and ecommerce brands.",
+  title: "Arslan Rehmani | Secure Data Systems & Verified AI Agents",
+  description: "I build secure, reliable data systems and deterministic AI agents for small and mid-sized businesses whose operations still run on spreadsheets, paper registers, and disconnected tools.",
   metadataBase: new URL("https://arslanrehmani.com"),
   alternates: {
     canonical: "/",
@@ -45,12 +46,17 @@ export const metadata: Metadata = {
     title: "Arslan R.",
   },
   openGraph: {
-    title: "Arslan Rehmani | Operational AI Systems",
-    description: "I build systems that replace manual work permanently. Four live products you can open and use right now.",
+    title: "Arslan Rehmani | Secure Data Systems & Verified AI Agents",
+    description: "I build secure, reliable data systems and deterministic AI agents for small and mid-sized businesses. Truth Gate enforced.",
     url: "https://arslanrehmani.com",
     siteName: "Arslan Rehmani",
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Arslan Rehmani | Secure Data Systems & Verified AI Agents",
+    description: "Custom operational software and deterministic AI pipelines for manufacturing and ecommerce businesses.",
   },
 };
 
@@ -68,7 +74,21 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
-        {/* Google Tag (gtag.js) */}
+        {/* Google Tag (gtag.js) with default consent denied per UK/EU GDPR */}
+        <Script
+          id="google-consent-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                'analytics_storage': 'denied',
+                'ad_storage': 'denied'
+              });
+            `,
+          }}
+        />
         <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
@@ -78,8 +98,6 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${gaId}');
             `,
@@ -99,9 +117,9 @@ export default function RootLayout({
       </head>
       <body className={`${dmSans.variable} bg-bg-primary text-text-primary antialiased font-sans`}>
         <SiteShell>{children}</SiteShell>
+        <CookieConsent />
         <PwaRegister />
       </body>
     </html>
   );
 }
-

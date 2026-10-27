@@ -35,8 +35,6 @@ const nextConfig = {
   // rendering a page that bounces client-side.
   async redirects() {
     return [
-      { source: '/work', destination: '/#proof', permanent: true },
-      { source: '/about', destination: '/#about', permanent: true },
       { source: '/speaking', destination: '/contact', permanent: true },
       { source: '/media', destination: '/contact', permanent: true },
     ];

@@ -2,41 +2,38 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Check, AlertCircle, ArrowUpRight, Copy } from 'lucide-react';
-import { EMAIL_LIST, BUSINESS_EMAILS } from '@/lib/emails';
+import Link from 'next/link';
+import { Mail, Check, AlertCircle, Calendar, ShieldCheck, MapPin, Clock, ArrowRight } from 'lucide-react';
+import { getPlaceholdersList } from '@/lib/facts';
 
 const inputClasses =
-  'w-full bg-bg-secondary border border-border-color rounded-xl px-4 py-3 text-text-primary placeholder:text-text-subtle focus:border-accent-gold focus:outline-none transition-colors duration-200 text-sm';
+  'w-full bg-bg-secondary border border-border-color rounded-xl px-4 py-3 text-text-primary placeholder:text-text-subtle focus:border-text-primary/50 focus:outline-none transition-colors duration-200 text-sm font-sans';
 
 export default function ContactClient() {
+  const placeholders = getPlaceholdersList();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
-    targetEmail: 'contact@arslanrehmani.com',
+    serviceInterest: 'Data Audit',
     message: '',
-    // Honeypot field (hidden from legitimate human users)
-    hp_website: '',
+    hp_website: '', // honeypot
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<'cal' | 'form'>('cal');
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required.';
-    }
+    if (!formData.name.trim()) newErrors.name = 'Name is required.';
     if (!formData.email.trim()) {
       newErrors.email = 'Email address is required.';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
       newErrors.email = 'Please enter a valid email address.';
     }
     if (!formData.message.trim()) {
-      newErrors.message = 'Please provide details about your inquiry or operational drag.';
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message should be at least 10 characters long.';
+      newErrors.message = 'Please briefly describe your current spreadsheets or operational problem.';
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -44,15 +41,12 @@ export default function ContactClient() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Honeypot check: drop silent success if a bot filled out the hidden field
     if (formData.hp_website) {
       setStatus('success');
       return;
     }
 
     if (!validateForm()) return;
-
     setStatus('loading');
 
     try {
@@ -60,299 +54,292 @@ export default function ContactClient() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          email: formData.email.trim(),
-          source: `contact-page [Target: ${formData.targetEmail}]: Name=${formData.name.trim()}, Company=${formData.company.trim() || 'N/A'}, Message=${formData.message.trim()}`,
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: `[Interest: ${formData.serviceInterest}] ${formData.message}`,
+          source: 'contact_form_truth_gate',
         }),
       });
 
-      const resData = await response.json();
-
-      if (response.ok && resData.success) {
-        setStatus('success');
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          targetEmail: 'contact@arslanrehmani.com',
-          message: '',
-          hp_website: '',
-        });
-        setErrors({});
-      } else {
-        setStatus('error');
-      }
-    } catch {
+      if (!response.ok) throw new Error('Submission failed');
+      setStatus('success');
+    } catch (err) {
       setStatus('error');
     }
   };
 
-  const handleCopyEmail = (email: string) => {
-    navigator.clipboard.writeText(email);
-    setCopiedEmail(email);
-    setTimeout(() => setCopiedEmail(null), 2500);
-  };
-
   return (
-    <main className="bg-bg-primary min-h-screen pt-8 pb-16 md:pt-10 md:pb-20">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Header Section */}
-        <div className="max-w-3xl mb-10">
-          <span className="eyebrow mb-3">Direct Communication</span>
-          <h1 className="headline text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
-            Start the conversation.
+    <main className="min-h-screen bg-bg-primary text-text-primary pt-24 pb-20 px-6">
+      <div className="max-w-4xl mx-auto space-y-16">
+        {/* Availability Bar — zero mention of physical location or address */}
+        <div className="p-4 rounded-2xl bg-bg-secondary/60 border border-border-color flex flex-wrap items-center gap-3 text-xs text-text-muted">
+          <span className="inline-flex items-center gap-1.5 text-text-primary font-medium">
+            <ShieldCheck className="w-3.5 h-3.5 text-accent-gold" />
+            <span>Custom Operational Systems &bull; Direct Senior Engineer Access</span>
+          </span>
+          <span className="text-border-color">&bull;</span>
+          <span>Working overlap: {placeholders.OVERLAP_WINDOWS}</span>
+          <span className="text-border-color">&bull;</span>
+          <span>On-site visits: {placeholders.VISIT_POLICY}</span>
+        </div>
+
+        {/* Header Block */}
+        <div className="max-w-2xl space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-bg-secondary border border-border-color text-xs font-mono text-text-muted">
+            <Clock className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Response Promise: Within 24 hours on business days</span>
+          </div>
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-text-primary">
+            Book a 20-Minute Discovery Call.
           </h1>
-          <p className="text-base md:text-lg text-text-muted leading-relaxed mt-4">
-            Every business email address below routes directly to its intended purpose. Select the appropriate channel or send a message directly using the form below. Responses are sent within 24 business hours.
+          <p className="text-base sm:text-lg text-text-muted leading-relaxed">
+            No sales reps. You speak directly with Arslan. We will review the spreadsheets you currently run, identify the failure points, and discuss whether a Data Audit or Systems Build makes sense.
           </p>
         </div>
 
-        {/* Purpose-Driven Email Cards Grid */}
-        <div className="mb-12">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-text-primary mb-6">
-            Business Email Directory
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {EMAIL_LIST.map((item) => (
-              <div
-                key={item.id}
-                className="bg-bg-secondary border border-border-color hover:border-border-gold rounded-2xl p-6 flex flex-col justify-between transition-colors duration-200"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="text-xs font-bold text-accent-gold uppercase tracking-wider">
-                      {item.label}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => handleCopyEmail(item.email)}
-                      className="text-text-subtle hover:text-text-primary transition-colors p-1.5 rounded-lg hover:bg-bg-primary"
-                      title="Copy email address"
-                      aria-label={`Copy ${item.email}`}
-                    >
-                      {copiedEmail === item.email ? (
-                        <Check className="w-4 h-4 text-accent-gold" />
-                      ) : (
-                        <Copy className="w-4 h-4" />
-                      )}
-                    </button>
-                  </div>
-
-                  <a
-                    href={`mailto:${item.email}`}
-                    className="text-base font-mono font-semibold text-text-primary hover:text-accent-gold transition-colors inline-flex items-center gap-1.5 mb-3"
-                  >
-                    {item.email}
-                    <ArrowUpRight className="w-4 h-4 shrink-0 text-accent-gold" />
-                  </a>
-
-                  <p className="text-xs font-semibold text-text-primary mb-2">
-                    {item.purpose}
-                  </p>
-                  <p className="text-xs text-text-muted leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-border-color/60 flex items-center justify-between">
-                  <span className="text-[11px] text-text-subtle">Direct Channel</span>
-                  <a
-                    href={`mailto:${item.email}`}
-                    className="text-xs text-accent-gold hover:text-accent-gold-hover font-semibold transition-colors inline-flex items-center gap-1"
-                  >
-                    Send Email →
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Dual Mode Switcher: Cal.com Calendar vs Direct Form */}
+        <div className="flex items-center gap-3 p-1.5 rounded-2xl bg-bg-secondary border border-border-color w-fit">
+          <button
+            type="button"
+            onClick={() => setActiveTab('cal')}
+            className={`px-5 py-2.5 rounded-xl text-xs font-mono uppercase tracking-wider transition-all flex items-center gap-2 ${
+              activeTab === 'cal'
+                ? 'bg-bg-primary text-text-primary shadow-sm border border-border-color font-bold'
+                : 'text-text-muted hover:text-text-primary'
+            }`}
+          >
+            <Calendar className="w-4 h-4 text-accent-gold" />
+            <span>Schedule Discovery Call</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('form')}
+            className={`px-5 py-2.5 rounded-xl text-xs font-mono uppercase tracking-wider transition-all flex items-center gap-2 ${
+              activeTab === 'form'
+                ? 'bg-bg-primary text-text-primary shadow-sm border border-border-color font-bold'
+                : 'text-text-muted hover:text-text-primary'
+            }`}
+          >
+            <Mail className="w-4 h-4 text-accent-gold" />
+            <span>Send Written Scope</span>
+          </button>
         </div>
 
-        {/* Main Contact Form & Context Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start border-t border-border-color pt-10">
-          {/* Left Context */}
-          <div className="lg:col-span-5">
-            <span className="eyebrow mb-3">Direct Form</span>
-            <h2 className="headline text-2xl md:text-3xl">
-              Describe your operational drag.
-            </h2>
-            <p className="text-sm md:text-base text-text-muted leading-relaxed mt-4">
-              Whether you need to replace manual overhead, integrate multiple sales channels, or build custom ERP software modules — send your details and I will reply within 24 hours.
-            </p>
+        {/* Tab 1: Cal.com Scheduler Container */}
+        {activeTab === 'cal' && (
+          <div className="p-8 sm:p-12 rounded-3xl bg-bg-secondary/40 border border-border-color space-y-8">
+            <div className="space-y-2">
+              <h2 className="text-2xl font-bold text-text-primary">
+                Select a Time for Your Discovery Call
+              </h2>
+              <p className="text-sm text-text-muted">
+                20 minutes on Google Meet. Focused on your operational data flow.
+              </p>
+            </div>
 
-            <div className="mt-8 space-y-4 bg-bg-secondary border border-border-color rounded-2xl p-6">
-              <h3 className="text-sm font-bold text-text-primary">What happens next?</h3>
-              <ul className="space-y-3 text-xs text-text-muted">
-                <li className="flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-accent-gold-dim border border-border-gold flex items-center justify-center text-accent-gold font-bold shrink-0 text-[10px]">1</span>
-                  <span>Direct review of your message within 24 hours.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-accent-gold-dim border border-border-gold flex items-center justify-center text-accent-gold font-bold shrink-0 text-[10px]">2</span>
-                  <span>Clear, technical feedback — no persistent sales follow-ups.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-accent-gold-dim border border-border-gold flex items-center justify-center text-accent-gold font-bold shrink-0 text-[10px]">3</span>
-                  <span>Option for a 30-minute operational discovery session.</span>
-                </li>
-              </ul>
+            {/* Simulated Cal.com embed / fallback schedule selector */}
+            <div className="p-6 rounded-2xl bg-bg-primary border border-border-color space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border-color pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-bg-secondary border border-border-color flex items-center justify-center font-mono font-bold text-accent-gold">
+                    20m
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-text-primary">
+                      Operational Drag Diagnosis &bull; 20 min
+                    </div>
+                    <div className="text-xs text-text-muted">
+                      Video call via Google Meet &bull; Working overlap: {placeholders.OVERLAP_WINDOWS}
+                    </div>
+                  </div>
+                </div>
+
+                <a
+                  href="https://cal.com/arslanrehmani"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary !px-5 !py-2.5 !text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5"
+                >
+                  <span>Open in Cal.com</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+
+              {/* Instant Time Slot Options */}
+              <div className="space-y-3">
+                <div className="text-xs font-mono uppercase tracking-wider text-text-subtle">
+                  Upcoming Discovery Slots:
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs">
+                  <a
+                    href="mailto:contact@arslanrehmani.com?subject=Booking Discovery Call: Tuesday 14:00 UTC"
+                    className="p-3.5 rounded-xl bg-bg-secondary/70 border border-border-color hover:border-text-primary/40 transition-colors block text-center"
+                  >
+                    <div className="font-bold text-text-primary">Tuesday</div>
+                    <div className="text-accent-gold mt-0.5">14:00 UTC (10:00 ET)</div>
+                  </a>
+                  <a
+                    href="mailto:contact@arslanrehmani.com?subject=Booking Discovery Call: Wednesday 15:00 UTC"
+                    className="p-3.5 rounded-xl bg-bg-secondary/70 border border-border-color hover:border-text-primary/40 transition-colors block text-center"
+                  >
+                    <div className="font-bold text-text-primary">Wednesday</div>
+                    <div className="text-accent-gold mt-0.5">15:00 UTC (11:00 ET)</div>
+                  </a>
+                  <a
+                    href="mailto:contact@arslanrehmani.com?subject=Booking Discovery Call: Thursday 14:30 UTC"
+                    className="p-3.5 rounded-xl bg-bg-secondary/70 border border-border-color hover:border-text-primary/40 transition-colors block text-center"
+                  >
+                    <div className="font-bold text-text-primary">Thursday</div>
+                    <div className="text-accent-gold mt-0.5">14:30 UTC (10:30 ET)</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 text-xs font-mono text-text-subtle">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <span>Strict privacy: your company numbers and names are kept confidential under NDA.</span>
             </div>
           </div>
+        )}
 
-          {/* Right Form */}
-          <div className="lg:col-span-7 bg-bg-secondary border border-border-color rounded-2xl p-6 md:p-10">
+        {/* Tab 2: Direct Written Form */}
+        {activeTab === 'form' && (
+          <div className="p-8 sm:p-12 rounded-3xl bg-bg-secondary/40 border border-border-color space-y-8">
+            <div className="space-y-2">
+              <h2 className="text-2xl font-bold text-text-primary">
+                Send Details About Your Operation
+              </h2>
+              <p className="text-sm text-text-muted">
+                Describe the spreadsheets, volume of transactions, or operational failure points.
+              </p>
+            </div>
+
             {status === 'success' ? (
-              <div className="flex flex-col items-center text-center py-10">
-                <span className="flex items-center justify-center w-16 h-16 rounded-full bg-accent-gold-dim border border-border-gold mb-6">
-                  <Check className="w-8 h-8 text-accent-gold" />
-                </span>
-                <h3 className="headline text-2xl text-text-primary">Message Received</h3>
-                <p className="text-sm text-text-muted leading-relaxed mt-3 max-w-md">
-                  Thank you. Your message has been sent successfully. Arslan will review your details and respond within 24 business hours.
+              <div className="p-8 rounded-2xl bg-bg-primary border border-emerald-500/30 text-center space-y-4">
+                <div className="w-12 h-12 rounded-full bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto">
+                  <Check className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-text-primary">Message Received</h3>
+                <p className="text-sm text-text-muted max-w-md mx-auto">
+                  Thank you. I have received your operational notes and will respond with a direct analysis within 24 hours on business days.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => setStatus('idle')}
-                  className="btn-ghost mt-8 !px-6 !py-2.5 !text-xs"
-                >
-                  Send another message
-                </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                {/* Honeypot Spam Protection Field */}
-                <div className="hidden" aria-hidden="true">
-                  <label htmlFor="hp_website">Do not fill this field</label>
-                  <input
-                    type="text"
-                    id="hp_website"
-                    name="hp_website"
-                    tabIndex={-1}
-                    value={formData.hp_website}
-                    onChange={(e) => setFormData({ ...formData, hp_website: e.target.value })}
-                  />
-                </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field (hidden from legitimate users) */}
+                <input
+                  type="text"
+                  name="hp_website"
+                  value={formData.hp_website}
+                  onChange={(e) => setFormData({ ...formData, hp_website: e.target.value })}
+                  style={{ display: 'none' }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
 
-                {/* Name */}
-                <div className="flex flex-col gap-1.5">
-                  <label htmlFor="contact-name" className="text-xs font-semibold text-text-primary">
-                    Full Name <span className="text-accent-gold">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="contact-name"
-                    required
-                    aria-required="true"
-                    aria-invalid={!!errors.name}
-                    placeholder="e.g. Tariq Mahmood"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className={`${inputClasses} ${errors.name ? 'border-red-500' : ''}`}
-                  />
-                  {errors.name && (
-                    <span className="text-xs text-red-400 flex items-center gap-1">
-                      <AlertCircle className="w-3 h-3" /> {errors.name}
-                    </span>
-                  )}
-                </div>
-
-                {/* Email */}
-                <div className="flex flex-col gap-1.5">
-                  <label htmlFor="contact-email" className="text-xs font-semibold text-text-primary">
-                    Work Email <span className="text-accent-gold">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="contact-email"
-                    required
-                    aria-required="true"
-                    aria-invalid={!!errors.email}
-                    placeholder="name@company.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className={`${inputClasses} ${errors.email ? 'border-red-500' : ''}`}
-                  />
-                  {errors.email && (
-                    <span className="text-xs text-red-400 flex items-center gap-1">
-                      <AlertCircle className="w-3 h-3" /> {errors.email}
-                    </span>
-                  )}
-                </div>
-
-                {/* Company & Target Channel */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="contact-company" className="text-xs font-semibold text-text-primary">
-                      Company / Organization
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="block text-xs font-mono uppercase text-text-subtle">
+                      Your Name *
                     </label>
                     <input
                       type="text"
-                      id="contact-company"
-                      placeholder="e.g. Apex Textiles"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="Jane Smith"
+                      className={inputClasses}
+                    />
+                    {errors.name && <p className="text-xs text-red-400">{errors.name}</p>}
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="block text-xs font-mono uppercase text-text-subtle">
+                      Work Email *
+                    </label>
+                    <input
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="jane@company.com"
+                      className={inputClasses}
+                    />
+                    {errors.email && <p className="text-xs text-red-400">{errors.email}</p>}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="block text-xs font-mono uppercase text-text-subtle">
+                      Company Name &amp; Industry
+                    </label>
+                    <input
+                      type="text"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      placeholder="Apex Manufacturing Ltd (Textiles)"
                       className={inputClasses}
                     />
                   </div>
 
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="contact-target" className="text-xs font-semibold text-text-primary">
-                      Recipient Email Channel
+                  <div className="space-y-2">
+                    <label className="block text-xs font-mono uppercase text-text-subtle">
+                      Primary Area of Interest
                     </label>
                     <select
-                      id="contact-target"
-                      value={formData.targetEmail}
-                      onChange={(e) => setFormData({ ...formData, targetEmail: e.target.value })}
+                      value={formData.serviceInterest}
+                      onChange={(e) => setFormData({ ...formData, serviceInterest: e.target.value })}
                       className={inputClasses}
                     >
-                      {EMAIL_LIST.map((item) => (
-                        <option key={item.id} value={item.email} className="bg-bg-secondary text-text-primary">
-                          {item.email} ({item.label})
-                        </option>
-                      ))}
+                      <option value="Data Audit">Data Audit (1 Week Diagnostic)</option>
+                      <option value="Systems Build">Custom Systems Build (Replace Excel)</option>
+                      <option value="Agent Add-on">Deterministic AI Agent Add-on</option>
+                      <option value="Care Plan">Disaster Recovery &amp; Care Plan</option>
                     </select>
                   </div>
                 </div>
 
-                {/* Message */}
-                <div className="flex flex-col gap-1.5">
-                  <label htmlFor="contact-message" className="text-xs font-semibold text-text-primary">
-                    Message / Operational Details <span className="text-accent-gold">*</span>
+                <div className="space-y-2">
+                  <label className="block text-xs font-mono uppercase text-text-subtle">
+                    Operational Problem in Your Words *
                   </label>
                   <textarea
-                    id="contact-message"
-                    required
-                    rows={5}
-                    aria-required="true"
-                    aria-invalid={!!errors.message}
-                    placeholder="Describe your operational bottleneck, current manual overhead, or project specifications..."
+                    rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className={`${inputClasses} resize-none ${errors.message ? 'border-red-500' : ''}`}
+                    placeholder="e.g. We have 4 people spending 15 hours each week transcribing supplier delivery receipts into Excel, and inventory is constantly off by $20k..."
+                    className={inputClasses}
                   />
-                  {errors.message && (
-                    <span className="text-xs text-red-400 flex items-center gap-1">
-                      <AlertCircle className="w-3 h-3" /> {errors.message}
-                    </span>
-                  )}
+                  {errors.message && <p className="text-xs text-red-400">{errors.message}</p>}
                 </div>
 
-                {/* Submit button */}
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="btn-primary w-full disabled:opacity-50 mt-2"
+                  className="btn-primary !px-8 !py-4 !text-sm font-semibold w-full sm:w-auto flex items-center justify-center gap-2"
                 >
-                  {status === 'loading' ? 'Sending Message...' : 'Send Message'}
+                  {status === 'loading' ? (
+                    <span>Transmitting...</span>
+                  ) : (
+                    <>
+                      <span>Submit Operational Inquiry</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
-
-                {status === 'error' && (
-                  <div className="p-3 bg-red-950/40 border border-red-800/50 rounded-xl flex items-center gap-2 text-xs text-red-300">
-                    <AlertCircle className="w-4 h-4 shrink-0 text-red-400" />
-                    <span>Something went wrong submitting your message. Please try again or write directly to <a href={`mailto:${formData.targetEmail}`} className="underline font-mono text-accent-gold">{formData.targetEmail}</a>.</span>
-                  </div>
-                )}
               </form>
             )}
+          </div>
+        )}
+
+        {/* Direct Channel Box */}
+        <div className="p-6 rounded-2xl bg-bg-secondary/40 border border-border-color flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-text-muted">
+          <div>
+            Direct Inquiries: <a href="mailto:contact@arslanrehmani.com" className="text-accent-gold underline">contact@arslanrehmani.com</a>
+          </div>
+          <div>
+            PGP Encryption Available upon request &bull; DPA templates ready
           </div>
         </div>
       </div>

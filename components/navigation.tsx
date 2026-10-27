@@ -3,21 +3,25 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
-
+import { Menu, X, ArrowRight } from 'lucide-react';
 import BrandLogo from '@/components/brand-logo';
 
-const links = [
-  { label: 'Case Studies', href: '/projects' },
+const navLinks = [
+  { label: 'Work', href: '/work' },
+  { label: 'Agents', href: '/agents' },
+  { label: 'Tools', href: '/tools' },
   { label: 'Services', href: '/services' },
-  { label: "See What's Costing You", href: '/diagnostics' },
+  { label: 'Security', href: '/security' },
+  { label: 'Proof Ledger', href: '/proof-ledger' },
+  { label: 'About', href: '/about' },
+  { label: 'Ask My Twin', href: '/twin' },
 ];
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-bg-primary/90 backdrop-blur-md border-b border-border-color">
+    <header className="sticky top-0 z-50 w-full bg-bg-primary/95 backdrop-blur-md border-b border-border-color">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
@@ -27,66 +31,70 @@ export default function Navigation() {
           <span>Arslan Rehmani</span>
         </Link>
 
-        {/* Desktop */}
-        <nav className="hidden md:flex items-center gap-5 lg:gap-7">
-          {links.map((link) => (
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-6">
+          {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className={`text-sm transition-colors duration-200 ${
-                link.href === '/diagnostics'
-                  ? 'text-accent-gold font-semibold hover:text-accent-gold-hover'
-                  : 'text-text-muted hover:text-accent-gold'
-              }`}
+              className="text-sm text-text-muted hover:text-text-primary transition-colors duration-200"
             >
               {link.label}
             </Link>
           ))}
           <Link
             href="/contact"
-            className="btn-primary !px-5 !py-2 !text-sm"
+            className="btn-primary !px-4 !py-2 !text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5"
           >
-            Start a conversation
+            <span>Book 20-min call</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </nav>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex items-center justify-center text-text-primary transition-colors duration-200 hover:text-accent-gold"
-          aria-label="Toggle navigation menu"
-          aria-expanded={isOpen}
-          style={{ width: '44px', height: '44px' }}
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* Mobile overlay */}
-      {isOpen && (
-        <div className="fixed inset-0 top-16 z-40 bg-bg-primary flex flex-col items-center justify-center gap-5 md:hidden px-6">
-          {links.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className={`text-lg transition-colors duration-200 ${
-                link.href === '/diagnostics'
-                  ? 'text-accent-gold font-bold'
-                  : 'text-text-primary hover:text-accent-gold'
-              }`}
-              style={{ minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
-            >
-              {link.label}
-            </Link>
-          ))}
+        {/* Mobile menu toggle button */}
+        <div className="lg:hidden flex items-center gap-2">
           <Link
             href="/contact"
-            onClick={() => setIsOpen(false)}
-            className="btn-primary mt-4 w-full max-w-xs"
+            className="btn-primary !px-3 !py-1.5 !text-xs mr-1"
           >
-            Start a conversation
+            Book call
           </Link>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex items-center justify-center text-text-primary hover:text-accent-gold transition-colors p-2 rounded-lg bg-bg-secondary border border-border-color"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isOpen}
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Drawer */}
+      {isOpen && (
+        <div className="lg:hidden border-b border-border-color bg-bg-primary/98 px-6 py-6 space-y-4">
+          <div className="grid grid-cols-2 gap-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="p-3 rounded-xl bg-bg-secondary/60 border border-border-color text-sm text-text-muted hover:text-text-primary hover:border-text-primary/30 transition-all font-medium"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div className="pt-2">
+            <Link
+              href="/contact"
+              onClick={() => setIsOpen(false)}
+              className="btn-primary w-full text-center !py-3 !text-sm flex items-center justify-center gap-2"
+            >
+              <span>Book a 20-minute discovery call</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       )}
     </header>

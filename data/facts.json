@@ -1,0 +1,307 @@
+{
+  "version": "1.1.0",
+  "truthGateEnforced": true,
+  "lastAudited": "2026-10-26T10:35:00Z",
+  "facts": [
+    {
+      "id": "fact-textilemode-client",
+      "category": "client",
+      "claim": "TextileMode Manufacturing ERP deployment",
+      "value": "TextileMode",
+      "status": "verified",
+      "evidence": "Live production deployment at https://erp.textilemode.com with active ERP ledger and loom management.",
+      "footnote": "Verified via live production system at erp.textilemode.com."
+    },
+    {
+      "id": "fact-textilemode-looms",
+      "category": "metric",
+      "claim": "Loom count actively managed in production",
+      "value": "27 looms",
+      "status": "verified",
+      "evidence": "Production planning and loom allocation module managing 27 air-jet and shuttle looms.",
+      "footnote": "Case Study 01: TextileMode ERP (production planning module)."
+    },
+    {
+      "id": "fact-textilemode-modules",
+      "category": "metric",
+      "claim": "System modules and analytical reports built",
+      "value": "5 modules, 11 reports",
+      "status": "verified",
+      "evidence": "Modules covering yarn inventory, loom scheduling, greige inspection, payroll piece-rate, and financial close.",
+      "footnote": "TextileMode ERP system specification and deployed report suite."
+    },
+    {
+      "id": "fact-textilemode-roles",
+      "category": "metric",
+      "claim": "Manual roles transitioned to software workflows",
+      "value": "5 roles",
+      "status": "verified",
+      "evidence": "Eliminated manual paper log tallying, manual loom allocation ledgers, and duplicate spreadsheet entry across 5 staff posts.",
+      "footnote": "TextileMode operational audit: 5 clerical data entry roles replaced permanently by software."
+    },
+    {
+      "id": "fact-textilemode-hours",
+      "category": "metric",
+      "claim": "Weekly manual clerical work eliminated",
+      "value": "40+ hours",
+      "status": "verified",
+      "evidence": "Shift-change registers and physical ledger transcription automated into real-time shift tablet entries.",
+      "footnote": "Measured weekly hours across shift supervisors and accounting reconcilers."
+    },
+    {
+      "id": "fact-textilemode-live",
+      "category": "metric",
+      "claim": "Continuous live production operation with financial data",
+      "value": "10+ months",
+      "status": "verified",
+      "evidence": "Continuous operational uptime with live double-entry journals and inventory valuations since launch.",
+      "footnote": "Verified against production deployment logs at erp.textilemode.com."
+    },
+    {
+      "id": "fact-belhide-client",
+      "category": "client",
+      "claim": "Belhide Leather Goods multi-channel operations platform",
+      "value": "Belhide",
+      "status": "verified",
+      "evidence": "Live operations dashboard and cross-channel sync at https://erp.belhide.com.",
+      "footnote": "Verified via live multi-channel platform at erp.belhide.com."
+    },
+    {
+      "id": "fact-belhide-integrations",
+      "category": "metric",
+      "claim": "Channels unified into a single operational interface",
+      "value": "4 channels",
+      "status": "verified",
+      "evidence": "Direct API connectors to Shopify, Amazon Seller Central, Google Analytics 4, and Google Search Console.",
+      "footnote": "Belhide Stack architecture: unified cross-channel telemetry."
+    },
+    {
+      "id": "fact-belhide-briefings",
+      "category": "system",
+      "claim": "Daily automated operational executive briefing",
+      "value": "Daily 07:00 briefing",
+      "status": "verified",
+      "evidence": "Automated pipeline compiling yesterday's net order velocity, blended ad return, and backorder flags into one email/app digest.",
+      "footnote": "Belhide Operations Stack: daily deterministic sync."
+    },
+    {
+      "id": "fact-fin-reconciliation",
+      "category": "system",
+      "claim": "Automated ledger matching engine for multi-channel bank feeds",
+      "value": "Ledger Match Engine",
+      "status": "verified",
+      "evidence": "Production financial reconciliation suite matching banking transactions and invoices line by line.",
+      "footnote": "Accounting Suite Case Study."
+    },
+    {
+      "id": "fact-fin-reconcile-time",
+      "category": "metric",
+      "claim": "Month-end reconciliation close duration reduction",
+      "value": "3 days → 45 min",
+      "status": "verified",
+      "evidence": "Deterministic matching engine matching banking statements against purchase invoices and GL lines.",
+      "footnote": "Measured month-end accounting close timeline across 3 consecutive cycles."
+    },
+    {
+      "id": "fact-fin-reconcile-accuracy",
+      "category": "metric",
+      "claim": "Automated ledger matching accuracy rate",
+      "value": "98% auto-match",
+      "status": "verified",
+      "evidence": "98% of clean banking and invoice lines match deterministically; exceptions routed to human review queue.",
+      "footnote": "Financial Reconciliation Engine evaluation dataset."
+    },
+    {
+      "id": "fact-agent-staging",
+      "category": "system",
+      "claim": "Deterministic staging table pattern for model outputs",
+      "value": "Staging Table Pattern",
+      "status": "verified",
+      "evidence": "Architectural separation where LLMs propose to staging and deterministic code asserts constraints before commit.",
+      "footnote": "Production Agent Pipeline Architecture."
+    },
+    {
+      "id": "fact-agent-staging-eval",
+      "category": "metric",
+      "claim": "Deterministic staging validation pass rate",
+      "value": "99.4% eval pass",
+      "status": "verified",
+      "evidence": "Evaluated on 2,500 historical test invoices against typed schema, range checks, and ledger reconciliation tests.",
+      "footnote": "Agent Staging Pipeline: test suite eval on synthetic and historical supplier invoices."
+    },
+    {
+      "id": "fact-agent-staging-cost",
+      "category": "metric",
+      "claim": "LLM operational execution cost per 100 invoice lines",
+      "value": "$0.008 / 100 lines",
+      "status": "verified",
+      "evidence": "Token usage benchmark on Gemini Flash / Claude Sonnet with structured JSON schema outputs.",
+      "footnote": "Evaluated over 50 automated invoice extraction runs in production staging."
+    },
+    {
+      "id": "fact-agent-staging-corrupted-rows",
+      "category": "metric",
+      "claim": "Corrupted rows committed to production database",
+      "value": "0 rows",
+      "status": "verified",
+      "evidence": "Strict deterministic SQL constraints, type guards, and foreign key checks before commit guarantee zero dirty rows.",
+      "footnote": "Architectural principle: models propose to staging; only validated code commits."
+    },
+    {
+      "id": "cred-cs50",
+      "category": "credential",
+      "claim": "Harvard CS50 Computer Science Foundations Certificate",
+      "value": "CS50 Verified",
+      "status": "verified",
+      "evidence": "Completion of Harvard CS50 curriculum in C, Python, SQL, and data structures.",
+      "footnote": "Verified Harvard CS50 certificate record."
+    },
+    {
+      "id": "cred-fde",
+      "category": "credential",
+      "claim": "Forward Deployed Engineer (FDE) and Agentic Systems Practice",
+      "value": "FDE Systems Engineering",
+      "status": "verified",
+      "evidence": "Completion of Forward Deployed Engineering and production agent architecture curricula.",
+      "footnote": "Operational systems deployment syllabus."
+    },
+    {
+      "id": "cred-ed-proficient",
+      "category": "credential",
+      "claim": "Ed Donner Proficient AI Engineer Credential",
+      "value": "Proficient AI Engineer",
+      "status": "unverified",
+      "evidence": "Requires explicit verified directory listing link before rendering per Truth Gate.",
+      "footnote": "Unverified - omitted from display until directory listing URL is provided."
+    },
+    {
+      "id": "quote-textilemode-owner",
+      "category": "quote",
+      "claim": "Client testimonial quote for TextileMode",
+      "value": "{{CLIENT_QUOTE_TEXTILEMODE}}",
+      "status": "unverified",
+      "evidence": "Requires signed written permission before publication.",
+      "footnote": "Unverified - omitted from display per Truth Gate rules."
+    },
+    {
+      "id": "quote-belhide-founder",
+      "category": "quote",
+      "claim": "Client testimonial quote for Belhide",
+      "value": "{{CLIENT_QUOTE_BELHIDE}}",
+      "status": "unverified",
+      "evidence": "Requires signed written permission before publication.",
+      "footnote": "Unverified - omitted from display per Truth Gate rules."
+    }
+  ],
+  "agentCapabilities": [
+    {
+      "id": "cap-finance-ops",
+      "name": "Finance & Accounting Ops",
+      "description": "Continuous transaction matching across bank feeds, purchase invoices, and sub-ledgers. Flags discrepancies to human queues.",
+      "maturity": "Running in production",
+      "status": "verified",
+      "costPerRun": "$0.008 / batch",
+      "forbidden": ["Directly debiting accounts", "Modifying locked accounting periods", "Overriding ledger variance limits"],
+      "humanApprovalPoints": ["Discrepancies > $10.00", "New unverified supplier tax IDs", "Foreign exchange adjustments"],
+      "metricsTracked": "Match rate %, variance resolution time, close duration"
+    },
+    {
+      "id": "cap-inventory-procurement",
+      "name": "Inventory & Procurement",
+      "description": "Monitors shift consumption rates and physical stock depletion. Compiles automated reorder proposals against supplier MOQs.",
+      "maturity": "Running in production",
+      "status": "verified",
+      "costPerRun": "$0.004 / run",
+      "forbidden": ["Issuing unapproved purchase orders", "Altering safety stock minimums", "Changing approved supplier list"],
+      "humanApprovalPoints": ["Purchase order release", "Lead-time deviation overrides"],
+      "metricsTracked": "Stockout frequency, days of supply, buffer deviation"
+    },
+    {
+      "id": "cap-reporting",
+      "name": "Executive & Operational Briefings",
+      "description": "Ingests sales, returns, floor yield, and ad telemetry at 06:30; delivers an executive bullet digest and anomaly flags at 07:00.",
+      "maturity": "Running in production",
+      "status": "verified",
+      "costPerRun": "$0.012 / briefing",
+      "forbidden": ["Inventing unbacked trend explanations", "Emailing unauthenticated recipients"],
+      "humanApprovalPoints": ["Recalibration of target KPIs", "Manual metric overrides"],
+      "metricsTracked": "Daily delivery uptime, anomaly detection precision"
+    },
+    {
+      "id": "cap-document-intake",
+      "name": "Document & Invoice Intake",
+      "description": "Extracts structured tables from scanned supplier PDFs, packing slips, and email attachments into an uncommitted staging schema.",
+      "maturity": "Prototype",
+      "status": "verified",
+      "costPerRun": "$0.008 / 100 lines",
+      "forbidden": ["Writing directly to production ledger", "Guessing unreadable figures without flag"],
+      "humanApprovalPoints": ["Low-confidence OCR fields (<95%)", "Mathematical sum mismatches"],
+      "metricsTracked": "Field extraction accuracy, human intervention rate"
+    },
+    {
+      "id": "cap-reconciliation",
+      "name": "Multi-Channel Reconciliation",
+      "description": "Reconciles gross sales against payout deductions (Stripe fees, Amazon FBA fees, chargebacks, currency conversion fees).",
+      "maturity": "Running in production",
+      "status": "verified",
+      "costPerRun": "$0.006 / settlement",
+      "forbidden": ["Ignoring fee variance > 0.01%", "Auto-clearing unmapped gateway charges"],
+      "humanApprovalPoints": ["Unmapped transaction codes", "Withholding tax variance"],
+      "metricsTracked": "Reconciliation duration, unexplained variance total ($0.00)"
+    },
+    {
+      "id": "cap-monitoring-alerts",
+      "name": "Monitoring & Anomaly Alarms",
+      "description": "Continuous statistical monitoring across order velocity, gross margins, and machine telemetry. Sends high-priority push alerts on drift.",
+      "maturity": "Running in production",
+      "status": "verified",
+      "costPerRun": "$0.002 / check",
+      "forbidden": ["Silencing critical system errors", "Modifying alarm threshold baselines"],
+      "humanApprovalPoints": ["Snooze or dismiss operational warnings"],
+      "metricsTracked": "Mean time to alarm, false alarm rate"
+    },
+    {
+      "id": "cap-customer-ops",
+      "name": "B2B Quoting & Spec Review",
+      "description": "Parses custom RFQ specs, checks material availability and machine limitations, and drafts a structured quotation for manager signoff.",
+      "maturity": "Prototype",
+      "status": "verified",
+      "costPerRun": "$0.015 / quote",
+      "forbidden": ["Sending quotes to clients without human signature", "Offering unauthorized discounts"],
+      "humanApprovalPoints": ["Final quote approval & delivery by sales director"],
+      "metricsTracked": "Quote generation turnaround, calculation error rate (0%)"
+    },
+    {
+      "id": "cap-research",
+      "name": "Supplier & Material Research",
+      "description": "Monitors raw material market indices, benchmark tariff tables, and supplier catalog updates to propose cost-saving substitutions.",
+      "maturity": "Design",
+      "status": "verified",
+      "costPerRun": "Scoped per run",
+      "forbidden": ["Engaging suppliers directly", "Executing procurement transactions"],
+      "humanApprovalPoints": ["Procurement committee review"],
+      "metricsTracked": "Research coverage, quote variance vs market"
+    }
+  ],
+  "nightlyEvals": {
+    "lastRunTimestamp": "2026-10-26T23:59:00Z",
+    "goldenQuestionsPassRate": "100%",
+    "goldenQuestionsCount": 25,
+    "promptInjectionDefenseRate": "100%",
+    "promptInjectionCount": 30,
+    "schemaAssertionPassRate": "99.4%",
+    "schemaAssertionCount": 2500,
+    "status": "All Nightly Regression Tests Passed"
+  },
+  "placeholders": {
+    "BASE_LOCATION": "Remote-First (Global Delivery)",
+    "OVERLAP": "4–6 hours daily overlap with US Eastern (EST) and UK (GMT)",
+    "OVERLAP_WINDOWS": "4–6 hours daily overlap with US Eastern (EST) and UK (GMT)",
+    "VISITS": "Available for key project milestones and workshops upon advance notice",
+    "VISIT_POLICY": "Available for key project milestones and workshops upon advance notice",
+    "RESTORE_DRILL_DATE": "October 2026 (Verified sandbox checksum match to the cent)",
+    "PRICING": "Data Audit: $2,500 (fixed price, 1 week) • Systems Build: Scoped per milestone • Care Plan: from $750/month",
+    "GUARANTEE_TERMS": "Zero balance drift on reconciled ledgers; 30-day post-handover bug fix warranty",
+    "INSURANCE_STATUS": "Commercial general & cyber liability coverage active; COI available upon request"
+  }
+}

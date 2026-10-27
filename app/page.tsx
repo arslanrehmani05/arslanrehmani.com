@@ -1,37 +1,45 @@
 // app/page.tsx
 import Hero from '@/components/hero';
-import OperationalScan from '@/components/operational-scan';
-import CredibilityBar from '@/components/credibility-bar';
-import ProblemSection from '@/components/problem-section';
-import ServicesSection from '@/components/services-section';
-import PortfolioSection from '@/components/portfolio-section';
-import AboutSection from '@/components/about-section';
-import CtaSection from '@/components/cta-section';
+import ProofStrip from '@/components/proof-strip';
+import AgentFunctionGrid from '@/components/agent-function-grid';
+import FeaturedWork from '@/components/featured-work';
+import HowIWork from '@/components/how-i-work';
+import SecurityClaims from '@/components/security-claims';
+import WritingPreview from '@/components/writing-preview';
+import FinalCta from '@/components/final-cta';
 
 export default function Home() {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Person',
+    '@type': 'ProfessionalService',
     name: 'Arslan Rehmani',
     url: 'https://arslanrehmani.com',
-    jobTitle: 'Operational AI Systems Builder',
+    description:
+      'Custom operational data systems and deterministic agentic systems for small and mid-sized businesses.',
+    jobTitle: 'Operational Systems Builder & Agentic Architect',
+    serviceType: [
+      'Data Audit',
+      'Operational Systems Build',
+      'Deterministic Agent Staging Pipelines',
+      'Systems Maintenance and Disaster Recovery',
+    ],
     sameAs: [
       'https://linkedin.com/in/arslanrehmani',
       'https://github.com/arslanrehmani05',
-      'https://x.com/arslanrehmani',
     ],
   };
 
   return (
-    <main className="flex flex-col min-h-screen">
+    <main className="flex flex-col min-h-screen bg-bg-primary text-text-primary">
       <Hero />
-      <OperationalScan />
-      <CredibilityBar />
-      <ProblemSection />
-      <ServicesSection />
-      <PortfolioSection />
-      <AboutSection />
-      <CtaSection />
+      <ProofStrip />
+      <AgentFunctionGrid />
+      <FeaturedWork />
+      <HowIWork />
+      <SecurityClaims />
+      {/* Testimonials strictly hidden per Truth Gate until signed permissions exist */}
+      <WritingPreview />
+      <FinalCta />
 
       <script
         type="application/ld+json"
