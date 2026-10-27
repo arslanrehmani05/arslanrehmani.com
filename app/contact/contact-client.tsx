@@ -72,17 +72,6 @@ export default function ContactClient() {
   return (
     <main className="min-h-screen bg-bg-primary text-text-primary pt-24 pb-20 px-6">
       <div className="max-w-4xl mx-auto space-y-16">
-        {/* Availability Bar — zero mention of physical location or address */}
-        <div className="p-4 rounded-2xl bg-bg-secondary/60 border border-border-color flex flex-wrap items-center gap-3 text-xs text-text-muted">
-          <span className="inline-flex items-center gap-1.5 text-text-primary font-medium">
-            <ShieldCheck className="w-3.5 h-3.5 text-accent-gold" />
-            <span>Custom Operational Systems &bull; Direct Senior Engineer Access</span>
-          </span>
-          <span className="text-border-color">&bull;</span>
-          <span>Working overlap: {placeholders.OVERLAP_WINDOWS}</span>
-          <span className="text-border-color">&bull;</span>
-          <span>On-site visits: {placeholders.VISIT_POLICY}</span>
-        </div>
 
         {/* Header Block */}
         <div className="max-w-2xl space-y-4">

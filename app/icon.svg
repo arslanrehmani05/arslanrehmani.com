@@ -1,60 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <defs>
-    <style>
-      :root {
-        --bg-color: #111113;
-        --border-color: rgba(255, 255, 255, 0.22);
-        --inner-frame: rgba(255, 255, 255, 0.10);
-        --lead-facet: #f0f0f2;
-        --trail-facet: rgba(240, 240, 242, 0.45);
-        --core-node: #ffffff;
-      }
-      @media (prefers-color-scheme: light) {
-        :root {
-          --bg-color: #f7f7f8;
-          --border-color: rgba(0, 0, 0, 0.16);
-          --inner-frame: rgba(0, 0, 0, 0.08);
-          --lead-facet: #000000;
-          --trail-facet: rgba(0, 0, 0, 0.45);
-          --core-node: #000000;
-        }
-      }
-      .bg-rect {
-        fill: var(--bg-color);
-        stroke: var(--border-color);
-        stroke-width: 1.2px;
-      }
-      .inner-frame {
-        stroke: var(--inner-frame);
-        stroke-width: 0.5px;
-      }
-      .lead-wing {
-        fill: var(--lead-facet);
-      }
-      .trail-wing {
-        fill: var(--trail-facet);
-      }
-      .apex-node {
-        fill: var(--core-node);
-      }
-    </style>
-  </defs>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
   <!-- Outer Squircle Tile -->
-  <rect x="1" y="1" width="30" height="30" rx="7" class="bg-rect" />
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="#111113" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.2" />
 
   <!-- Subtle Inner Perimeter Frame for Depth -->
-  <rect x="2.5" y="2.5" width="27" height="27" rx="5.5" fill="none" class="inner-frame" />
+  <rect x="2.5" y="2.5" width="27" height="27" rx="5.5" fill="none" stroke="rgba(255, 255, 255, 0.10)" stroke-width="0.5" />
 
-  <!-- Brand Logo Vector Mark -->
+  <!-- Brand Vector Mark -->
   <g>
-    <!-- Left Wing (Solid Crisp Light) -->
-    <path d="M 15.2 6.5 L 7.5 22.5 L 12 22.5 L 15.2 16 Z" class="lead-wing" />
+    <!-- Left Wing (Solid Crisp White) -->
+    <path d="M 15.2 6.5 L 7.5 22.5 L 12 22.5 L 15.2 16 Z" fill="#f0f0f2" />
 
     <!-- Right Wing (Balanced Depth Facet) -->
-    <path d="M 16.8 6.5 L 16.8 16 L 20 22.5 L 24.5 22.5 Z" class="trail-wing" />
+    <path d="M 16.8 6.5 L 16.8 16 L 20 22.5 L 24.5 22.5 Z" fill="rgba(240, 240, 242, 0.48)" />
 
     <!-- Central Precision Core Node -->
-    <circle cx="16" cy="11.5" r="1.1" class="apex-node" />
+    <circle cx="16" cy="11.5" r="1.1" fill="#ffffff" />
   </g>
 </svg>
