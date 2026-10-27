@@ -105,17 +105,22 @@ html[data-theme="light"] body {
 
   /* LeftClick Signature Pill Button */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-medium transition-all duration-200 cursor-pointer;
+    @apply inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-medium transition-all duration-200 cursor-pointer;
     font-family: var(--font-dmsans), sans-serif;
     background-color: var(--text-primary);
     color: var(--bg-primary);
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
-    min-height: 44px;
+    min-height: 42px;
   }
   .btn-primary:hover {
     transform: translateY(-1px);
-    opacity: 0.92;
+    opacity: 0.95;
     box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45);
+  }
+
+  /* Signature circular arrow badge for buttons */
+  .btn-arrow-badge {
+    @apply rounded-full bg-[#111113] text-[#f0f0f2] flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:translate-x-0.5;
   }
 
   /* LeftClick Secondary Frosted Pill */

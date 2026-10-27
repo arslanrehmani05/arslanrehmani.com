@@ -5,6 +5,7 @@ import {
   ShoppingBag,
   Landmark,
   Briefcase,
+  Boxes,
   ArrowRight,
   ShieldCheck,
   CheckCircle2,
@@ -16,7 +17,7 @@ import {
 export const metadata = {
   title: 'Industry Solutions & Operational Deep-Dives | Arslan Rehmani',
   description:
-    'Tailored operational architectures for manufacturing mills, e-commerce operators, finance teams, and professional service firms transitioning from spreadsheets to secure systems.',
+    'Tailored operational architectures for e-commerce operators, wholesale distributors, manufacturing mills, finance teams, and professional service firms transitioning from spreadsheets to secure systems.',
 };
 
 const INDUSTRIES = [
@@ -32,7 +33,7 @@ const INDUSTRIES = [
       'Piece-rate payroll disputes: operator wages calculated manually from physical tokens or shift logbooks with frequent transcription errors.',
     ],
     architecture:
-      'PostgreSQL relational schema with barcode-authenticated tablet entry at loom stations, automated yardage calculations, and double-entry piece-rate payroll generation.',
+      'Direct tablet stations for factory floor entry, real-time yardage and shrinkage calculations, and automated piece-rate payroll tied directly to output.',
     caseStudyHref: '/work/textilemode-manufacturing-erp',
     caseStudyTitle: 'Case Study: TextileMode (27 Looms Migrated)',
     recommendedTools: [
@@ -45,14 +46,14 @@ const INDUSTRIES = [
     title: 'E-commerce & Multi-Channel Logistics',
     icon: ShoppingBag,
     summary:
-      'Reconciling inventory, 3PL warehouse dispatches, and returns across Shopify, Amazon, and ERP ledgers with zero silent stockouts.',
+      'Reconciling inventory, 3PL warehouse dispatches, and returns across Shopify, Amazon, and warehouse ledgers with zero silent stockouts.',
     painPoints: [
       'Multi-channel inventory drift: selling out-of-stock items on Amazon while inventory sits uncounted in a returns holding pen.',
       'Manual 3PL shipping charge reconciliation: carrier invoices with hundreds of micro-surcharges paid without automated line-item verification.',
       'Returns and exchange leakage: customer refunds issued without confirming physical return receipt into inventory.',
     ],
     architecture:
-      'Webhook ingestion buffer with deterministic SKU mapping, automated carrier rate card reconciliation, and staged returns inspection queues.',
+      'Automated live inventory synchronization across all sales channels, instant carrier rate audit against delivery receipts, and step-by-step returns inspection.',
     caseStudyHref: '/work/belhide-ops',
     caseStudyTitle: 'Case Study: Belhide Ops (Multi-Channel Order Pipeline)',
     recommendedTools: [
@@ -65,19 +66,39 @@ const INDUSTRIES = [
     title: 'Finance & Accounting Operations',
     icon: Landmark,
     summary:
-      'Eliminating month-end close panic, unrecorded liabilities, and fragile cross-workbook VLOOKUP chains with double-entry invariant ledgers.',
+      'Eliminating month-end close panic, unrecorded liabilities, and fragile cross-workbook VLOOKUP chains with double-entry ledgers.',
     painPoints: [
       'Month-end close taking 5–10 business days because staff must manually reconcile bank statements against general ledger accounts.',
       'Fragile master workbooks with thousands of VLOOKUP and IMPORTRANGE formulas that freeze laptops and break when files are moved.',
       'Zero audit trails: unable to prove who edited a line item, modified a transaction value, or deleted a voucher.',
     ],
     architecture:
-      'Append-only double-entry ledger with database-level debit=credit invariant triggers, automated bank feed ingestion, and role-based access control.',
+      'Automated double-entry accounting ledger that forces debits and credits to balance perfectly, daily bank feed matching, and ironclad role permissions.',
     caseStudyHref: '/work/financial-reconciliation-suite',
     caseStudyTitle: 'Case Study: Financial Reconciliation Engine (80% Time Reduction)',
     recommendedTools: [
       { name: 'Manual-Work Cost Calculator', href: '/tools/calculator' },
       { name: 'Data Quality Scanner', href: '/tools/scanner' },
+    ],
+  },
+  {
+    id: 'wholesale',
+    title: 'Wholesale & B2B Distribution',
+    icon: Boxes,
+    summary:
+      'Automating high-volume customer purchase order intake, contract tier pricing, and warehouse dispatch without spreadsheet freezes.',
+    painPoints: [
+      'Manual purchase order transcription: customer POs received via PDF and email typed line-by-line into accounting software by administrative staff.',
+      'Tier pricing and discount errors: sales reps quoting outdated price lists or unauthorized discount tiers.',
+      'Carrier freight bill discrepancies: bulk logistics invoices paid without matching delivery receipts or bill-of-lading weights.',
+    ],
+    architecture:
+      'Instant order intake from customer emails and PDFs, automated price list and credit verification, and organized warehouse dispatch queues.',
+    caseStudyHref: '/work',
+    caseStudyTitle: 'View Operational Projects',
+    recommendedTools: [
+      { name: 'Spreadsheet Readiness Check', href: '/tools/readiness' },
+      { name: 'Manual-Work Cost Calculator', href: '/tools/calculator' },
     ],
   },
   {
@@ -92,7 +113,7 @@ const INDUSTRIES = [
       'Invoice generation delayed by 2 weeks after milestone completion due to manual verification of billable expenses.',
     ],
     architecture:
-      'Timesheet ingestion pipeline with automated budget threshold alerts, client milestone approval portals, and integrated invoice generation.',
+      'Automated contractor timesheet validation, project margin alerts before budgets burn, and client milestone sign-off portals.',
     caseStudyHref: '/work',
     caseStudyTitle: 'View All Operational Projects',
     recommendedTools: [
@@ -116,7 +137,7 @@ export default function IndustriesPage() {
             Built for Businesses Where Data Must Be Right.
           </h1>
           <p className="text-base sm:text-lg text-text-muted leading-relaxed">
-            I work primarily with owner-operators, finance controllers, and operations leads across manufacturing, logistics, and digital services who have outgrown spreadsheets but cannot stomach a multi-million-dollar SAP or NetSuite implementation.
+            I work with owner-operators, finance controllers, and operations leads across e-commerce, wholesale distribution, manufacturing, and services who have outgrown spreadsheets but cannot stomach a multi-million-dollar ERP implementation.
           </p>
         </div>
 
@@ -125,7 +146,8 @@ export default function IndustriesPage() {
           {INDUSTRIES.map((industry) => (
             <div
               key={industry.id}
-              className="rounded-2xl bg-bg-secondary border border-border-color p-6 sm:p-10 space-y-8"
+              id={industry.id}
+              className="rounded-2xl bg-bg-secondary border border-border-color p-6 sm:p-10 space-y-8 scroll-mt-24"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-border-color">
                 <div className="flex items-center gap-4">
@@ -133,7 +155,7 @@ export default function IndustriesPage() {
                     <industry.icon className="w-6 h-6 text-accent-gold" />
                   </div>
                   <div>
-                    <span className="text-xs font-mono text-accent-gold uppercase">Sector Architecture</span>
+                    <span className="text-xs font-mono text-accent-gold uppercase">Operational Blueprint</span>
                     <h2 className="text-2xl font-bold text-text-primary">{industry.title}</h2>
                   </div>
                 </div>

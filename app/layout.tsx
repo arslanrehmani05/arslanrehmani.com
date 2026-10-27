@@ -22,22 +22,22 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Arslan Rehmani | Secure Data Systems & Verified AI Agents",
-  description: "I build secure, reliable data systems and deterministic AI agents for small and mid-sized businesses whose operations still run on spreadsheets, paper registers, and disconnected tools.",
+  title: "Arslan Rehmani | Custom Operational Software & Autonomous AI Agents",
+  description: "I diagnose where businesses bleed time, payroll, and margin—then build private software systems and production AI agents that eliminate operational bottlenecks permanently.",
   metadataBase: new URL("https://arslanrehmani.com"),
   alternates: {
     canonical: "/",
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/favicon.png?v=2", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.svg?v=2", type: "image/svg+xml" },
+      { url: "/icons/icon-192.png?v=2", sizes: "192x192", type: "image/png" },
     ],
-    shortcut: "/favicon.ico",
+    shortcut: "/favicon.ico?v=2",
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png?v=2", sizes: "180x180", type: "image/png" },
     ],
   },
   appleWebApp: {
@@ -74,6 +74,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        {/* Explicit cache-busting link tags for Vercel, Safari, and search crawlers */}
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+        <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.png?v=2" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
         {/* Google Tag (gtag.js) with default consent denied per UK/EU GDPR */}
         <Script
           id="google-consent-init"

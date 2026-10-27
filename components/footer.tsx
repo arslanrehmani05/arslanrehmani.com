@@ -53,10 +53,12 @@ export default function Footer() {
             <div className="pt-2">
               <Link
                 href="/contact"
-                className="btn-primary !px-5 !py-2.5 !text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-2"
+                className="btn-primary !pl-5 !pr-1.5 !py-1.5 !text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-2 group"
               >
                 <span>Book a 20-minute discovery call</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span className="btn-arrow-badge w-6 h-6">
+                  <ArrowRight className="w-3 h-3 text-white" />
+                </span>
               </Link>
             </div>
           </div>

@@ -1,6 +1,7 @@
 // app/page.tsx
 import Hero from '@/components/hero';
 import ProofStrip from '@/components/proof-strip';
+import SectorsRibbon from '@/components/sectors-ribbon';
 import AgentFunctionGrid from '@/components/agent-function-grid';
 import FeaturedWork from '@/components/featured-work';
 import HowIWork from '@/components/how-i-work';
@@ -15,12 +16,12 @@ export default function Home() {
     name: 'Arslan Rehmani',
     url: 'https://arslanrehmani.com',
     description:
-      'Custom operational data systems and deterministic agentic systems for small and mid-sized businesses.',
+      'Custom operational software and autonomous agentic systems that eliminate operational bottlenecks and manual overhead for growing businesses.',
     jobTitle: 'Operational Systems Builder & Agentic Architect',
     serviceType: [
-      'Data Audit',
-      'Operational Systems Build',
-      'Deterministic Agent Staging Pipelines',
+      'Operational Diagnosis & Systems Audit',
+      'Custom Operational Software Build',
+      'Autonomous AI Agent Pipelines',
       'Systems Maintenance and Disaster Recovery',
     ],
     sameAs: [
@@ -33,6 +34,7 @@ export default function Home() {
     <main className="flex flex-col min-h-screen bg-bg-primary text-text-primary">
       <Hero />
       <ProofStrip />
+      <SectorsRibbon />
       <AgentFunctionGrid />
       <FeaturedWork />
       <HowIWork />

@@ -19,34 +19,47 @@ export default function AppleIcon() {
           width: '100%',
           height: '100%',
           display: 'flex',
-          background: '#080808',
+          background: '#111113',
           borderRadius: '36px',
         }}
       >
-        <defs>
-          <linearGradient id="ar-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#F3E5AB" />
-            <stop offset="45%" stopColor="#C9A84C" />
-            <stop offset="100%" stopColor="#9A7B2C" />
-          </linearGradient>
-          <radialGradient id="ar-bg-grad" cx="50%" cy="50%" r="75%">
-            <stop offset="0%" stopColor="#161616" />
-            <stop offset="100%" stopColor="#080808" />
-          </radialGradient>
-        </defs>
+        {/* Outer Squircle Container */}
+        <rect
+          x="1"
+          y="1"
+          width="30"
+          height="30"
+          rx="7"
+          fill="#111113"
+          stroke="rgba(255, 255, 255, 0.22)"
+          strokeWidth="1.2"
+        />
+        <rect
+          x="2.5"
+          y="2.5"
+          width="27"
+          height="27"
+          rx="5.5"
+          fill="none"
+          stroke="rgba(255, 255, 255, 0.10)"
+          strokeWidth="0.5"
+        />
 
-        <rect x="1" y="1" width="30" height="30" rx="7" fill="url(#ar-bg-grad)" stroke="url(#ar-gold-grad)" strokeWidth="1.2" strokeOpacity="0.85" />
-        <rect x="2.5" y="2.5" width="27" height="27" rx="5.5" fill="none" stroke="#C9A84C" strokeWidth="0.5" strokeOpacity="0.25" />
-
-        <g strokeLinecap="round" strokeLinejoin="round">
-          <path d="M 9 22.5 L 15 9.5" stroke="#F5F5F0" strokeWidth="2.2" />
-          <path d="M 15 9.5 V 22.5" stroke="#F5F5F0" strokeWidth="2.2" />
-          <path d="M 11 17.5 H 18.5" stroke="url(#ar-gold-grad)" strokeWidth="2" />
-          <path d="M 15 9.5 H 20 C 22.8 9.5, 22.8 15.5, 20 15.5 H 15" stroke="url(#ar-gold-grad)" strokeWidth="2" />
-          <path d="M 17.5 15.5 L 23 22.5" stroke="url(#ar-gold-grad)" strokeWidth="2.2" />
+        {/* Vector Mark "A" */}
+        <g>
+          {/* Left Wing (Solid Crisp Light) */}
+          <path
+            d="M 15.2 6.5 L 7.5 22.5 L 12 22.5 L 15.2 16 Z"
+            fill="#f0f0f2"
+          />
+          {/* Right Wing (Balanced Depth Facet) */}
+          <path
+            d="M 16.8 6.5 L 16.8 16 L 20 22.5 L 24.5 22.5 Z"
+            fill="rgba(240, 240, 242, 0.45)"
+          />
+          {/* Central Precision Core Node */}
+          <circle cx="16" cy="11.5" r="1.1" fill="#ffffff" />
         </g>
-
-        <circle cx="15" cy="9.5" r="1.1" fill="#F3E5AB" />
       </svg>
     ),
     {

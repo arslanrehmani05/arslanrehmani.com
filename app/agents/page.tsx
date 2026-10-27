@@ -310,10 +310,12 @@ export default function AgentsPage() {
           </div>
           <Link
             href="/contact"
-            className="btn-primary !px-8 !py-4 !text-sm whitespace-nowrap flex items-center gap-2"
+            className="btn-primary !pl-7 !pr-2.5 !py-2.5 !text-sm whitespace-nowrap flex items-center gap-3 group"
           >
             <span>Book a 20-minute discovery call</span>
-            <ArrowRight className="w-4 h-4" />
+            <span className="btn-arrow-badge w-7 h-7">
+              <ArrowRight className="w-3.5 h-3.5 text-white" />
+            </span>
           </Link>
         </div>
       </div>

@@ -13,31 +13,31 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#0A0A0A',
     icons: [
       {
-        src: '/studio-icon.svg',
+        src: '/studio-icon.svg?v=2',
         sizes: 'any',
         type: 'image/svg+xml',
         purpose: 'any',
       },
       {
-        src: '/icons/studio-192.png',
+        src: '/icons/studio-192.png?v=2',
         sizes: '192x192',
         type: 'image/png',
         purpose: 'any',
       },
       {
-        src: '/icons/studio-512.png',
+        src: '/icons/studio-512.png?v=2',
         sizes: '512x512',
         type: 'image/png',
         purpose: 'any',
       },
       {
-        src: '/icons/studio-maskable-192.png',
+        src: '/icons/studio-maskable-192.png?v=2',
         sizes: '192x192',
         type: 'image/png',
         purpose: 'maskable',
       },
       {
-        src: '/icons/studio-maskable-512.png',
+        src: '/icons/studio-maskable-512.png?v=2',
         sizes: '512x512',
         type: 'image/png',
         purpose: 'maskable',

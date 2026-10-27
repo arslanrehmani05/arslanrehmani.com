@@ -13,8 +13,8 @@ const steps = [
     number: '02',
     icon: FileText,
     title: 'Written Scope',
-    description: 'Before writing a line of code, we agree in writing on the database schema, role-based access rules, edge cases, and automated acceptance tests.',
-    outcome: 'Fixed scope document with zero ambiguous hours.',
+    description: 'Before writing a line of code, we agree in writing on the exact workflows, user permissions, calculations, and acceptance criteria.',
+    outcome: 'Fixed scope and deliverables with zero ambiguous hours or surprise bills.',
   },
   {
     number: '03',

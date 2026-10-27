@@ -1,4 +1,4 @@
-const CACHE_NAME = 'arslanrehmani-v1';
+const CACHE_NAME = 'arslanrehmani-v2';
 const OFFLINE_URL = '/offline';
 
 // Core shell assets to pre-cache on install
@@ -8,12 +8,12 @@ const PRECACHE_ASSETS = [
   '/studio',
   '/tools/audit',
   '/tools/calculator',
-  '/favicon.svg',
-  '/studio-icon.svg',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
-  '/icons/studio-192.png',
-  '/icons/studio-512.png',
+  '/favicon.svg?v=2',
+  '/studio-icon.svg?v=2',
+  '/icons/icon-192.png?v=2',
+  '/icons/icon-512.png?v=2',
+  '/icons/studio-192.png?v=2',
+  '/icons/studio-512.png?v=2',
 ];
 
 // Install Event — precache core assets

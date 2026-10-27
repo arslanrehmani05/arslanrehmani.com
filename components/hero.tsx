@@ -14,23 +14,25 @@ export default function Hero() {
 
           <div>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary leading-[1.08]">
-              Your business data, finally right.
+              Eliminate operational bottlenecks with custom software &amp; autonomous agents.
             </h1>
           </div>
 
           {/* Who it is for & positioning: One sentence */}
           <p className="text-lg sm:text-xl text-text-muted leading-relaxed max-w-3xl">
-            I build secure, reliable data systems and agentic systems that do real operational work inside strict guardrails, for small and mid-sized businesses (and teams inside bigger ones) still running on spreadsheets, paper registers and disconnected tools.
+            I diagnose where growing businesses bleed time, payroll, and margin—then build private software systems and production AI agents that replace manual overhead permanently. Field-tested across e-commerce, manufacturing, wholesale, and growth operations.
           </p>
 
           {/* Primary & Secondary CTAs */}
           <div className="pt-2 flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="btn-primary !px-8 !py-4 !text-base font-semibold flex items-center justify-center gap-2"
+              className="btn-primary !pl-7 !pr-2.5 !py-2.5 !text-base font-semibold flex items-center justify-center gap-3 group"
             >
               <span>Book a 20-minute discovery call</span>
-              <ArrowRight className="w-4 h-4" />
+              <span className="btn-arrow-badge w-8 h-8">
+                <ArrowRight className="w-4 h-4 text-white" />
+              </span>
             </Link>
 
             <Link

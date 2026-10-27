@@ -1,40 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <defs>
-    <!-- Executive Metallic Gold & Studio Amber Linear Gradient -->
-    <linearGradient id="studio-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F5D77F" />
-      <stop offset="50%" stop-color="#D4AF37" />
-      <stop offset="100%" stop-color="#8C6D1F" />
-    </linearGradient>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <!-- Outer Squircle Tile -->
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="#111113" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.2" />
 
-    <linearGradient id="studio-accent-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#E55638" />
-      <stop offset="100%" stop-color="#F5D77F" />
-    </linearGradient>
+  <!-- Subtle Inner Perimeter Frame for Depth -->
+  <rect x="2.5" y="2.5" width="27" height="27" rx="5.5" fill="none" stroke="rgba(255, 255, 255, 0.10)" stroke-width="0.5" />
 
-    <!-- Deep Carbon Squircle Background -->
-    <radialGradient id="studio-bg-grad" cx="50%" cy="50%" r="75%">
-      <stop offset="0%" stop-color="#1A1A1D" />
-      <stop offset="100%" stop-color="#09090B" />
-    </radialGradient>
-  </defs>
+  <!-- Brand Vector Mark -->
+  <g>
+    <!-- Left Wing (Solid Crisp White) -->
+    <path d="M 15.2 6.5 L 7.5 22.5 L 12 22.5 L 15.2 16 Z" fill="#f0f0f2" />
 
-  <!-- Squircle Base -->
-  <rect x="1" y="1" width="30" height="30" rx="7" fill="url(#studio-bg-grad)" stroke="url(#studio-gold-grad)" stroke-width="1.2" stroke-opacity="0.9" />
-  <rect x="2.5" y="2.5" width="27" height="27" rx="5.5" fill="none" stroke="#D4AF37" stroke-width="0.5" stroke-opacity="0.25" />
+    <!-- Right Wing (Balanced Depth Facet) -->
+    <path d="M 16.8 6.5 L 16.8 16 L 20 22.5 L 24.5 22.5 Z" fill="rgba(240, 240, 242, 0.48)" />
 
-  <!-- 3D Studio Content Isometric Block / Prism Geometry -->
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Top Face -->
-    <polygon points="16,7 23,11 16,15 9,11" fill="url(#studio-gold-grad)" fill-opacity="0.25" stroke="url(#studio-gold-grad)" stroke-width="1.6" />
-    
-    <!-- Left Face -->
-    <polygon points="9,11 16,15 16,24 9,20" fill="url(#studio-accent-grad)" fill-opacity="0.2" stroke="url(#studio-gold-grad)" stroke-width="1.6" />
-    
-    <!-- Right Face -->
-    <polygon points="16,15 23,11 23,20 16,24" fill="url(#studio-gold-grad)" fill-opacity="0.4" stroke="url(#studio-gold-grad)" stroke-width="1.6" />
-    
-    <!-- Central Studio Core Accent Node -->
-    <circle cx="16" cy="15" r="1.5" fill="#F5F5F0" />
+    <!-- Central Precision Core Node -->
+    <circle cx="16" cy="11.5" r="1.1" fill="#ffffff" />
   </g>
 </svg>

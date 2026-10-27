@@ -22,11 +22,13 @@ export default function FinalCta() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
           <Link
             href="/contact"
-            className="btn-primary !px-8 !py-4 !text-base font-semibold flex items-center justify-center gap-2 w-full sm:w-auto"
+            className="btn-primary !pl-7 !pr-2.5 !py-2.5 !text-base font-semibold flex items-center justify-center gap-3 w-full sm:w-auto group"
           >
             <Calendar className="w-4 h-4" />
             <span>Book a 20-minute discovery call</span>
-            <ArrowRight className="w-4 h-4" />
+            <span className="btn-arrow-badge w-8 h-8">
+              <ArrowRight className="w-4 h-4 text-white" />
+            </span>
           </Link>
 
           <a

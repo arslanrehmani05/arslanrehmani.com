@@ -137,10 +137,12 @@ export default function ToolsHubPage() {
 
                   <Link
                     href={tool.href}
-                    className="btn-primary !py-2.5 !text-xs w-full text-center flex items-center justify-center gap-2 uppercase tracking-wider font-semibold"
+                    className="btn-primary !pl-5 !pr-1.5 !py-1.5 !text-xs w-full text-center flex items-center justify-center gap-2 uppercase tracking-wider font-semibold group"
                   >
                     <span>Launch {tool.title}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span className="btn-arrow-badge w-6 h-6">
+                      <ArrowRight className="w-3 h-3 text-white" />
+                    </span>
                   </Link>
                 </div>
               </div>

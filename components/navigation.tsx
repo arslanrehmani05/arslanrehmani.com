@@ -8,6 +8,7 @@ import BrandLogo from '@/components/brand-logo';
 
 const navLinks = [
   { label: 'Work', href: '/work' },
+  { label: 'Industries', href: '/industries' },
   { label: 'Agents', href: '/agents' },
   { label: 'Tools', href: '/tools' },
   { label: 'Services', href: '/services' },
@@ -32,7 +33,7 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-5">
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -44,10 +45,12 @@ export default function Navigation() {
           ))}
           <Link
             href="/contact"
-            className="btn-primary !px-4 !py-2 !text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5"
+            className="btn-primary !pl-4 !pr-1.5 !py-1.5 !text-xs font-semibold uppercase tracking-wider flex items-center gap-2 group"
           >
             <span>Book 20-min call</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span className="btn-arrow-badge w-6 h-6">
+              <ArrowRight className="w-3 h-3 text-white" />
+            </span>
           </Link>
         </nav>
 
@@ -55,9 +58,12 @@ export default function Navigation() {
         <div className="lg:hidden flex items-center gap-2">
           <Link
             href="/contact"
-            className="btn-primary !px-3 !py-1.5 !text-xs mr-1"
+            className="btn-primary !pl-3.5 !pr-1.5 !py-1.5 !text-xs mr-1 flex items-center gap-1.5 group"
           >
-            Book call
+            <span>Book call</span>
+            <span className="btn-arrow-badge w-5 h-5">
+              <ArrowRight className="w-2.5 h-2.5 text-white" />
+            </span>
           </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -89,10 +95,12 @@ export default function Navigation() {
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="btn-primary w-full text-center !py-3 !text-sm flex items-center justify-center gap-2"
+              className="btn-primary w-full text-center !py-2.5 !pl-6 !pr-2 !text-sm flex items-center justify-center gap-3 group"
             >
               <span>Book a 20-minute discovery call</span>
-              <ArrowRight className="w-4 h-4" />
+              <span className="btn-arrow-badge w-7 h-7">
+                <ArrowRight className="w-3.5 h-3.5 text-white" />
+              </span>
             </Link>
           </div>
         </div>
