@@ -46,7 +46,7 @@
   <!-- Subtle Inner Perimeter Frame for Depth -->
   <rect x="2.5" y="2.5" width="27" height="27" rx="5.5" fill="none" class="inner-frame" />
 
-  <!-- The Kinetic Apex Vector Mark -->
+  <!-- Brand Logo Vector Mark -->
   <g>
     <!-- Left Wing (Solid Crisp Light) -->
     <path d="M 15.2 6.5 L 7.5 22.5 L 12 22.5 L 15.2 16 Z" class="lead-wing" />

@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 import ThemeToggle from '@/components/theme-toggle';
-import LogoSwitcher from '@/components/logo-switcher';
 
 export default function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -23,7 +22,6 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
       {children}
       <Footer />
       <ThemeToggle />
-      <LogoSwitcher />
     </>
   );
 }
