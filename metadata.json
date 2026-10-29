@@ -1,8 +1,5 @@
 {
-  "name": "Arslan Rehmani - Operational AI Systems",
-  "description": "Custom operational software, private ERP architectures, and autonomous AI agent systems that eliminate operational bottlenecks.",
-  "permissions": [],
-  "capabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
+  "name": "Arslan Rehmani - Operational AI Systems Builder",
+  "description": "Forward-deployed systems builder replacing fragile spreadsheets and admin bottlenecks with deterministic pipelines, custom operational software, and autonomous agents.",
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

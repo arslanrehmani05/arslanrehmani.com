@@ -57,7 +57,7 @@ export default function WhatIBuild() {
             We build custom operational software—and engineer agentic improvements over that foundation.
           </h2>
           <p className="text-sm sm:text-base text-text-muted leading-relaxed">
-            I don&apos;t build fragile AI wrappers or generic chatbots. Every project begins with a custom relational system built to reflect your physical floor reality, with high-leverage agentic layers engineered directly on top.
+            Every project begins with a custom relational foundation engineered to reflect physical floor reality, with high-leverage agentic architectures deployed directly on top.
           </p>
         </div>
 

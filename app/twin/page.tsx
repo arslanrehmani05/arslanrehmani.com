@@ -22,7 +22,7 @@ export default function TwinPage() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       sender: 'twin',
-      text: 'Hello. I am Arslan’s Digital Twin. I am strictly grounded in facts.json, production case studies, and field notes. I cite evidence IDs for every claim, and I say "I don’t know" when information is unverified.',
+      text: 'Hello. I am Arslan’s Digital Twin. I am strictly grounded in verified production case studies, systems architecture, and engineering documentation. Ask me about custom operational builds, agent pipelines, or past deployments.',
       timestamp: '07:00 UTC',
     },
   ]);
@@ -84,7 +84,7 @@ export default function TwinPage() {
             Ask Questions Grounded in Verified Facts.
           </h1>
           <p className="text-sm sm:text-base text-text-muted leading-relaxed">
-            This twin has zero permission to hallucinate, flatter, or state unverified claims. It cites source IDs from <code className="text-xs bg-bg-secondary px-1.5 py-0.5 rounded text-text-primary font-mono">facts.json</code> and admits when it does not know.
+            This twin is strictly grounded in verified production case studies, systems architecture, and engineering documentation. It has zero permission to hallucinate or invent claims.
           </p>
         </div>
 
@@ -118,7 +118,7 @@ export default function TwinPage() {
               <span className="text-text-primary font-medium">Arslan’s Verified Twin</span>
             </div>
             <span className="text-[11px] text-text-subtle">
-              Strict Truth Gate Active &bull; No Hallucinations
+              Strict Reliability Active &bull; Zero Hallucinations
             </span>
           </div>
 
@@ -146,7 +146,7 @@ export default function TwinPage() {
             {isLoading && (
               <div className="flex items-center gap-2 p-3 rounded-xl bg-bg-primary border border-border-color text-xs font-mono text-text-muted w-fit">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-gold animate-bounce" />
-                <span>Checking verified facts.json...</span>
+                <span>Querying verified knowledge base...</span>
               </div>
             )}
           </div>

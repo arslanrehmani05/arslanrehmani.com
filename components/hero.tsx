@@ -1,66 +1,82 @@
-// components/hero.tsx
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Wrench, BookOpen, ShieldCheck } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import PipelineMiniDemo from '@/components/pipeline-mini-demo';
 
+const fluidSpring = {
+  type: 'spring' as const,
+  stiffness: 380,
+  damping: 32,
+};
+
 export default function Hero() {
-
   return (
-    <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 border-b border-border-color bg-bg-primary overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 space-y-12">
-        <div className="max-w-4xl space-y-8">
-
-          <div>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary leading-[1.08]">
-              Eliminate operational bottlenecks with custom software &amp; autonomous agents.
-            </h1>
+    <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28">
+      <div className="max-w-6xl mx-auto px-6 space-y-14">
+        {/* Hero Narrative Block */}
+        <div className="max-w-3xl space-y-6">
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-text-muted">
+            <span className="w-2 h-2 rounded-full bg-accent-gold" />
+            <span className="uppercase tracking-wider">Autonomous Systems Architect · Production Agentic AI</span>
           </div>
 
-          {/* Who it is for & positioning: One sentence */}
-          <p className="text-lg sm:text-xl text-text-muted leading-relaxed max-w-3xl">
-            I diagnose where growing businesses bleed time, payroll, and margin—then build private software systems and production AI agents that replace manual overhead permanently. Field-tested across e-commerce, manufacturing, wholesale, and growth operations.
+          <h1 className="headline text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-text-primary leading-[1.08]">
+            Autonomous agents engineered for mission-critical operations.
+          </h1>
+
+          <p className="text-base sm:text-lg text-text-muted leading-relaxed max-w-2xl">
+            Rooted in years of industrial software engineering, I design and deploy multi-agent architectures that run complex back-office operations—reconciling invoices, balancing inventories, and resolving logistics disputes with mathematical certainty and zero ledger corruption.
           </p>
 
-          {/* Primary & Secondary CTAs */}
-          <div className="pt-2 flex flex-wrap items-center gap-4">
-            <Link
-              href="/contact"
-              className="btn-primary !pl-7 !pr-2.5 !py-2.5 !text-base font-semibold flex items-center justify-center gap-3 group"
-            >
-              <span>Book a 20-minute discovery call</span>
-              <span className="btn-arrow-badge w-8 h-8">
-                <ArrowRight className="w-4 h-4 text-white" />
-              </span>
-            </Link>
+          <div className="flex flex-wrap items-center gap-4 pt-2">
+            <motion.div whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/contact"
+                className="btn-primary !px-7 !py-3.5 !text-sm font-semibold flex items-center gap-3 group cursor-pointer"
+              >
+                <span>Book a 20-min architectural audit</span>
+                <span className="btn-arrow-badge w-6 h-6">
+                  <ArrowRight className="w-3.5 h-3.5 text-white" />
+                </span>
+              </Link>
+            </motion.div>
 
-            <Link
-              href="/tools"
-              className="btn-ghost !px-6 !py-4 !text-sm font-medium flex items-center justify-center gap-2 text-text-primary hover:border-text-primary/40"
-            >
-              <Wrench className="w-4 h-4 text-accent-gold" />
-              <span>Try a tool</span>
-            </Link>
-
-            <Link
-              href="/work"
-              className="btn-ghost !px-6 !py-4 !text-sm font-medium flex items-center justify-center gap-2 text-text-primary hover:border-text-primary/40"
-            >
-              <BookOpen className="w-4 h-4 text-accent-gold" />
-              <span>Read a case study</span>
-            </Link>
+            <motion.div whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/agents"
+                className="btn-ghost !px-6 !py-3.5 !text-sm font-medium flex items-center gap-2 cursor-pointer"
+              >
+                <span>Explore Agent Architectures</span>
+                <ArrowRight className="w-4 h-4 text-text-muted" />
+              </Link>
+            </motion.div>
           </div>
 
-          {/* Truth Gate Trust Note */}
-          <div className="pt-2 flex items-center gap-2 text-xs font-mono text-text-subtle">
-            <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-            <span>The Truth Gate: Every metric on this site is backed by verified evidence in facts.json.</span>
+          {/* Verification Metrics Bar */}
+          <div className="pt-6 border-t border-border-color/60 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
+            <div>
+              <span className="text-text-subtle uppercase text-[10px] block">Production Verification</span>
+              <span className="text-sm font-bold text-text-primary">Textile Mill Operating</span>
+            </div>
+            <div>
+              <span className="text-text-subtle uppercase text-[10px] block">Ledger Integrity</span>
+              <span className="text-sm font-bold text-emerald-400">0.00% Corrupt Rows</span>
+            </div>
+            <div>
+              <span className="text-text-subtle uppercase text-[10px] block">Safety Protocol</span>
+              <span className="text-sm font-bold text-text-primary">Deterministic + HITL</span>
+            </div>
+            <div>
+              <span className="text-text-subtle uppercase text-[10px] block">Execution Model</span>
+              <span className="text-sm font-bold text-accent-gold">Multi-Agent Sprints</span>
+            </div>
           </div>
         </div>
 
-        {/* Inline Mini-Demo: 20-second Staging/Validation/Review Loop with Synthetic Data */}
-        <div className="pt-4">
+        {/* Flagship Interactive Instrument: Pipeline Demo */}
+        <div className="w-full">
           <PipelineMiniDemo />
         </div>
       </div>

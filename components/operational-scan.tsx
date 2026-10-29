@@ -2,6 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import {
   Search,
@@ -18,6 +19,13 @@ import {
   Check,
 } from 'lucide-react';
 import { INDUSTRY_CONTEXTS, IndustryType } from '@/lib/calculators/industry-context';
+
+const fluidSpring = {
+  type: 'spring' as const,
+  stiffness: 380,
+  damping: 32,
+  mass: 1,
+};
 
 interface DetectedProfile {
   platform: string;
@@ -170,7 +178,7 @@ const questions = [
 
 export default function OperationalScan() {
   const [targetUrl, setTargetUrl] = useState('');
-  const [scanStep, setScanStep] = useState<number>(0); // 0: landing preview, 1: scanning steps, 2: detected + questions, 3: ungated score, 4: gated report
+  const [scanStep, setScanStep] = useState<number>(0);
   const [stagedIndex, setStagedIndex] = useState(0);
   const [detectedProfile, setDetectedProfile] = useState<DetectedProfile | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -182,7 +190,6 @@ export default function OperationalScan() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [unlockedReport, setUnlockedReport] = useState<any>(null);
 
-  // Staged scanning animation sequence
   const stagedSteps = [
     'Reading site structure & public HTML headers...',
     'Detecting platform & technology stack...',
@@ -197,7 +204,6 @@ export default function OperationalScan() {
     setScanStep(1);
     setStagedIndex(0);
 
-    // Fetch site data in parallel with staged steps
     let detectedData: DetectedProfile = {
       platform: 'Custom Web Platform',
       catalogSize: 'Mid-Scale Digital Footprint',
@@ -221,7 +227,6 @@ export default function OperationalScan() {
 
     setDetectedProfile(detectedData);
 
-    // Staged step timers
     let step = 0;
     const interval = setInterval(() => {
       step++;
@@ -244,7 +249,6 @@ export default function OperationalScan() {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prev) => prev + 1);
     } else {
-      // All 10 questions answered -> Calculate final score & dollar gap
       calculateFinalResults(nextAnswers);
       setScanStep(3);
     }
@@ -259,7 +263,6 @@ export default function OperationalScan() {
     const maxGap = Math.round(annualCost * 1.1);
     setDollarGapRange({ min: minGap, max: maxGap });
 
-    // Weighted Score Formula (40-65 target for standard visitors)
     let baseScore = 80;
     baseScore -= finalAnswers.teamMembers * 3.5;
     baseScore -= finalAnswers.hoursPerWeek * 1.2;
@@ -274,7 +277,6 @@ export default function OperationalScan() {
     setScore(finalCalculatedScore);
   };
 
-  // Count-up score animation effect
   useEffect(() => {
     if (scanStep === 3) {
       let current = 0;
@@ -296,30 +298,27 @@ export default function OperationalScan() {
     recs: { rec1: string; rec2: string; rec3: string }
   ) => {
     const pdfDoc = await PDFDocument.create();
-    const page = pdfDoc.addPage([595.28, 841.89]); // A4
+    const page = pdfDoc.addPage([595.28, 841.89]);
     const { height } = page.getSize();
     const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
     const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
-    // Background
     page.drawRectangle({
       x: 0,
       y: 0,
       width: 595.28,
       height: 841.89,
-      color: rgb(0.04, 0.04, 0.04), // #0A0A0A
+      color: rgb(0.04, 0.04, 0.04),
     });
 
-    // Gold Top Border Line
     page.drawRectangle({
       x: 40,
       y: height - 40,
       width: 515.28,
       height: 4,
-      color: rgb(0.79, 0.66, 0.3), // #C9A84C
+      color: rgb(0.79, 0.66, 0.3),
     });
 
-    // Title
     page.drawText('OPERATIONAL SCAN REPORT', {
       x: 40,
       y: height - 75,
@@ -336,7 +335,6 @@ export default function OperationalScan() {
       color: rgb(0.79, 0.66, 0.3),
     });
 
-    // Score Card Box
     page.drawRectangle({
       x: 40,
       y: height - 200,
@@ -371,7 +369,6 @@ export default function OperationalScan() {
       color: rgb(0.96, 0.96, 0.94),
     });
 
-    // Recommendations Section
     page.drawText('3 HIGH-IMPACT AUTOMATION ACTION ITEMS:', {
       x: 40,
       y: height - 240,
@@ -398,7 +395,6 @@ export default function OperationalScan() {
       currentY -= 30;
     });
 
-    // Industry Context Paragraph
     const ctx = INDUSTRY_CONTEXTS[answers.sector] || INDUSTRY_CONTEXTS.manufacturing;
     page.drawText('SECTOR CONTEXT:', {
       x: 40,
@@ -416,7 +412,6 @@ export default function OperationalScan() {
       color: rgb(0.7, 0.7, 0.7),
     });
 
-    // Footer
     page.drawText('Engineered by Arslan Rehmani | Operational AI Systems Builder | arslanrehmani.com', {
       x: 40,
       y: 40,
@@ -479,7 +474,6 @@ export default function OperationalScan() {
   return (
     <section className="bg-bg-primary py-12 md:py-16 border-y border-border-color relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Section Eyebrow & Title */}
         <div className="max-w-3xl mb-8">
           <span className="eyebrow mb-3">Homepage Flagship Scanner</span>
           <h2 className="headline text-3xl md:text-5xl leading-[1.1]">
@@ -490,7 +484,7 @@ export default function OperationalScan() {
           </p>
         </div>
 
-        {/* STEP 0: Initial URL Input + Animated Sample Analysis Preview */}
+        {/* STEP 0 */}
         {scanStep === 0 && (
           <div className="space-y-8">
             <form onSubmit={handleStartScan} className="max-w-3xl">
@@ -508,26 +502,26 @@ export default function OperationalScan() {
                     className="w-full bg-transparent text-text-primary text-base placeholder:text-text-subtle focus:outline-none py-3"
                   />
                 </div>
-                <button
+                <motion.button
                   type="submit"
-                  className="btn-primary !px-8 !py-4 shrink-0 flex items-center justify-center gap-2"
+                  whileTap={{ scale: 0.97 }}
+                  className="btn-primary !px-8 !py-4 shrink-0 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>Scan My Business</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </motion.button>
               </div>
             </form>
 
-            {/* Payoff Before Input: Sample Live Analysis Preview */}
             <div className="bg-bg-secondary border border-border-color rounded-2xl p-6 md:p-8 max-w-4xl relative overflow-hidden">
               <div className="flex items-center justify-between gap-4 mb-6 pb-4 border-b border-border-color">
                 <div className="flex items-center gap-2.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <ShieldCheck className="w-4 h-4 text-accent-gold shrink-0" />
                   <span className="text-xs font-mono text-text-subtle uppercase tracking-wider">
-                    Live Sample Scan Preview
+                    Sample Automated Diagnostic Output
                   </span>
                 </div>
-                <span className="text-xs font-mono text-accent-gold bg-accent-gold-dim border border-border-gold px-2.5 py-1 rounded-full">
+                <span className="text-xs font-mono text-text-muted bg-bg-primary border border-border-color px-2.5 py-1 rounded-md">
                   Target: apex-textiles.com (Example)
                 </span>
               </div>
@@ -555,9 +549,14 @@ export default function OperationalScan() {
           </div>
         )}
 
-        {/* STEP 1: Staged Scan Sequence with Animated Checkmarks */}
+        {/* STEP 1 */}
         {scanStep === 1 && (
-          <div className="bg-bg-secondary border border-border-color rounded-2xl p-8 md:p-12 max-w-2xl mx-auto text-center space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={fluidSpring}
+            className="bg-bg-secondary border border-border-color rounded-2xl p-8 md:p-12 max-w-2xl mx-auto text-center space-y-8"
+          >
             <div className="flex justify-center">
               <span className="w-16 h-16 rounded-full bg-accent-gold-dim border border-border-gold flex items-center justify-center text-accent-gold animate-spin">
                 <RefreshCw className="w-8 h-8" />
@@ -589,17 +588,21 @@ export default function OperationalScan() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         )}
 
-        {/* STEP 2: Detected Profile & 10 Single-Question-at-a-Time Refinement Flow */}
+        {/* STEP 2 */}
         {scanStep === 2 && (
           <div className="space-y-8 max-w-3xl mx-auto">
-            {/* Detected Profile Cards */}
             {detectedProfile && (
-              <div className="bg-bg-secondary border border-border-color rounded-2xl p-6">
+              <motion.div
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={fluidSpring}
+                className="bg-bg-secondary border border-border-color rounded-2xl p-6"
+              >
                 <span className="text-xs font-bold text-accent-gold uppercase tracking-wider block mb-3">
-                  Here is what we detected about your site ({targetUrl}):
+                  Detected Infrastructure Profile ({targetUrl}):
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                   <div className="bg-bg-primary border border-border-color p-3 rounded-xl">
@@ -619,102 +622,116 @@ export default function OperationalScan() {
                     <span className="text-xs font-bold text-text-primary font-mono">{detectedProfile.freshness}</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
-            {/* Single Question Focused Container */}
-            <div className="bg-bg-secondary border border-border-color rounded-2xl p-8 md:p-10 space-y-8">
-              {/* Progress Bar */}
+            <div className="bg-bg-secondary border border-border-color rounded-2xl p-8 md:p-10 space-y-8 overflow-hidden">
               <div>
                 <div className="flex justify-between items-center text-xs font-mono text-text-subtle mb-2">
                   <span>{questions[currentQuestionIndex].subtitle}</span>
                   <span>{currentQuestionIndex + 1} / 10</span>
                 </div>
                 <div className="w-full bg-bg-primary rounded-full h-1.5 overflow-hidden">
-                  <div
-                    className="bg-accent-gold h-full transition-all duration-300"
-                    style={{ width: `${((currentQuestionIndex + 1) / 10) * 100}%` }}
+                  <motion.div
+                    className="bg-accent-gold h-full"
+                    animate={{ width: `${((currentQuestionIndex + 1) / 10) * 100}%` }}
+                    transition={fluidSpring}
                   />
                 </div>
               </div>
 
-              {/* Question Title */}
-              <h3 className="headline text-xl md:text-2xl text-text-primary">
-                {questions[currentQuestionIndex].title}
-              </h3>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentQuestionIndex}
+                  initial={{ opacity: 0, x: 12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -12 }}
+                  transition={fluidSpring}
+                  className="space-y-6"
+                >
+                  <h3 className="headline text-xl md:text-2xl text-text-primary">
+                    {questions[currentQuestionIndex].title}
+                  </h3>
 
-              {/* Question Input: Sliders vs Visual Option Cards */}
-              {questions[currentQuestionIndex].type === 'slider' && (
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <span className="text-3xl font-black font-sans text-accent-gold">
-                      {answers[questions[currentQuestionIndex].id as keyof ScanAnswers] as number}{' '}
-                      <span className="text-sm font-normal text-text-muted">{questions[currentQuestionIndex].unit}</span>
-                    </span>
-                  </div>
-                  <input
-                    type="range"
-                    min={questions[currentQuestionIndex].min}
-                    max={questions[currentQuestionIndex].max}
-                    step={questions[currentQuestionIndex].step}
-                    value={answers[questions[currentQuestionIndex].id as keyof ScanAnswers] as number}
-                    onChange={(e) =>
-                      setAnswers({
-                        ...answers,
-                        [questions[currentQuestionIndex].id]: Number(e.target.value),
-                      })
-                    }
-                    className="w-full h-2 bg-bg-primary rounded-lg appearance-none cursor-pointer accent-accent-gold"
-                  />
-                  <button
-                    type="button"
-                    onClick={() =>
-                      handleAnswerSelect(
-                        questions[currentQuestionIndex].id as keyof ScanAnswers,
-                        answers[questions[currentQuestionIndex].id as keyof ScanAnswers]
-                      )
-                    }
-                    className="btn-primary w-full !py-3 !text-xs"
-                  >
-                    Confirm & Next →
-                  </button>
-                </div>
-              )}
+                  {questions[currentQuestionIndex].type === 'slider' && (
+                    <div className="space-y-6">
+                      <div className="flex items-center justify-between">
+                        <span className="text-3xl font-black font-sans text-accent-gold">
+                          {answers[questions[currentQuestionIndex].id as keyof ScanAnswers] as number}{' '}
+                          <span className="text-sm font-normal text-text-muted">{questions[currentQuestionIndex].unit}</span>
+                        </span>
+                      </div>
+                      <input
+                        type="range"
+                        min={questions[currentQuestionIndex].min}
+                        max={questions[currentQuestionIndex].max}
+                        step={questions[currentQuestionIndex].step}
+                        value={answers[questions[currentQuestionIndex].id as keyof ScanAnswers] as number}
+                        onChange={(e) =>
+                          setAnswers({
+                            ...answers,
+                            [questions[currentQuestionIndex].id]: Number(e.target.value),
+                          })
+                        }
+                        className="w-full h-2 bg-bg-primary rounded-lg appearance-none cursor-pointer accent-accent-gold"
+                      />
+                      <motion.button
+                        type="button"
+                        whileTap={{ scale: 0.97 }}
+                        onClick={() =>
+                          handleAnswerSelect(
+                            questions[currentQuestionIndex].id as keyof ScanAnswers,
+                            answers[questions[currentQuestionIndex].id as keyof ScanAnswers]
+                          )
+                        }
+                        className="btn-primary w-full !py-3 !text-xs cursor-pointer"
+                      >
+                        Confirm & Next →
+                      </motion.button>
+                    </div>
+                  )}
 
-              {questions[currentQuestionIndex].type === 'cards' && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {questions[currentQuestionIndex].options?.map((opt) => (
-                    <button
-                      key={opt.value}
-                      type="button"
-                      onClick={() =>
-                        handleAnswerSelect(questions[currentQuestionIndex].id as keyof ScanAnswers, opt.value)
-                      }
-                      className="text-left bg-bg-primary hover:bg-bg-primary/80 border border-border-color hover:border-border-gold rounded-xl p-5 transition-all group"
-                    >
-                      <span className="block text-sm font-bold text-text-primary group-hover:text-accent-gold transition-colors">
-                        {opt.label}
-                      </span>
-                      <span className="block text-xs text-text-muted mt-1 leading-relaxed">
-                        {opt.desc}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              )}
+                  {questions[currentQuestionIndex].type === 'cards' && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {questions[currentQuestionIndex].options?.map((opt) => (
+                        <motion.button
+                          key={opt.value}
+                          type="button"
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() =>
+                            handleAnswerSelect(questions[currentQuestionIndex].id as keyof ScanAnswers, opt.value)
+                          }
+                          className="text-left bg-bg-primary hover:bg-bg-primary/80 border border-border-color hover:border-border-gold rounded-xl p-5 transition-colors group cursor-pointer"
+                        >
+                          <span className="block text-sm font-bold text-text-primary group-hover:text-accent-gold transition-colors">
+                            {opt.label}
+                          </span>
+                          <span className="block text-xs text-text-muted mt-1 leading-relaxed">
+                            {opt.desc}
+                          </span>
+                        </motion.button>
+                      ))}
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         )}
 
-        {/* STEP 3: Instant Ungated Score & Annual Dollar Gap Reveal */}
+        {/* STEP 3 */}
         {scanStep === 3 && (
-          <div className="bg-bg-secondary border border-border-color rounded-2xl p-8 md:p-12 max-w-3xl mx-auto text-center space-y-8">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={fluidSpring}
+            className="bg-bg-secondary border border-border-color rounded-2xl p-8 md:p-12 max-w-3xl mx-auto text-center space-y-8"
+          >
             <span className="eyebrow justify-center mb-2">Scan Results</span>
             <h3 className="headline text-3xl md:text-4xl text-text-primary">
               Your Operational Efficiency Baseline
             </h3>
 
-            {/* Score Count-Up Card */}
             <div className="bg-bg-primary border border-border-color rounded-2xl p-8 max-w-sm mx-auto">
               <span className="text-xs font-mono text-text-subtle uppercase block mb-2">Efficiency Score</span>
               <span className={`text-6xl md:text-7xl font-black font-sans block ${score < 40 ? 'text-red-400' : score < 70 ? 'text-accent-gold' : 'text-emerald-400'}`}>
@@ -725,7 +742,6 @@ export default function OperationalScan() {
               </span>
             </div>
 
-            {/* Dollar Gap Calculation Box */}
             <div className="bg-bg-primary/80 border border-border-gold/50 rounded-2xl p-6 text-left max-w-xl mx-auto space-y-2">
               <span className="text-xs font-bold text-accent-gold uppercase tracking-wider block">Estimated Financial Overhead</span>
               <p className="text-lg md:text-xl font-bold text-text-primary">
@@ -734,7 +750,6 @@ export default function OperationalScan() {
               </p>
             </div>
 
-            {/* Gating Gate Form */}
             <div className="bg-bg-primary border border-border-color rounded-2xl p-6 md:p-8 max-w-xl mx-auto text-left space-y-4">
               <h4 className="headline text-lg text-text-primary">
                 Unlock Your 3 High-Impact Automation Recommendations
@@ -752,22 +767,28 @@ export default function OperationalScan() {
                   onChange={(e) => setEmail(e.target.value)}
                   className="flex-1 bg-bg-secondary border border-border-color rounded-xl px-4 py-3 text-xs text-text-primary focus:border-accent-gold focus:outline-none"
                 />
-                <button
+                <motion.button
                   type="submit"
+                  whileTap={{ scale: 0.97 }}
                   disabled={isGenerating}
-                  className="btn-primary !px-6 !py-3 !text-xs shrink-0 flex items-center justify-center gap-2 disabled:opacity-50"
+                  className="btn-primary !px-6 !py-3 !text-xs shrink-0 flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
                 >
-                  {isGenerating ? 'Generating Report...' : 'Unlock & Download PDF'}
+                  <span>{isGenerating ? 'Generating Report...' : 'Unlock & Download PDF'}</span>
                   <Download className="w-4 h-4" />
-                </button>
+                </motion.button>
               </form>
             </div>
-          </div>
+          </motion.div>
         )}
 
-        {/* STEP 4: Gated Report On-Screen Display */}
+        {/* STEP 4 */}
         {scanStep === 4 && unlockedReport && (
-          <div className="bg-bg-secondary border border-border-color rounded-2xl p-8 md:p-12 max-w-3xl mx-auto space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={fluidSpring}
+            className="bg-bg-secondary border border-border-color rounded-2xl p-8 md:p-12 max-w-3xl mx-auto space-y-8"
+          >
             <div className="flex items-center justify-between pb-6 border-b border-border-color">
               <div>
                 <span className="eyebrow mb-1">Full Report Unlocked</span>
@@ -801,7 +822,7 @@ export default function OperationalScan() {
                 Book a 30-Min Discovery Call →
               </a>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

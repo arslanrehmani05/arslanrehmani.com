@@ -2,9 +2,17 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { calculateRoi, CostBracket, COST_BRACKET_LABELS } from '@/lib/calculators/roi';
 import { INDUSTRY_CONTEXTS, IndustryType } from '@/lib/calculators/industry-context';
-import { Download, RefreshCw, Calculator, ShieldCheck, Check } from 'lucide-react';
+import { Download, ShieldCheck, Check, Calculator, ArrowRight } from 'lucide-react';
+
+const fluidSpring = {
+  type: 'spring' as const,
+  stiffness: 380,
+  damping: 32,
+  mass: 1,
+};
 
 export default function DiagnosticsRoiCalculator() {
   const [teamMembers, setTeamMembers] = useState(3);
@@ -15,7 +23,6 @@ export default function DiagnosticsRoiCalculator() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [downloadSuccess, setDownloadSuccess] = useState(false);
 
-  // Live pure calculation updates on slider drag
   const results = useMemo(() => {
     return calculateRoi({ teamMembers, hoursPerWeek, costBracket });
   }, [teamMembers, hoursPerWeek, costBracket]);
@@ -57,39 +64,34 @@ export default function DiagnosticsRoiCalculator() {
   };
 
   return (
-    <div className="bg-bg-secondary border border-border-color rounded-2xl p-8 md:p-12 space-y-10">
-      {/* Header */}
+    <div className="bg-bg-secondary/80 border border-border-color rounded-2xl p-8 md:p-12 space-y-10 backdrop-blur-md">
       <div>
-        <span className="eyebrow mb-2">Interactive Utility</span>
+        <span className="eyebrow mb-2">Interactive Financial Instrument</span>
         <h2 className="headline text-2xl md:text-4xl text-text-primary">
           Operational ROI & Savings Calculator
         </h2>
         <p className="text-sm text-text-muted mt-2">
-          Adjust the sliders below to calculate your current annual manual cost, projected post-automation savings, and estimated payback period in real time.
+          Adjust the parameters below to compute your current manual overhead, automated savings projection, and estimated capital payback period in real time.
         </p>
       </div>
 
-      {/* Live Pre-Calculated Animating Example Card (Non-Form Payoff) */}
-      <div className="bg-bg-primary border border-border-gold/40 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="bg-bg-primary border border-border-color rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+          <Calculator className="w-4 h-4 text-accent-gold shrink-0" />
           <p className="text-xs text-text-muted leading-relaxed">
-            <strong className="text-text-primary">Live Calculated Benchmark:</strong> A team of {teamMembers} people spending {hoursPerWeek} hrs/week on manual work currently loses <span className="text-accent-gold font-bold font-sans">${results.currentAnnualCost.toLocaleString()} / year</span>.
+            <strong className="text-text-primary">Calculated Benchmark:</strong> A team of {teamMembers} people spending {hoursPerWeek} hrs/week on manual data entry loses approximately <span className="text-accent-gold font-bold font-sans">${results.currentAnnualCost.toLocaleString()} / year</span> in overhead drag.
           </p>
         </div>
-        <span className="text-xs font-mono text-accent-gold font-bold shrink-0">
+        <span className="text-xs font-mono text-text-primary font-bold shrink-0 px-3 py-1 rounded-md bg-bg-secondary border border-border-color">
           Payback: ~{results.paybackPeriodMonths} Months
         </span>
       </div>
 
-      {/* Interactive Slider & Card Controls */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-        {/* Left Inputs (7 cols) */}
         <div className="lg:col-span-7 space-y-8">
-          {/* Slider 1: Team Members */}
           <div className="space-y-3">
             <div className="flex justify-between items-center text-xs font-semibold text-text-primary">
-              <label htmlFor="roi-team-slider">Team members doing manual updates:</label>
+              <label htmlFor="roi-team-slider">Team members handling manual spreadsheet workflows:</label>
               <span className="text-lg font-bold text-accent-gold font-sans">{teamMembers} people</span>
             </div>
             <input
@@ -104,10 +106,9 @@ export default function DiagnosticsRoiCalculator() {
             />
           </div>
 
-          {/* Slider 2: Hours per Week */}
           <div className="space-y-3">
             <div className="flex justify-between items-center text-xs font-semibold text-text-primary">
-              <label htmlFor="roi-hours-slider">Hours per week spent per person:</label>
+              <label htmlFor="roi-hours-slider">Hours per week spent per team member:</label>
               <span className="text-lg font-bold text-accent-gold font-sans">{hoursPerWeek} hrs/week</span>
             </div>
             <input
@@ -122,41 +123,60 @@ export default function DiagnosticsRoiCalculator() {
             />
           </div>
 
-          {/* Visual Cards: Salary Cost Bracket */}
           <div className="space-y-3">
             <span className="text-xs font-semibold text-text-primary block">
               Average Team Compensation Bracket:
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-              {(Object.keys(COST_BRACKET_LABELS) as CostBracket[]).map((key) => (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => setCostBracket(key)}
-                  className={`p-3 rounded-xl border text-left transition-all ${
-                    costBracket === key
-                      ? 'bg-accent-gold-dim border-border-gold text-accent-gold font-bold'
-                      : 'bg-bg-primary border-border-color text-text-muted hover:border-border-gold'
-                  }`}
-                >
-                  <span className="text-xs block font-mono">{COST_BRACKET_LABELS[key]}</span>
-                </button>
-              ))}
+              {(Object.keys(COST_BRACKET_LABELS) as CostBracket[]).map((key) => {
+                const isSelected = costBracket === key;
+                return (
+                  <motion.button
+                    key={key}
+                    type="button"
+                    whileTap={{ scale: 0.97 }}
+                    onClick={() => setCostBracket(key)}
+                    className={`relative p-3.5 rounded-xl border text-left transition-colors overflow-hidden ${
+                      isSelected
+                        ? 'border-accent-gold text-text-primary bg-bg-primary shadow-sm'
+                        : 'bg-bg-primary/50 border-border-color text-text-muted hover:border-text-primary/30'
+                    }`}
+                  >
+                    {isSelected && (
+                      <motion.div
+                        layoutId="active-bracket-pill"
+                        transition={fluidSpring}
+                        className="absolute inset-0 rounded-xl ring-1 ring-accent-gold/40 bg-accent-gold/5 pointer-events-none"
+                      />
+                    )}
+                    <span className="text-xs block font-mono relative z-10 font-medium">
+                      {COST_BRACKET_LABELS[key]}
+                    </span>
+                  </motion.button>
+                );
+              })}
             </div>
           </div>
         </div>
 
-        {/* Right Output Display (5 cols) */}
-        <div className="lg:col-span-5 bg-bg-primary border border-border-color rounded-xl p-6 flex flex-col justify-between space-y-6">
+        <div className="lg:col-span-5 bg-bg-primary border border-border-color rounded-2xl p-6 flex flex-col justify-between space-y-6">
           <div>
             <span className="text-xs font-mono text-text-subtle uppercase block mb-1">
-              Live Projected Savings
+              Live Projected Annual Savings
             </span>
-            <span className="text-4xl font-black font-sans text-accent-gold block">
-              ${results.annualSavings.toLocaleString()}
-            </span>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={results.annualSavings}
+                initial={{ opacity: 0.6, y: -2 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={fluidSpring}
+                className="text-4xl font-black font-sans text-accent-gold block"
+              >
+                ${results.annualSavings.toLocaleString()}
+              </motion.span>
+            </AnimatePresence>
             <span className="text-xs text-text-muted mt-1 block">
-              Estimated annual overhead eliminated
+              Estimated annual administrative overhead eliminated
             </span>
           </div>
 
@@ -174,27 +194,31 @@ export default function DiagnosticsRoiCalculator() {
               <span className="font-mono text-text-primary">${results.hourlyRate}/hr</span>
             </div>
             <div className="flex justify-between pt-2 border-t border-border-color/60 text-accent-gold font-bold">
-              <span>Payback Period:</span>
+              <span>Estimated Payback Period:</span>
               <span className="font-mono">~{results.paybackPeriodMonths} Months</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* PDF Download Gate Section */}
       <div className="pt-8 border-t border-border-color max-w-2xl">
         <h3 className="text-base font-bold text-text-primary mb-2">
-          Get Your Industry PDF Breakdown
+          Download Your Sector Breakdown PDF
         </h3>
         <p className="text-xs text-text-muted mb-4">
-          Select your industry to generate an executive PDF breakdown with sector-specific commentary and automation targets.
+          Select your industry to receive an executive PDF breakdown with sector-specific operational targets and architecture blueprint.
         </p>
 
         {downloadSuccess ? (
-          <div className="p-4 bg-accent-gold-dim border border-border-gold rounded-xl flex items-center gap-3 text-xs text-accent-gold">
+          <motion.div
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={fluidSpring}
+            className="p-4 bg-accent-gold-dim border border-border-gold rounded-xl flex items-center gap-3 text-xs text-accent-gold"
+          >
             <Check className="w-5 h-5 shrink-0" />
-            <span>PDF Downloaded successfully. Want to discuss implementing these savings? <a href="/contact" className="underline font-bold">Book a call →</a></span>
-          </div>
+            <span>PDF downloaded successfully. Ready to review implementation details? <a href="/contact" className="underline font-bold">Book a discovery call →</a></span>
+          </motion.div>
         ) : (
           <form onSubmit={handleDownloadPdf} className="flex flex-col sm:flex-row gap-3">
             <select
@@ -218,14 +242,15 @@ export default function DiagnosticsRoiCalculator() {
               className="flex-1 bg-bg-primary border border-border-color rounded-xl px-4 py-3 text-xs text-text-primary focus:border-accent-gold focus:outline-none"
             />
 
-            <button
+            <motion.button
               type="submit"
+              whileTap={{ scale: 0.97 }}
               disabled={isSubmitting}
-              className="btn-primary !px-6 !py-3 !text-xs shrink-0 flex items-center justify-center gap-2 disabled:opacity-50"
+              className="btn-primary !px-6 !py-3 !text-xs shrink-0 flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
             >
-              {isSubmitting ? 'Generating...' : 'Download PDF'}
+              <span>{isSubmitting ? 'Generating...' : 'Download PDF'}</span>
               <Download className="w-4 h-4" />
-            </button>
+            </motion.button>
           </form>
         )}
       </div>

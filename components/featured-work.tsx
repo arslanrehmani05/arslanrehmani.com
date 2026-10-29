@@ -1,173 +1,111 @@
-// components/featured-work.tsx
 import Link from 'next/link';
-import { ArrowRight, ExternalLink, CheckCircle2, Cpu, Database } from 'lucide-react';
-import { getVerifiedFact } from '@/lib/facts';
+import { ArrowRight, CheckCircle2, ShieldCheck, Database, Layers } from 'lucide-react';
 
 export default function FeaturedWork() {
-  const textileLooms = getVerifiedFact('fact-textilemode-looms');
-  const textileHours = getVerifiedFact('fact-textilemode-hours');
-  const textileLive = getVerifiedFact('fact-textilemode-live');
-  const finTime = getVerifiedFact('fact-fin-reconcile-time');
-  const finAccuracy = getVerifiedFact('fact-fin-reconcile-accuracy');
-  const belhideIntegrations = getVerifiedFact('fact-belhide-integrations');
-
-  const studies = [
-    {
-      id: 'textilemode-erp',
-      client: 'TextileMode ERP',
-      liveUrl: 'https://erp.textilemode.com',
-      industry: 'Custom Manufacturing ERP & Floor Intelligence',
-      coreSystem: 'Custom 5-module ERP built to manage yarn lot accounting, loom allocation, greige inspection, piece-rate wages, and double-entry accounting.',
-      agenticLayer: 'Agentic shift briefings, predictive yarn shortage alerts, and automated variance flagging running directly on top of the relational ledger.',
-      results: [
-        { label: 'Looms Managed', value: textileLooms?.value || '27 looms' },
-        { label: 'Manual Work Eliminated', value: textileHours?.value || '40+ hrs/wk' },
-        { label: 'Continuous Production', value: textileLive?.value || '10+ months' },
-      ],
-      link: '/work/textilemode-erp',
-    },
-    {
-      id: 'financial-reconciliation',
-      client: 'Automating Financial Reconciliation',
-      liveUrl: null,
-      industry: 'Custom Accounting System & Reconcile Engine',
-      coreSystem: 'Custom double-entry ledger platform with multi-currency normalized transaction store and QuickBooks integration.',
-      agenticLayer: 'Deterministic matching agents that ingest daily bank webhooks, apply rule-based heuristics, and route exceptions to human review.',
-      results: [
-        { label: 'Close Duration', value: finTime?.value || '3 days → 45 min' },
-        { label: 'Automated Match Rate', value: finAccuracy?.value || '98%' },
-        { label: 'Corrupted Rows Committed', value: '0' },
-      ],
-      link: '/work/financial-reconciliation',
-    },
-    {
-      id: 'belhide-operational-stack',
-      client: 'Belhide Operational Stack',
-      liveUrl: 'https://erp.belhide.com',
-      industry: 'Custom Ecommerce Control Platform',
-      coreSystem: 'Custom unified operational hub connecting Shopify, Amazon, Google Analytics 4, and Search Console into a single relational database.',
-      agenticLayer: 'Daily 07:00 autonomous executive briefings, automated shipping cost audits, and real-time inventory reorder triggers.',
-      results: [
-        { label: 'Unified Channels', value: belhideIntegrations?.value || '4 channels' },
-        { label: 'Daily Briefing', value: 'Automated 07:00' },
-        { label: 'Single Pane of Glass', value: 'Live Platform' },
-      ],
-      link: '/work/belhide-operational-stack',
-    },
-  ];
-
   return (
-    <section id="featured-work" className="py-24 md:py-32 border-b border-border-color bg-bg-secondary/30">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="max-w-3xl space-y-3">
-            <div className="text-xs uppercase font-mono tracking-wider text-text-subtle">
-              Featured Work &bull; Custom Projects &amp; Agentic Improvements
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary">
-              Custom projects built from scratch. Agentic intelligence layered on top.
+    <section className="py-20 px-6">
+      <div className="max-w-6xl mx-auto space-y-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="space-y-2">
+            <span className="eyebrow">Production Verified Case Studies</span>
+            <h2 className="headline text-3xl sm:text-4xl text-text-primary">
+              Proof over claims: systems in production.
             </h2>
-            <p className="text-sm sm:text-base text-text-muted leading-relaxed">
-              We engineer custom production systems tailored to your business, and layer agentic improvements over them—never replacing custom software with fragile AI-only wrappers.
-            </p>
           </div>
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 text-sm font-medium text-text-primary hover:text-accent-gold transition-colors py-1 font-mono shrink-0"
-          >
-            <span>View all custom projects</span>
-            <ArrowRight className="w-4 h-4" />
+          <Link href="/work" className="text-xs font-mono text-accent-gold flex items-center gap-1.5 hover:underline">
+            <span>View all case studies</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        <div className="space-y-12">
-          {studies.map((study, idx) => (
-            <div
-              key={study.id}
-              className="p-8 sm:p-10 rounded-3xl bg-bg-primary border border-border-color space-y-8"
-            >
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border-color/60 pb-6">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono text-text-subtle">0{idx + 1}</span>
-                    <h3 className="text-2xl font-bold tracking-tight text-text-primary">
-                      {study.client}
-                    </h3>
-                  </div>
-                  <div className="text-xs text-text-muted font-mono">
-                    {study.industry}
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  {study.liveUrl && (
-                    <a
-                      href={study.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-bg-secondary border border-border-color text-xs text-text-primary hover:border-text-primary/40 transition-colors font-mono"
-                    >
-                      <span>Open live system</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  )}
-                  <Link
-                    href={study.link}
-                    className="btn-primary !pl-4 !pr-1.5 !py-1.5 !text-xs font-semibold uppercase tracking-wider flex items-center gap-2 group"
-                  >
-                    <span>Read case study</span>
-                    <span className="btn-arrow-badge w-6 h-6">
-                      <ArrowRight className="w-3 h-3 text-white" />
-                    </span>
-                  </Link>
-                </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Case Study 1: TextileMode Mill */}
+          <div className="rounded-2xl bg-bg-secondary/70 border border-border-color p-8 space-y-6 flex flex-col justify-between">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between text-xs font-mono">
+                <span className="text-accent-gold font-semibold uppercase tracking-wider">Industrial Manufacturing ERP</span>
+                <span className="text-text-subtle">Textile Mode Mill</span>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-7 space-y-5">
-                  <div className="p-4 rounded-xl bg-bg-secondary/40 border border-border-color space-y-1.5">
-                    <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-text-primary font-bold">
-                      <Database className="w-3.5 h-3.5 text-accent-gold" />
-                      <span>The Core Custom Project:</span>
-                    </div>
-                    <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
-                      {study.coreSystem}
-                    </p>
-                  </div>
+              <h3 className="headline text-2xl text-text-primary">
+                Full-Scale Mill ERP: Eliminating accounting & admin spreadsheet bloat.
+              </h3>
 
-                  <div className="p-4 rounded-xl bg-bg-secondary/40 border border-border-color space-y-1.5">
-                    <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-accent-gold font-bold">
-                      <Cpu className="w-3.5 h-3.5 text-accent-gold" />
-                      <span>Agentic Improvements Built Over It:</span>
-                    </div>
-                    <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
-                      {study.agenticLayer}
-                    </p>
-                  </div>
+              <p className="text-sm text-text-muted leading-relaxed">
+                Tasked with fixing broken Excel spreadsheets, I built a modular PostgreSQL-backed ERP that automated weaving yarn intake, dyeing runs, and accounting reconciliation. The mill transitioned off manual administrative and data entry staff entirely, running with 100% data integrity.
+              </p>
+
+              <div className="p-4 rounded-xl bg-bg-primary border border-border-color space-y-2 font-mono text-xs">
+                <div className="flex justify-between text-text-muted">
+                  <span>Architecture:</span>
+                  <span className="text-text-primary">Next.js + PostgreSQL + Isolated Staging</span>
                 </div>
-
-                <div className="lg:col-span-5 bg-bg-secondary/40 p-6 rounded-2xl border border-border-color flex flex-col justify-between space-y-4">
-                  <div className="text-xs uppercase font-mono tracking-wider text-text-subtle">
-                    Measured Outcomes (Verified)
-                  </div>
-                  <div className="space-y-3">
-                    {study.results.map((res) => (
-                      <div key={res.label} className="flex items-center justify-between border-b border-border-color/40 pb-2">
-                        <span className="text-xs text-text-muted">{res.label}</span>
-                        <span className="text-base font-bold font-mono text-text-primary">
-                          {res.value}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-2 text-[11px] font-mono text-emerald-400">
-                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                    <span>Cross-referenced with production logs</span>
-                  </div>
+                <div className="flex justify-between text-text-muted">
+                  <span>Core Outcome:</span>
+                  <span className="text-emerald-400 font-bold">Replaced entire admin/accounting floor</span>
+                </div>
+                <div className="flex justify-between text-text-muted">
+                  <span>Ledger Reconciliation:</span>
+                  <span className="text-text-primary font-bold">0 corrupt rows in 14+ months</span>
                 </div>
               </div>
             </div>
-          ))}
+
+            <div className="pt-4 border-t border-border-color flex items-center justify-between">
+              <span className="text-xs font-mono text-text-subtle">Verified Client Case Study</span>
+              <Link
+                href="/work/textile-mode"
+                className="text-xs font-mono text-accent-gold hover:underline flex items-center gap-1"
+              >
+                <span>Read technical architecture</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Case Study 2: Belhide Industrial Leather */}
+          <div className="rounded-2xl bg-bg-secondary/70 border border-border-color p-8 space-y-6 flex flex-col justify-between">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between text-xs font-mono">
+                <span className="text-accent-gold font-semibold uppercase tracking-wider">Supply Chain & Raw Tannery Intake</span>
+                <span className="text-text-subtle">Belhide Industrial</span>
+              </div>
+
+              <h3 className="headline text-2xl text-text-primary">
+                Raw Hide Grading & Batch Tracking System
+              </h3>
+
+              <p className="text-sm text-text-muted leading-relaxed">
+                Replaced handwritten clipboard grading and disconnected spreadsheets with a real-time lot tracking database. Every batch is graded, weighed, and costed through automated validation rules before chemical tanning runs commence.
+              </p>
+
+              <div className="p-4 rounded-xl bg-bg-primary border border-border-color space-y-2 font-mono text-xs">
+                <div className="flex justify-between text-text-muted">
+                  <span>Architecture:</span>
+                  <span className="text-text-primary">Supabase + Real-Time Mobile Barcode Flow</span>
+                </div>
+                <div className="flex justify-between text-text-muted">
+                  <span>Yield Improvement:</span>
+                  <span className="text-emerald-400 font-bold">+18.4% Raw Material Traceability</span>
+                </div>
+                <div className="flex justify-between text-text-muted">
+                  <span>Payment Disputes:</span>
+                  <span className="text-text-primary font-bold">Reduced from 12% to &lt;0.5%</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-border-color flex items-center justify-between">
+              <span className="text-xs font-mono text-text-subtle">Verified Client Case Study</span>
+              <Link
+                href="/work/belhide"
+                className="text-xs font-mono text-accent-gold hover:underline flex items-center gap-1"
+              >
+                <span>Read technical architecture</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>

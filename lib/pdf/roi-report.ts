@@ -56,7 +56,7 @@ export async function generateRoiReportPdf(params: RoiReportParams): Promise<Uin
   drawLine(`Estimated payback period: ${results.paybackPeriodMonths} months`, { gap: 32 });
 
   drawLine(`${industry.label} Context`, { font: bold, size: 13, color: GOLD, gap: 20 });
-  drawLine(industry.typicalDrag.slice(0, 80), { size: 10, color: MUTED, gap: 15 });
+  drawLine((industry.typicalDrag || industry.typicalLeakage || '').slice(0, 80), { size: 10, color: MUTED, gap: 15 });
   drawLine(industry.commentary.slice(0, 80), { size: 10, color: MUTED, gap: 24 });
 
   drawLine('Want to talk through what this looks like for your business?', { font: bold, size: 12, gap: 16 });

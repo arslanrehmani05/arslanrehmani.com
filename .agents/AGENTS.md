@@ -7,3 +7,13 @@ Please always refer to and adhere to the project specifications and requirements
 ## Guidelines
 - Do not make major architectural changes or deviate from the guidelines without checking these files first.
 - Maintain the defined styling tokens, Tailwind usage, and strict copy standards (avoiding buzzwords, emphasizing hard verifiable numbers and business outcomes).
+
+## Design Engineering & Interaction Skills (Emil Kowalski)
+The workspace includes Emil Kowalski's official Agent Skills installed at `./.agents/skills/`:
+- `emil-design-eng`: Core UI polish, visual hierarchy, and invisible design details
+- `animate` & `animate-expo`: Physics-based motion, duration, and proper easing curves
+- `review-animations` & `improve-animations`: Strict motion audit and refinement plans
+- `animation-performance`: Prevention of layout thrashing and frame drops
+- `mobile-native`: Eliminating mobile web quirks (tap highlights, 100vh bugs, touch targets)
+- `pick-ui-library`: Curated, battle-tested UI primitives
+- `break-ui`: Stress-testing components against boundary and extreme data cases

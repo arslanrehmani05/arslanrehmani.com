@@ -18,7 +18,7 @@ export default function AgentFunctionGrid() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-3xl space-y-3">
             <div className="text-xs uppercase font-mono tracking-wider text-text-subtle">
-              Agent Capabilities &bull; Operational Workers, Not Chatbots
+              Agent Capabilities &bull; Autonomous Operational Workers
             </div>
             <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-text-primary leading-[1.1]">
               What agents can do for your operation.
