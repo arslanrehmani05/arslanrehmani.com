@@ -2,18 +2,18 @@
 const cards = [
   {
     num: '01',
-    title: 'Operations that run on people',
-    body: 'Every process that requires a human is a cost, a risk, and a bottleneck. Most businesses have dozens of these and have stopped noticing them.',
+    title: 'Your numbers depend on people',
+    body: 'Month-end takes a week. The figures sit in six spreadsheets and two people’s heads. One sick day and the close slips.',
   },
   {
     num: '02',
-    title: 'Tools that don’t talk to each other',
-    body: 'Sales in one platform. Inventory in another. Reporting in spreadsheets. Every gap between systems gets filled by someone’s manual work.',
+    title: 'Your systems don’t connect',
+    body: 'Orders, stock and accounts sit in three places. Someone rekeys the data between them, and every rekey risks an error that shows up in your margins.',
   },
   {
     num: '03',
-    title: 'The gap between knowing and doing',
-    body: 'Understanding what should change is common. Finding someone who can design the system, build it properly, and deploy it reliably is not.',
+    title: 'AI demos don’t hold up on real data',
+    body: 'Anyone can demo an agent. Very few can show you one that reconciles a real ledger, logs every action and stops before a costly mistake.',
   },
 ];
 
@@ -23,8 +23,7 @@ export default function ProblemSection() {
       <div className="max-w-6xl mx-auto px-6">
         <span className="eyebrow mb-5">The Problem</span>
         <h2 className="headline text-3xl md:text-[2.75rem] leading-[1.1] max-w-3xl">
-          Most businesses know something is inefficient. Almost none have someone
-          who can actually fix it.
+          You&apos;re paying people to do what software should.
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">

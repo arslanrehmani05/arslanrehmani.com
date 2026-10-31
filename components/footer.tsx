@@ -11,7 +11,7 @@ export default function Footer() {
             <span>Arslan Rehmani</span>
           </Link>
           <p className="text-xs text-text-muted leading-relaxed">
-            Operational Systems Builder & Forward-Deployed AI Architect. Reengineering manual back-offices, ERP integrations, and high-frequency business workflows into deterministic software instruments.
+            Operational Systems Builder &amp; Forward-Deployed AI Architect. Reengineering manual back-offices, ERP integrations, and high-frequency business workflows into deterministic software instruments.
           </p>
           <div className="text-[11px] font-mono text-text-subtle">
             Verified Production Outcomes · Zero Speculative Commit
@@ -21,23 +21,24 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 text-xs">
           <div className="space-y-3">
             <span className="font-semibold text-text-primary uppercase tracking-wider block font-mono text-[11px]">
-              Work & Systems
+              Work &amp; Systems
             </span>
             <ul className="space-y-2 text-text-muted">
+              <li><Link href="/projects" className="hover:text-text-primary transition-colors">Systems &amp; Explorer</Link></li>
               <li><Link href="/work" className="hover:text-text-primary transition-colors">Case Studies</Link></li>
-              <li><Link href="/industries" className="hover:text-text-primary transition-colors">Target Industries</Link></li>
               <li><Link href="/agents" className="hover:text-text-primary transition-colors">Autonomous Agents</Link></li>
+              <li><Link href="/industries" className="hover:text-text-primary transition-colors">Target Industries</Link></li>
               <li><Link href="/tools" className="hover:text-text-primary transition-colors">Interactive Tools</Link></li>
             </ul>
           </div>
 
           <div className="space-y-3">
             <span className="font-semibold text-text-primary uppercase tracking-wider block font-mono text-[11px]">
-              Guarantees & Firm
+              Guarantees &amp; Firm
             </span>
             <ul className="space-y-2 text-text-muted">
               <li><Link href="/services" className="hover:text-text-primary transition-colors">Engagements</Link></li>
-              <li><Link href="/security" className="hover:text-text-primary transition-colors">Security & Isolation</Link></li>
+              <li><Link href="/security" className="hover:text-text-primary transition-colors">Security &amp; Isolation</Link></li>
               <li><Link href="/about" className="hover:text-text-primary transition-colors">Founder Story</Link></li>
               <li><Link href="/contact" className="hover:text-text-primary transition-colors">Book Discovery</Link></li>
             </ul>

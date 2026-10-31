@@ -1,10 +1,10 @@
 // components/credibility-bar.tsx
 const stats = [
-  { value: '2', label: 'Production systems live today' },
-  { value: '5', label: 'Employees replaced by one system' },
-  { value: '40+', label: 'Hours of manual work eliminated weekly' },
-  { value: '4', label: 'Live products you can use right now' },
-  { value: '10+', label: 'Months running on real operational data' },
+  { value: '10 → 1', label: 'Back-office staff at a $107k/month manufacturer' },
+  { value: '18 months', label: 'Live on real financial data' },
+  { value: '1–2 days', label: 'Month-end close across 4 departments, one clerk' },
+  { value: '15+', label: 'Autonomous agents & swarms deployed' },
+  { value: 'Zero Slop', label: 'Hardened with evals, sandboxes & RLS' },
 ];
 
 export default function CredibilityBar() {

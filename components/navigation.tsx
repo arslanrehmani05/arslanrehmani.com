@@ -7,12 +7,12 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import BrandLogo from '@/components/brand-logo';
 
 const navLinks = [
+  { label: 'Systems', href: '/projects' },
   { label: 'Work', href: '/work' },
-  { label: 'Industries', href: '/industries' },
   { label: 'Agents', href: '/agents' },
-  { label: 'Tools', href: '/tools' },
+  { label: 'Industries', href: '/industries' },
   { label: 'Services', href: '/services' },
-  { label: 'Security', href: '/security' },
+  { label: 'Tools', href: '/tools' },
   { label: 'About', href: '/about' },
 ];
 

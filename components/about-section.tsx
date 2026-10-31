@@ -29,21 +29,17 @@ export default function AboutSection() {
             Arslan Rehmani
           </h2>
           <p className="text-sm md:text-base font-medium text-text-muted mt-1.5">
-            Operational AI Systems Builder
+            Autonomous Systems Architect · Production Agentic AI
           </p>
         </div>
 
         {/* Centered Copy & Links */}
         <div className="pt-8 max-w-2xl mx-auto">
           <h3 className="headline text-xl md:text-2xl text-text-primary leading-snug">
-            I build the systems, not <span className="italic">slideware.</span>
+            Systems over slideware. <span className="italic text-accent-gold">Code over claims.</span>
           </h3>
           <p className="text-base text-text-muted leading-relaxed mt-4">
-            I build production software for real businesses. The first system I built
-            replaced five employees at a textile manufacturer and has run its daily
-            operations for over ten months. The second runs a client&apos;s ecommerce
-            brand across five sales channels. Everything on this site is live and testable —
-            because claims are cheap and working software is not.
+            I engineer production software and autonomous agent systems for real businesses. The first system I built took a 10-person back office down to a single clerk at a textile manufacturer running 27 looms and turning over PKR 3 crore (~$107k) a month, live for 18 months. The second runs a client&apos;s multi-channel ecommerce operations. Everything on this site is live and testable — because claims are cheap and working software is not.
           </p>
 
           <div className="flex items-center justify-center gap-6 mt-8">
@@ -53,7 +49,7 @@ export default function AboutSection() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-primary hover:opacity-75 text-sm font-medium transition-opacity"
+                className="text-text-primary hover:text-accent-gold text-sm font-medium transition-colors"
                 style={{ minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
               >
                 {social.label} →

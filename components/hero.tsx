@@ -5,12 +5,6 @@ import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import PipelineMiniDemo from '@/components/pipeline-mini-demo';
 
-const fluidSpring = {
-  type: 'spring' as const,
-  stiffness: 380,
-  damping: 32,
-};
-
 export default function Hero() {
   return (
     <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28">
@@ -19,24 +13,25 @@ export default function Hero() {
         <div className="max-w-3xl space-y-6">
           <div className="inline-flex items-center gap-2 text-xs font-mono text-text-muted">
             <span className="w-2 h-2 rounded-full bg-accent-gold" />
-            <span className="uppercase tracking-wider">Autonomous Systems Architect · Production Agentic AI</span>
+            <span className="uppercase tracking-wider">Autonomous Systems Architect · Production Agentic AI · FDE</span>
           </div>
 
           <h1 className="headline text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-text-primary leading-[1.08]">
-            Autonomous agents engineered for mission-critical operations.
+            I build autonomous agents and production systems that replace manual work.{' '}
+            <span className="italic text-accent-gold">Permanently.</span>
           </h1>
 
           <p className="text-base sm:text-lg text-text-muted leading-relaxed max-w-2xl">
-            Rooted in years of industrial software engineering, I design and deploy multi-agent architectures that run complex back-office operations—reconciling invoices, balancing inventories, and resolving logistics disputes with mathematical certainty and zero ledger corruption.
+            Custom operational software, hardened multi-agent swarms, and deterministic tools engineered for businesses with real physical and financial operations. From a $107k/mo textile mill cut to 1 clerk to autonomous multi-agent trading floors—built to run without hallucination, drift, or human babysitting.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <motion.div whileTap={{ scale: 0.97 }}>
               <Link
-                href="/contact"
+                href="/projects"
                 className="btn-primary !px-7 !py-3.5 !text-sm font-semibold flex items-center gap-3 group cursor-pointer"
               >
-                <span>Book a 20-min architectural audit</span>
+                <span>Explore Live Systems &amp; Swarms</span>
                 <span className="btn-arrow-badge w-6 h-6">
                   <ArrowRight className="w-3.5 h-3.5 text-white" />
                 </span>
@@ -45,10 +40,10 @@ export default function Hero() {
 
             <motion.div whileTap={{ scale: 0.97 }}>
               <Link
-                href="/agents"
+                href="/contact"
                 className="btn-ghost !px-6 !py-3.5 !text-sm font-medium flex items-center gap-2 cursor-pointer"
               >
-                <span>Explore Agent Architectures</span>
+                <span>Start a Conversation</span>
                 <ArrowRight className="w-4 h-4 text-text-muted" />
               </Link>
             </motion.div>
@@ -58,19 +53,19 @@ export default function Hero() {
           <div className="pt-6 border-t border-border-color/60 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
             <div>
               <span className="text-text-subtle uppercase text-[10px] block">Production Verification</span>
-              <span className="text-sm font-bold text-text-primary">Textile Mill Operating</span>
+              <span className="text-sm font-bold text-text-primary">18 Mos Live Mill Operations</span>
             </div>
             <div>
-              <span className="text-text-subtle uppercase text-[10px] block">Ledger Integrity</span>
-              <span className="text-sm font-bold text-emerald-400">0.00% Corrupt Rows</span>
+              <span className="text-text-subtle uppercase text-[10px] block">Staff Overhead</span>
+              <span className="text-sm font-bold text-accent-gold">10 → 1 Clerk</span>
             </div>
             <div>
-              <span className="text-text-subtle uppercase text-[10px] block">Safety Protocol</span>
-              <span className="text-sm font-bold text-text-primary">Deterministic + HITL</span>
+              <span className="text-text-subtle uppercase text-[10px] block">Month-End Balance</span>
+              <span className="text-sm font-bold text-emerald-400">1–2 Days (4 Depts)</span>
             </div>
             <div>
               <span className="text-text-subtle uppercase text-[10px] block">Execution Model</span>
-              <span className="text-sm font-bold text-accent-gold">Multi-Agent Sprints</span>
+              <span className="text-sm font-bold text-accent-gold">Multi-Agent Swarms</span>
             </div>
           </div>
         </div>

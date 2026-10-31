@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Code, Database, Brain, Cpu, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Code, Database, Brain, Cpu, CheckCircle2, ShieldCheck } from 'lucide-react';
 import FinalCta from '@/components/final-cta';
 
 export const metadata = {
@@ -16,7 +16,7 @@ export default function AboutPage() {
           I build software because spreadsheets were never meant to run a business.
         </h1>
         <p className="text-lg text-text-muted leading-relaxed">
-          I started coding in 9th grade. Last year, I was tasked at my job at a high-volume textile mill to &ldquo;fix the spreadsheets.&rdquo; I knew that spreadsheets could never solve real operational bottlenecks—so I quietly built the software myself.
+          I started coding in 9th grade. At a high-volume textile manufacturer turning over PKR 3 crore (~$107k) a month, I was tasked to &ldquo;fix the spreadsheets.&rdquo; I knew that spreadsheets could never solve real operational bottlenecks—so I quietly built the software myself.
         </p>
       </div>
 
@@ -27,10 +27,10 @@ export default function AboutPage() {
             01. The Textile Mode Turning Point
           </h2>
           <p>
-            The mill was drowning in disconnected paper tickets and Excel spreadsheets across yarn intake, loom scheduling, dyeing lots, and accounting reconciliation. When they asked for better spreadsheets, I delivered the sheets—but without telling anyone, I built custom software solving a single department.
+            The mill was drowning in disconnected paper tickets and Excel spreadsheets across yarn intake, loom scheduling, dyeing lots, and accounting reconciliation. When they asked for better spreadsheets, I delivered the sheets—but without telling anyone, I engineered custom software solving a single department.
           </p>
           <p>
-            When leadership saw the software eliminate variances in real time, they gave me the green light to build out the full system. In the months that followed, the custom software automated the entire administrative and accounting workflow so thoroughly that the mill was able to transition off their clerical data entry staff entirely, running with zero ledger errors.
+            When leadership saw the software eliminate variances in real time, they gave me the green light to build out the full system. In the months that followed, the custom software automated the entire administrative and accounting workflow so thoroughly that the mill transitioned its 10-person back-office staff down to a single clerk, running live for 18 months with zero ledger corruption.
           </p>
         </div>
 
@@ -45,19 +45,19 @@ export default function AboutPage() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
             <li className="p-4 rounded-xl bg-bg-secondary/70 border border-border-color space-y-1">
               <span className="font-semibold text-text-primary block">Harvard CS50 Curriculum</span>
-              <span className="text-xs text-text-subtle">Completed all 12 CS50 tracks covering algorithms, C memory management, SQL, and systems.</span>
+              <span className="text-xs text-text-subtle">Completed all foundational CS50 tracks covering algorithms, C memory management, SQL, and computer science fundamentals.</span>
             </li>
             <li className="p-4 rounded-xl bg-bg-secondary/70 border border-border-color space-y-1">
-              <span className="font-semibold text-text-primary block">Full-Stack Foundations</span>
-              <span className="text-xs text-text-subtle">Dr. Angela Yu&apos;s comprehensive Python and Web Development bootcamps.</span>
+              <span className="font-semibold text-text-primary block">Financial &amp; Systems Logic (ACCA)</span>
+              <span className="text-xs text-text-subtle">Qualified accountant through self-study, bridging the gap between double-entry bookkeeping and software state machines.</span>
             </li>
             <li className="p-4 rounded-xl bg-bg-secondary/70 border border-border-color space-y-1">
               <span className="font-semibold text-text-primary block">Database Architecture</span>
-              <span className="text-xs text-text-subtle">Deep specialization in PostgreSQL, Supabase real-time schemas, relational constraints, and ACID transactions.</span>
+              <span className="text-xs text-text-subtle">Deep specialization in PostgreSQL, Supabase real-time schemas, relational constraints, Row-Level Security, and ACID transactions.</span>
             </li>
             <li className="p-4 rounded-xl bg-bg-secondary/70 border border-border-color space-y-1">
               <span className="font-semibold text-text-primary block">Agentic Systems Mastery</span>
-              <span className="text-xs text-text-subtle">All 7 Ed Donner engineering tracks and Carnegie Mellon University (CMU) AI Agents architecture under Prof. Graham Neubig.</span>
+              <span className="text-xs text-text-subtle">All Ed Donner engineering tracks and Carnegie Mellon University (CMU 11-768) AI Agents architecture under Prof. Graham Neubig.</span>
             </li>
           </ul>
         </div>

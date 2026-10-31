@@ -19,12 +19,12 @@ export default function CtaSection() {
       <div className="relative max-w-3xl mx-auto px-6 text-center">
         <span className="eyebrow mb-4 justify-center">Get Started</span>
         <h2 className="headline text-3xl sm:text-4xl md:text-5xl leading-[1.1] text-text-primary">
-          If your operations have inefficiency worth eliminating,{' '}
-          <span className="italic">let&apos;s talk.</span>
+          If your back office runs on people and spreadsheets,{' '}
+          <span className="italic text-accent-gold">let&apos;s fix it.</span>
         </h2>
         <p className="text-base md:text-lg text-text-muted leading-relaxed mt-6 max-w-xl mx-auto">
-          Every engagement starts with understanding your operation. No commitment
-          until the diagnosis is done.
+          30 minutes. You show me how the work gets done now. I tell you what can be
+          automated and what that&apos;s worth.
         </p>
 
         <div className="flex justify-center mt-10">
@@ -32,7 +32,7 @@ export default function CtaSection() {
             href="/contact"
             className="btn-primary !pl-7 !pr-2.5 !py-2.5 flex items-center gap-3 group"
           >
-            <span>Start the conversation</span>
+            <span>Book an Architecture Audit</span>
             <span className="w-8 h-8 rounded-full bg-[#111113] text-[#f0f0f2] flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:translate-x-0.5">
               <ArrowRight className="w-3.5 h-3.5" />
             </span>

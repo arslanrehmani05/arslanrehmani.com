@@ -3,16 +3,16 @@ import Link from 'next/link';
 
 const services = [
   {
-    title: 'Operational Audit',
-    body: 'I map your workflows, identify where manual work costs you most, and deliver a prioritised implementation plan. You know exactly what to build and why — before anything gets built.',
+    title: 'Finance & operations systems',
+    body: 'ERPs, finance suites, costing, inventory, reporting. Role-based access and row-level security as standard.',
   },
   {
-    title: 'Custom Systems',
-    body: 'ERPs, dashboards, intelligent agents, and operational platforms — designed around how your business runs and deployed to infrastructure you control.',
+    title: 'Agents inside those systems',
+    body: 'Agents that reconcile, classify, research, draft, chase and report. Each one ships with an eval suite and an audit log, and needs human approval for anything that moves money.',
   },
   {
-    title: 'Ongoing Evolution',
-    body: 'Businesses change. I maintain, improve, and extend the systems I build as yours does.',
+    title: 'Operational diagnosis',
+    body: 'A fixed-fee map of where your manual hours go and what they cost. The report is yours either way.',
   },
 ];
 
@@ -22,12 +22,12 @@ export default function ServicesSection() {
       <div className="max-w-6xl mx-auto px-6">
         <span className="eyebrow mb-5">The Work</span>
         <h2 className="headline text-3xl md:text-[2.75rem] leading-[1.1]">
-          From operational diagnosis to deployed systems.
+          Systems first. Agents inside.
         </h2>
         <p className="text-base md:text-lg text-text-muted leading-relaxed max-w-2xl mt-6 mb-12">
-          I start by understanding how your business actually operates — not how
-          software assumes it should. Every system is built around your workflows,
-          your data, and your team.
+          I start where the money moves: your ledger, stock and orders. I build one
+          Postgres source of truth with proper access control. Then I add agents
+          that do the repetitive work and pass judgement calls to a person.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
