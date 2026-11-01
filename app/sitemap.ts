@@ -22,7 +22,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/contact`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
     { url: `${baseUrl}/projects`, lastModified: now, priority: 0.8, changeFrequency: 'weekly' },
     { url: `${baseUrl}/lab`, lastModified: now, priority: 0.75, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/twin`, lastModified: now, priority: 0.75, changeFrequency: 'monthly' },
 
     // Interactive Diagnostic & Assessment Tools
     { url: `${baseUrl}/tools`, lastModified: now, priority: 0.85, changeFrequency: 'weekly' },

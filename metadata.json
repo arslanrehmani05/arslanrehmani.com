@@ -1,5 +1,5 @@
 {
   "name": "Arslan Rehmani - Operational AI Systems Builder",
   "description": "Forward-deployed systems builder replacing fragile spreadsheets and admin bottlenecks with deterministic pipelines, custom operational software, and autonomous agents.",
-  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "capabilities": []
 }
