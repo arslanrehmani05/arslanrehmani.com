@@ -39,6 +39,29 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Arslan Rehmani',
+  url: 'https://arslanrehmani.com',
+  jobTitle: 'Principal Systems Architect & Founder',
+  founder: {
+    '@type': 'Organization',
+    name: 'Vanthrope',
+    url: 'https://vanthrope.com',
+  },
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Vanthrope',
+    url: 'https://vanthrope.com',
+  },
+  sameAs: [
+    'https://github.com/arslanrehmani05',
+    'https://linkedin.com/in/arslanrehmani',
+    'https://x.com/arslanrehmani',
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -47,9 +70,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
-        <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+        <link rel="icon" href="/favicon.ico?v=4" sizes="any" />
+        <link rel="icon" href="/favicon.svg?v=4" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </head>
       <body className="min-h-screen flex flex-col bg-bg-primary text-text-primary antialiased">
         <Navigation />

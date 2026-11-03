@@ -38,6 +38,18 @@ export default function CtaSection() {
             </span>
           </Link>
         </div>
+
+        <p className="text-xs text-text-subtle mt-6">
+          Looking for full-scale agency contracts and SLA-backed infrastructure? See{' '}
+          <a
+            href="https://vanthrope.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text-primary hover:underline font-medium"
+          >
+            Vanthrope (Operational Systems Firm) &rarr;
+          </a>
+        </p>
       </div>
     </section>
   );

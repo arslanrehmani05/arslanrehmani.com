@@ -62,16 +62,16 @@ export default function AboutPage() {
           </ul>
         </div>
 
-        {/* Narrative Chapter 3: Today's Mission */}
+        {/* Narrative Chapter 3: Today's Mission & Vanthrope */}
         <div className="space-y-4">
           <h2 className="headline text-2xl text-text-primary">
-            03. Forward-Deployed Systems Architecture
+            03. Forward-Deployed Systems Architecture &amp; Vanthrope
           </h2>
           <p>
-            Today, I operate as an independent systems builder for high-stakes businesses across manufacturing, multi-channel commerce, freight logistics, and professional services.
+            Today, I operate as an independent systems builder and Principal Systems Architect at <a href="https://vanthrope.com" target="_blank" rel="noopener noreferrer" className="text-text-primary underline font-medium hover:text-accent-gold transition-colors">Vanthrope</a>, an operational systems firm engineering deterministic software, data pipelines, and autonomous agent swarms for mid-market enterprises.
           </p>
           <p>
-            I embed directly with operators, dissect their highest-drag bottleneck, and build deterministic software and autonomous agents that free capital, eliminate human error, and run reliably in production.
+            Whether executing bespoke architectural audits here or deploying full-scale enterprise software and SLA-backed multi-agent infrastructure through Vanthrope, every system is engineered to eliminate back-office drag, free capital, and run safely in continuous production.
           </p>
         </div>
       </div>

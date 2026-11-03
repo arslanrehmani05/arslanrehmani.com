@@ -146,6 +146,23 @@ export default function ContactPage() {
               <div>• Absolute data confidentiality</div>
               <div>• Fixed-scope outcome guarantees</div>
             </div>
+
+            <div className="p-6 rounded-2xl bg-bg-secondary/60 border border-border-color space-y-2 text-xs">
+              <span className="text-text-primary font-semibold block font-mono">Enterprise Engagements</span>
+              <p className="text-text-muted text-[11px] leading-relaxed">
+                Need enterprise SLAs, master service agreements, and full-scale deployment of custom software across your facilities?
+              </p>
+              <div className="pt-1">
+                <a
+                  href="https://vanthrope.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-primary underline font-medium hover:text-accent-gold transition-colors inline-flex items-center gap-1"
+                >
+                  Engage via Vanthrope (Operational Systems Firm) &rarr;
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
