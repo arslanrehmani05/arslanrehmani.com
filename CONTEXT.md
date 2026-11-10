@@ -1,7 +1,7 @@
 # arslanrehmani.com — Project Context
 
 ## Who This Is For
-Arslan Rehmani, 27, founder of Vanthrope, Karachi-based. Building a personal brand as an AI operational systems builder — someone who walks into a business, diagnoses operational drag, and builds systems that replace manual overhead permanently.
+Arslan Rehmani, 27, operational systems builder, Karachi-based. Building a personal brand as an AI operational systems builder — someone who walks into a business, diagnoses operational drag, and builds systems that replace manual overhead permanently.
 
 ## The Two Proof Assets
 1. **TextileMode ERP** at [erp.textilemode.com](https://erp.textilemode.com)
@@ -22,7 +22,7 @@ Arslan Rehmani, 27, founder of Vanthrope, Karachi-based. Building a personal bra
 Operations director or founder of a manufacturing or ecommerce business. Time-poor. Skeptical of AI hype. Impressed by evidence, not claims. Will spend 10-15 seconds deciding whether to read further or close the tab. The live ERPs at real URLs are what earn continued attention.
 
 ## Commercial Purpose
-- Generate inbound enquiries for Vanthrope
+- Generate direct inbound client enquiries for high-stakes operational systems builds
 - Build credibility that supports cold email outreach
 - Demonstrate live AI tool capability (audit, calculator)
 - Build email list via tools section

@@ -48,8 +48,8 @@ export default function AboutPage() {
               <span className="text-xs text-text-subtle">Completed all foundational CS50 tracks covering algorithms, C memory management, SQL, and computer science fundamentals.</span>
             </li>
             <li className="p-4 rounded-xl bg-bg-secondary/70 border border-border-color space-y-1">
-              <span className="font-semibold text-text-primary block">Financial &amp; Systems Logic (ACCA)</span>
-              <span className="text-xs text-text-subtle">Qualified accountant through self-study, bridging the gap between double-entry bookkeeping and software state machines.</span>
+              <span className="font-semibold text-text-primary block">Financial &amp; Accounting Logic</span>
+              <span className="text-xs text-text-subtle">Rigorous grounding in corporate financial accounting, balance-sheet structures, and double-entry reconciliation, bridging the gap between business ledgers and software state machines.</span>
             </li>
             <li className="p-4 rounded-xl bg-bg-secondary/70 border border-border-color space-y-1">
               <span className="font-semibold text-text-primary block">Database Architecture</span>
@@ -62,16 +62,16 @@ export default function AboutPage() {
           </ul>
         </div>
 
-        {/* Narrative Chapter 3: Today's Mission & Vanthrope */}
+        {/* Narrative Chapter 3: Today's Mission */}
         <div className="space-y-4">
           <h2 className="headline text-2xl text-text-primary">
-            03. Forward-Deployed Systems Architecture &amp; Vanthrope
+            03. Forward-Deployed Systems Architecture
           </h2>
           <p>
-            Today, I operate as an independent systems builder and Principal Systems Architect at <a href="https://vanthrope.com" target="_blank" rel="noopener noreferrer" className="text-text-primary underline font-medium hover:text-accent-gold transition-colors">Vanthrope</a>, an operational systems firm engineering deterministic software, data pipelines, and autonomous agent swarms for mid-market enterprises.
+            Today, I operate as an independent systems builder for high-stakes businesses across manufacturing, multi-channel commerce, freight logistics, and professional services.
           </p>
           <p>
-            Whether executing bespoke architectural audits here or deploying full-scale enterprise software and SLA-backed multi-agent infrastructure through Vanthrope, every system is engineered to eliminate back-office drag, free capital, and run safely in continuous production.
+            I embed directly with operators, dissect their highest-drag bottleneck, and build deterministic software and autonomous agents that free capital, eliminate human error, and run reliably in production.
           </p>
         </div>
       </div>

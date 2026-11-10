@@ -44,17 +44,7 @@ const structuredData = {
   '@type': 'Person',
   name: 'Arslan Rehmani',
   url: 'https://arslanrehmani.com',
-  jobTitle: 'Principal Systems Architect & Founder',
-  founder: {
-    '@type': 'Organization',
-    name: 'Vanthrope',
-    url: 'https://vanthrope.com',
-  },
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Vanthrope',
-    url: 'https://vanthrope.com',
-  },
+  jobTitle: 'Operational Systems Builder & Forward-Deployed AI Architect',
   sameAs: [
     'https://github.com/arslanrehmani05',
     'https://linkedin.com/in/arslanrehmani',

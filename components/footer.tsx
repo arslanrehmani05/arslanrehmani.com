@@ -46,20 +46,18 @@ export default function Footer() {
 
           <div className="space-y-3">
             <span className="font-semibold text-text-primary uppercase tracking-wider block font-mono text-[11px]">
-              Enterprise Capacity
+              Direct Channel
             </span>
             <p className="text-text-muted text-[11px] leading-relaxed">
-              For institutional engagements, custom software contracts, and SLA-backed infrastructure:
+              Operating globally across North America, UK, and Europe. Direct engagement with zero agency intermediaries.
             </p>
             <div className="pt-1">
-              <a
-                href="https://vanthrope.com"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/contact"
                 className="text-text-primary underline hover:text-accent-gold transition-colors font-medium text-xs inline-flex items-center gap-1"
               >
-                Vanthrope (Operational Systems Firm) &rarr;
-              </a>
+                Initiate Systems Review &rarr;
+              </Link>
             </div>
           </div>
         </div>

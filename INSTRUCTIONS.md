@@ -1,7 +1,7 @@
 # arslanrehmani.com — Project Instructions
 
 ## What This Is
-Personal brand website and primary commercial asset for Arslan Rehmani, founder of Vanthrope. This is a client conversion tool, not a brochure. Every element must pass the CFO test — a serious buyer landing here from a cold email should conclude within 10 seconds that this person is credible and worth contacting.
+Personal brand website and primary commercial asset for Arslan Rehmani, Forward-Deployed Systems Builder & Operational AI Architect. This is a client conversion tool, not a brochure. Every element must pass the CFO test — a serious buyer landing here from a cold email should conclude within 10 seconds that this person is credible and worth contacting.
 
 ## Stack
 - Next.js 14 App Router with TypeScript
