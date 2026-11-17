@@ -1,373 +1,116 @@
-# arslanrehmani.com — COMPLETE REBUILD SPECIFICATION
-# Fable: This file contains EVERYTHING — copy, layout, 
-# spacing, hierarchy, states, and responsive behavior. 
-# Rebuild the entire site from this file alone. 
-# Deviate from nothing. Invent nothing.
+# arslanrehmani.com — Site Copy
 
-═══════════════════════════════════════════════
-PART A — GLOBAL FOUNDATIONS
-═══════════════════════════════════════════════
+Last updated: 17 November 2026.
 
-## A1. DESIGN TOKENS (globals.css)
-:root {
-  --bg-primary: #0A0A0A;
-  --bg-secondary: #111111;
-  --bg-surface: #161616;
-  --text-primary: #F5F5F0;
-  --text-muted: rgba(245,245,240,0.62);
-  --text-subtle: rgba(245,245,240,0.38);
-  --accent-gold: #C9A84C;
-  --accent-gold-hover: #D4B05A;
-  --accent-gold-dim: rgba(201,168,76,0.15);
-  --border: #232323;
-  --border-gold: rgba(201,168,76,0.35);
-}
+This is the copy currently on the site, page by page. Read `CONTEXT.md` for positioning and `INSTRUCTIONS.md` for rules. Client figures and product descriptions are not repeated here in full: they live in `lib/content.ts`, which is the single source of truth.
 
-## A2. TYPOGRAPHY SYSTEM
-Font: Inter via next/font/google, weights 400/500/700/900.
+## Navigation
 
-Scale (desktop → mobile):
-- Display (hero headline): text-6xl → text-4xl, 
-  font-black, tracking-tight, leading-[1.05]
-- H2 (section headlines): text-4xl → text-3xl, 
-  font-black, tracking-tight, leading-tight
-- H3 (card titles): text-xl → text-lg, font-bold
-- Body: text-lg → text-base, font-normal, 
-  leading-relaxed, text-muted
-- Section labels: text-xs, font-semibold, 
-  tracking-[0.2em], uppercase, text-accent-gold
-- Stat numbers: text-3xl → text-2xl, font-black, 
-  text-accent-gold
-- Stat labels: text-sm, text-muted
+Work · Products · Services · Tools · About · button: **Start a conversation**
 
-## A3. SPACING SYSTEM
-- Section vertical padding: py-32 desktop, py-20 mobile. 
-  NEVER less.
-- Container: max-w-6xl, mx-auto, px-6.
-- Card padding: p-8 desktop, p-6 mobile.
-- Card radius: rounded-2xl everywhere. No exceptions.
-- Gap between cards in grids: gap-6.
-- Space between section label and headline: mb-4.
-- Space between headline and body/cards: mb-12.
+## Homepage
 
-## A4. INTERACTION STATES
-- All links/buttons: transition-colors duration-200.
-- Gold buttons: bg-accent-gold text-black font-semibold 
-  px-8 py-4 rounded-full. Hover: bg-accent-gold-hover.
-- Ghost buttons: border border-border text-primary 
-  px-8 py-4 rounded-full. Hover: border-accent-gold 
-  text-accent-gold.
-- Cards with links: hover:border-border-gold on the 
-  card border.
-- Text links: text-accent-gold. Hover: text-gold-hover 
-  with underline underline-offset-4.
-- NO other animations. No scroll-triggered effects. 
-  No parallax. One exception: a single fade-in 
-  (opacity 0→1, 500ms) on hero content at page load.
+### 1. Hero
 
-## A5. RESPONSIVE RULES
-- Breakpoint strategy: mobile-first, md: (768px) and 
-  lg: (1024px) only.
-- All multi-column grids collapse: 3-col → 1-col at 
-  md, 2-col → 1-col at md.
-- Hero: two-column desktop → single column mobile, 
-  text first, image second.
-- Credibility bar: 5-across desktop → 2-col grid 
-  mobile (last item spans full width).
-- Nav: full links desktop → hamburger with full-screen 
-  overlay (bg-primary, links centered, text-2xl) mobile.
-- Tap targets minimum 44px on mobile.
+- Label: Operational systems and AI agents
+- Headline: **I build systems that replace manual work. Permanently.**
+- Sub: Custom software and AI agents for manufacturers, ecommerce brands and finance teams. The reporting, reconciliation and data entry your people do by hand, done by a system that runs every day.
+- Buttons: See the work (→ /work) · Start a conversation (→ /contact)
+- Four figures, all from TextileMode: 5 back-office roles replaced by one system · 40+ hours of manual work removed every week · 27 looms run from one system · 10+ months live on real financial data
+- Note under the figures: Figures from one engagement: a textile manufacturer. Read the case study.
 
-## A6. NAVIGATION (sticky, all pages)
-- Sticky top, bg-primary/90 with backdrop-blur-md, 
-  border-b border-border.
-- Height: h-16.
-- Left: "Arslan Rehmani" text-primary font-bold 
-  (links to /).
-- Right links (text-sm, text-muted, hover 
-  text-accent-gold): Work, About, Contact.
-- Far right: gold pill button "Start a conversation" 
-  (small: px-5 py-2 text-sm) → /contact.
+### 2. What I fix
 
-═══════════════════════════════════════════════
-PART B — HOMEPAGE, SECTION BY SECTION
-═══════════════════════════════════════════════
+Headline: **Most businesses know where the drag is. Few have someone who can remove it.**
 
-## SECTION 1 — HERO
-Layout: two columns (60/40) desktop, min-h-[85vh], 
-items-center. Left column:
+1. **Work that only moves when a person moves it.** Orders, stock and production figures copied from one sheet to the next. Every copy is a cost, a delay and a chance to get it wrong.
+2. **A month-end that takes weeks.** Books closed by reconciling spreadsheets against each other, with numbers nobody trusts until someone has checked them by hand.
+3. **Tools that do not talk to each other.** Sales in one place, inventory in another, reporting in a third. The gaps between them are filled by someone's time.
+4. **An owner who is the reporting system.** Your morning goes on assembling yesterday's numbers, so decisions get made late or on instinct.
 
-Label: OPERATIONAL AI SYSTEMS
+### 3. Case studies
 
-Headline (Display):
-I build systems that replace manual work. Permanently.
+Headline: **Systems running real businesses today.**
 
-Sub-headline (Body, max-w-xl, mt-6):
-Custom operational software for manufacturing companies 
-and ecommerce brands — fewer people doing repetitive 
-work, lower operating costs, same or better output.
+Two cards from `lib/content.ts`: TextileMode first, then Belhide.
 
-CTA row (mt-10, flex gap-4):
-- Primary gold button: See the work → smooth-scrolls 
-  to #proof
-- Ghost button: Start a conversation → /contact
+### 4. Products
 
-Below CTAs (mt-8, text-sm text-subtle):
-Arslan Rehmani — Forward-Deployed Operational Systems Builder
+Headline: **Working products, not screenshots.**
+Sub: Open them, click around, and ask their built-in assistants anything.
 
-Right column: single rounded-2xl image container 
-(aspect-square, bg-secondary, border border-border) 
-containing professional headshot placeholder. One thin 
-gold ring: ring-1 ring-border-gold. Nothing else. No 
-floating badges, no decorative shapes.
+Four cards from `lib/content.ts`: LoomWorks, BrandPilot, MarketLens, Legality AI. A product with no public URL shows "Ask for a walkthrough".
 
-## SECTION 2 — CREDIBILITY BAR
-Full-width band: bg-secondary, border-y border-border, 
-py-12 (this section is the py exception — tighter).
-Inside container: 5 stats in a row (flex justify-between 
-desktop / grid grid-cols-2 gap-8 mobile).
+### 5. How I work
 
-Each stat: number (Stat number style) above label 
-(Stat label style), left-aligned.
+Headline: **From diagnosis to a system your team uses every day.**
 
-Stat 1: 2 / Production systems live today
-Stat 2: 5 / Employees replaced by one system
-Stat 3: 40+ / Hours of manual work eliminated weekly
-Stat 4: 4 / Live products you can use right now
-Stat 5: 10+ / Months running on real operational data
+1. **Diagnose.** I map how work moves through your business today: who touches what, where figures are re-typed, and what it costs. You get a prioritised plan before anything is built.
+2. **Build.** I build the system around your workflows and your data, in stages you can see and use. Agents take the routine work; your people approve what matters.
+3. **Run.** The system goes live on infrastructure you control. I stay on to maintain it, improve it and extend it as the business changes.
 
-Vertical 1px dividers (bg-border) between stats on 
-desktop only.
+### 6. About
 
-## SECTION 3 — THE PROBLEM
-Label: THE PROBLEM
+I learned operations and finance inside a manufacturing business before I wrote its software. That is why I start with how your business runs and what it costs, and only then decide what to build.
 
-Headline (H2, max-w-3xl):
-Most businesses know something is inefficient. Almost 
-none have someone who can actually fix it.
+The first system I built replaced five back-office roles at a textile manufacturer and has run its daily operations for more than ten months.
 
-Grid: 3 columns desktop, 1 mobile, mt-12.
+### 7. Final call to action (every page)
 
-Each card: bg-secondary, border border-border, 
-rounded-2xl, p-8, with a 2px gold top border 
-(border-t-2 border-t-accent-gold). Card number 
-(text-accent-gold font-black text-lg) above title.
+Headline: **If manual work is costing your business, let's talk.**
+Sub: Every engagement starts with understanding your operation. No commitment until the diagnosis is done.
+Button: Start a conversation
 
-Card 01 — Operations that run on people
-Every process that requires a human is a cost, a risk, 
-and a bottleneck. Most businesses have dozens of these 
-and have stopped noticing them.
+## /work
 
-Card 02 — Tools that don't talk to each other
-Sales in one platform. Inventory in another. Reporting 
-in spreadsheets. Every gap between systems gets filled 
-by someone's manual work.
+Headline: **Systems running real businesses today.**
+Sub: Each of these is in daily use on a client's live data. The numbers are the client's, and I walk through the systems themselves on a call.
 
-Card 03 — The gap between knowing and doing
-Understanding what should change is common. Finding 
-someone who can design the system, build it properly, 
-and deploy it reliably is not.
+## /work/[slug]
 
-## SECTION 4 — WHAT I BUILD
-Label: THE WORK
+Order of each case study: sector and client · title · summary · results · The situation · What was going wrong · What I built · a closing note on why the system is not public.
 
-Headline (H2):
-From operational diagnosis to deployed systems.
+## /products
 
-Intro paragraph (Body, max-w-2xl, mb-12):
-I start by understanding how your business actually 
-operates — not how software assumes it should. Every 
-system is built around your workflows, your data, and 
-your team.
+Headline: **Working products, not screenshots.**
+Sub: Each product takes one business problem and solves it end to end. Open them, click around, and ask their built-in assistants anything.
+Note: The client systems behind LoomWorks and BrandPilot run on real business data. I walk through those on a call.
 
-Grid: 3 columns desktop, 1 mobile.
-Each card: bg-secondary border border-border rounded-2xl 
-p-8. Title (H3) then body (Body, text-base). Bottom of 
-card: gold arrow link "Learn more →" pointing to 
-/contact (all three).
+## /services
 
-Card 1 — Operational Audit
-I map your workflows, identify where manual work costs 
-you most, and deliver a prioritised implementation plan. 
-You know exactly what to build and why — before anything 
-gets built.
+Headline: **From operational diagnosis to deployed systems.**
+Sub: I start by understanding how your business operates, not how software assumes it should. Every system is built around your workflows, your data and your team.
 
-Card 2 — Custom Systems
-ERPs, dashboards, intelligent agents, and operational 
-platforms — designed around how your business runs and 
-deployed to infrastructure you control.
+1. **Operational audit.** Know exactly what to build, and why, before anything gets built.
+2. **Custom system build.** One system built around how your business runs.
+3. **Ongoing care.** A system that keeps up with the business.
 
-Card 3 — Ongoing Evolution
-Businesses change. I maintain, improve, and extend the 
-systems I build as yours does.
+No prices, timelines or guarantees are published.
 
-## SECTION 5 — PORTFOLIO / THE PROOF (id="proof")
-# THE CENTERPIECE. Largest section. Most visual weight.
+What stays the same on every engagement: The business comes first · You own what I build · People stay in charge of what matters.
 
-Label: THE PROOF
+## /about
 
-Headline (H2):
-Live products. Real systems. Use them yourself.
+Headline: **I build software because spreadsheets were never meant to run a business.**
 
-Intro (Body, max-w-2xl, mb-12):
-Most portfolios show screenshots. These are working 
-products — open them, click around, ask their built-in 
-AI assistants anything.
-
-Layout: 2x2 grid desktop (gap-6), 1 column mobile.
-
-Each product card: bg-secondary, border border-border, 
-rounded-2xl, p-8, hover:border-border-gold, 
-flex flex-col. Structure top to bottom:
-1. Tag pill: text-xs uppercase tracking-widest 
-   text-accent-gold bg-accent-gold-dim px-3 py-1 
-   rounded-full w-fit
-2. Product name: H3, mt-4
-3. Description: Body text-base, mt-3, flex-grow
-4. Proof line (where present): text-sm, mt-4, with 
-   numbers wrapped in text-accent-gold font-bold
-5. CTA link (mt-6): gold text link with arrow
-
-Card 1:
-Tag: MANUFACTURING
-Name: LoomWorks
-Description: A complete manufacturing ERP — production 
-tracking, yarn accounting, financial reconciliation, 
-and daily AI briefings for a 27-loom textile operation.
-Proof line: Built on a production system that replaced 
-5 employees and eliminated 40+ hours of weekly manual 
-work. Live for 10+ months.
-CTA: Open LoomWorks → https://loomworks.arslanrehmani.com 
-(new tab)
-
-Card 2:
-Tag: ECOMMERCE
-Name: BrandPilot
-Description: An ecommerce command center — revenue, 
-inventory, SEO, content, and finance across Shopify 
-and Amazon in one screen, with an AI morning brief 
-that tells you exactly what needs attention today.
-Proof line: Built on the operational stack running a 
-live multi-market ecommerce brand.
-CTA: Open BrandPilot → https://brandpilot.arslanrehmani.com
-
-Card 3:
-Tag: MARKET INTELLIGENCE
-Name: MarketLens
-Description: An AI-powered market terminal — live 
-charts, portfolio tracking, and Warren, an AI analyst 
-that answers market questions in plain language.
-CTA: Open MarketLens → https://marketlens.arslanrehmani.com
-
-Card 4:
-Tag: LEGAL
-Name: Legality AI
-Description: Consulting agreements and legal documents 
-drafted in minutes — generated by AI, reviewed by you, 
-download as PDF.
-CTA: Open Legality AI → https://legality.arslanrehmani.com
-
-Below the grid (mt-8, text-sm text-subtle, max-w-2xl):
-The production systems behind LoomWorks and BrandPilot 
-run on real business data. They are demonstrated live 
-on calls.
-
-## SECTION 6 — ABOUT
-Layout: two columns (55/45), items-center.
-
-Left column:
-Label: THE PERSON
-Headline (H2): Arslan Rehmani. Operational Systems Builder.
-Body (mt-6):
-I build production software for real businesses. The 
-first system I built replaced five employees at a 
-textile manufacturer and has run its daily operations 
-for over ten months. The second runs a client's ecommerce 
-brand across five sales channels. Everything on this 
-site is live and testable — because claims are cheap 
-and working software is not.
-
-Social row (mt-8, flex gap-6): text links in gold — 
-LinkedIn, GitHub, X. (Placeholder hrefs.)
-
-Right column: headshot placeholder identical in style 
-to hero (rounded-2xl, bg-secondary, border, gold ring).
-
-## SECTION 7 — FINAL CTA
-Background: bg-primary with ONE radial gradient — 
-radial at center, from rgba(201,168,76,0.06) to 
-transparent 70%. This is the only gradient on the 
-entire site.
-
-Content centered, max-w-3xl:
-Headline (H2): If your operations have inefficiency 
-worth eliminating, let's talk.
-Sub (Body, mt-4): Every engagement starts with 
-understanding your operation. No commitment until 
-the diagnosis is done.
-CTA row (mt-10, centered, flex gap-4):
-- Gold button: Start the conversation → /contact
-
-## SECTION 8 — FOOTER
-bg-primary, border-t border-border, py-12.
-Three columns desktop / stacked mobile:
-Left: "Arslan Rehmani" font-bold + below it text-sm 
-text-subtle "Operational AI Systems"
-Center (text-sm text-muted, flex gap-6): Work / About / 
-Contact
-Right (text-sm, gold links): LinkedIn | 
-GitHub
-Bottom strip (mt-10, pt-6, border-t border-border, 
-text-xs text-subtle): © 2026 Arslan Rehmani
-
-═══════════════════════════════════════════════
-PART C — SUBPAGES
-═══════════════════════════════════════════════
+Four paragraphs: learned operations and finance from inside a business; the TextileMode story; the work since; how every engagement runs.
 
 ## /contact
-Nav + footer identical. Single centered section 
-(min-h-[70vh], items-center):
-Label: CONTACT
-Headline (H2): Start the conversation.
-Sub (Body): Tell me what your operation looks like and 
-where the friction is. I respond within 24 hours.
-Form (max-w-lg, mt-10): 
-- Name (input)
-- Email (input)  
-- Company (input)
-- What does your operation struggle with? (textarea, 
-  5 rows)
-All inputs: bg-secondary, border border-border, 
-rounded-xl, px-4 py-3, text-primary, 
-focus:border-accent-gold focus:outline-none.
-Submit: full-width gold button "Send".
-Success state: replace form with centered check icon 
-(gold) + "Received. I'll respond within 24 hours."
-Submits to existing /api/leads route (keep current 
-backend wiring).
 
-## /work and /about
-If these exist as separate pages, they redirect to 
-homepage anchors (#proof and the About section). Do 
-not build separate page content — the homepage is 
-the site.
+Headline: **Start the conversation.**
+Sub: Tell me what your operation looks like and where the friction is.
+Fields: Name · Work email · Company · What does your operation struggle with?
+Success: Received. I'll respond within 24 hours.
+Failure: That did not send. Try again, or email contact@arslanrehmani.com.
 
-═══════════════════════════════════════════════
-PART D — HARD PROHIBITIONS (FINAL CHECK)
-═══════════════════════════════════════════════
-Before finishing, verify ZERO instances of:
-- "passionate", "innovative", "cutting-edge", 
-  "journey", "lifelong", "10 years", "daily learning", 
-  any years-of-experience claim
-- Technology names in any headline (Next.js, n8n, 
-  Claude, Supabase, etc.)
-- Exclamation marks
-- Stock photography
-- More than ONE gradient (the final CTA radial)
-- Any animation beyond hover transitions + the single 
-  hero fade-in
-- Rounded corners other than rounded-2xl / rounded-full
-- Any claim not verifiable at a URL or in a call
-- Belhide described as Arslan's own business or brand. 
-  Belhide is a CLIENT. Never "my brand", "my own 
-  ecommerce brand", or "building in public".
+## /tools
+
+Headline: **Measure the problem before you pay to fix it.**
+Sub: Free tools that put a number on manual work. Use them on your own business, with your own figures.
+
+## Open items
+
+- LoomWorks has no working public URL.
+- `/thinking` shows three placeholder articles when Sanity is not configured. They are not linked from the navigation and have not been reviewed.
+- The copy inside the individual tool pages has not been rewritten.
+- Products and case studies are due a deeper refinement.

@@ -1,41 +1,50 @@
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const siteTitle = 'Arslan Rehmani | Operational Systems and AI Agents';
+const siteDescription =
+  'I build custom software and AI agents that replace manual work for manufacturers, ecommerce brands and finance teams.';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://arslanrehmani.com'),
   title: {
-    default: 'Arslan Rehmani - Operational AI Systems Builder',
+    default: siteTitle,
     template: '%s | Arslan Rehmani',
   },
-  description: 'Forward-deployed systems builder replacing fragile spreadsheets and admin bottlenecks with deterministic pipelines, custom operational software, and autonomous agents.',
+  description: siteDescription,
   alternates: {
     canonical: '/',
   },
   icons: {
     icon: [
-      { url: '/favicon.svg?v=3', type: 'image/svg+xml' },
-      { url: '/icons/icon-192.png?v=3', sizes: '192x192', type: 'image/png' },
-      { url: '/icon.png?v=3', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon.ico?v=3', sizes: 'any' },
+      { url: '/favicon.svg?v=4', type: 'image/svg+xml' },
+      { url: '/icons/icon-192.png?v=4', sizes: '192x192', type: 'image/png' },
+      { url: '/icon.png?v=4', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico?v=4', sizes: 'any' },
     ],
-    apple: [
-      { url: '/apple-touch-icon.png?v=3', sizes: '180x180', type: 'image/png' },
-    ],
-    shortcut: '/favicon.ico?v=3',
+    apple: [{ url: '/apple-touch-icon.png?v=4', sizes: '180x180', type: 'image/png' }],
+    shortcut: '/favicon.ico?v=4',
   },
   openGraph: {
-    title: 'Arslan Rehmani - Operational AI Systems Builder',
-    description: 'Forward-deployed systems builder replacing fragile spreadsheets and admin bottlenecks with deterministic pipelines, custom operational software, and autonomous agents.',
+    title: siteTitle,
+    description: siteDescription,
     url: 'https://arslanrehmani.com',
     siteName: 'Arslan Rehmani',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Arslan Rehmani - Operational AI Systems Builder',
-    description: 'Forward-deployed systems builder replacing fragile spreadsheets and admin bottlenecks with deterministic pipelines, custom operational software, and autonomous agents.',
+    title: siteTitle,
+    description: siteDescription,
   },
 };
 
@@ -44,7 +53,8 @@ const structuredData = {
   '@type': 'Person',
   name: 'Arslan Rehmani',
   url: 'https://arslanrehmani.com',
-  jobTitle: 'Operational Systems Builder & Forward-Deployed AI Architect',
+  jobTitle: 'Operational Systems Builder',
+  description: siteDescription,
   sameAs: [
     'https://github.com/arslanrehmani05',
     'https://linkedin.com/in/arslanrehmani',
@@ -58,17 +68,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={`dark ${inter.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico?v=4" sizes="any" />
-        <link rel="icon" href="/favicon.svg?v=4" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-bg-primary text-text-primary antialiased">
+      <body className="min-h-screen flex flex-col bg-bg-primary text-text-primary antialiased font-sans">
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />

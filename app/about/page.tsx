@@ -1,80 +1,89 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Code, Database, Brain, Cpu, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import FinalCta from '@/components/final-cta';
 
-export const metadata = {
-  title: 'About Arslan Rehmani | Forward-Deployed Systems Builder',
-  description: 'The engineer who replaced an entire textile mill accounting floor with custom software and deterministic agentic systems.',
+export const metadata: Metadata = {
+  title: 'About',
+  description:
+    'Arslan Rehmani builds operational systems and AI agents that replace manual work in manufacturing, ecommerce and finance.',
+  alternates: { canonical: '/about' },
 };
+
+const socials = [
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/arslanrehmani' },
+  { label: 'GitHub', href: 'https://github.com/arslanrehmani05' },
+  { label: 'X', href: 'https://x.com/arslanrehmani' },
+];
 
 export default function AboutPage() {
   return (
-    <div className="py-12 md:py-16 space-y-16">
-      <div className="max-w-4xl mx-auto px-6 space-y-6">
-        <span className="eyebrow">The Engineering Story</span>
-        <h1 className="headline text-4xl sm:text-5xl text-text-primary leading-[1.1]">
-          I build software because spreadsheets were never meant to run a business.
-        </h1>
-        <p className="text-lg text-text-muted leading-relaxed">
-          I started coding in 9th grade. At a high-volume textile manufacturer turning over PKR 3 crore (~$107k) a month, I was tasked to &ldquo;fix the spreadsheets.&rdquo; I knew that spreadsheets could never solve real operational bottlenecks—so I quietly built the software myself.
-        </p>
-      </div>
+    <div>
+      <section className="pt-16 md:pt-24 pb-20 md:pb-28">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
+          <div className="md:col-span-4">
+            <div className="relative aspect-square w-full max-w-[320px] rounded-2xl overflow-hidden border border-border-color bg-bg-secondary md:sticky md:top-24">
+              <Image
+                src="/headshot.jpg"
+                alt="Arslan Rehmani"
+                fill
+                priority
+                sizes="(max-width: 768px) 320px, 360px"
+                className="object-cover object-top"
+              />
+            </div>
+          </div>
 
-      <div className="max-w-4xl mx-auto px-6 space-y-12 text-sm text-text-muted leading-relaxed">
-        {/* Narrative Chapter 1 */}
-        <div className="space-y-4">
-          <h2 className="headline text-2xl text-text-primary">
-            01. The Textile Mode Turning Point
-          </h2>
-          <p>
-            The mill was drowning in disconnected paper tickets and Excel spreadsheets across yarn intake, loom scheduling, dyeing lots, and accounting reconciliation. When they asked for better spreadsheets, I delivered the sheets—but without telling anyone, I engineered custom software solving a single department.
-          </p>
-          <p>
-            When leadership saw the software eliminate variances in real time, they gave me the green light to build out the full system. In the months that followed, the custom software automated the entire administrative and accounting workflow so thoroughly that the mill transitioned its 10-person back-office staff down to a single clerk, running live for 18 months with zero ledger corruption.
-          </p>
-        </div>
+          <div className="md:col-span-8 max-w-2xl">
+            <span className="eyebrow mb-4">About</span>
+            <h1 className="headline text-4xl sm:text-5xl">
+              I build software because spreadsheets were never meant to run a business.
+            </h1>
 
-        {/* Narrative Chapter 2: Relentless Technical Foundation */}
-        <div className="space-y-4">
-          <h2 className="headline text-2xl text-text-primary">
-            02. Relentless Technical Rigor
-          </h2>
-          <p>
-            Seeing what real software could achieve on a factory floor ignited an obsessive drive to master every layer of computational systems:
-          </p>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-            <li className="p-4 rounded-xl bg-bg-secondary/70 border border-border-color space-y-1">
-              <span className="font-semibold text-text-primary block">Harvard CS50 Curriculum</span>
-              <span className="text-xs text-text-subtle">Completed all foundational CS50 tracks covering algorithms, C memory management, SQL, and computer science fundamentals.</span>
-            </li>
-            <li className="p-4 rounded-xl bg-bg-secondary/70 border border-border-color space-y-1">
-              <span className="font-semibold text-text-primary block">Financial &amp; Accounting Logic</span>
-              <span className="text-xs text-text-subtle">Rigorous grounding in corporate financial accounting, balance-sheet structures, and double-entry reconciliation, bridging the gap between business ledgers and software state machines.</span>
-            </li>
-            <li className="p-4 rounded-xl bg-bg-secondary/70 border border-border-color space-y-1">
-              <span className="font-semibold text-text-primary block">Database Architecture</span>
-              <span className="text-xs text-text-subtle">Deep specialization in PostgreSQL, Supabase real-time schemas, relational constraints, Row-Level Security, and ACID transactions.</span>
-            </li>
-            <li className="p-4 rounded-xl bg-bg-secondary/70 border border-border-color space-y-1">
-              <span className="font-semibold text-text-primary block">Agentic Systems Mastery</span>
-              <span className="text-xs text-text-subtle">All Ed Donner engineering tracks and Carnegie Mellon University (CMU 11-768) AI Agents architecture under Prof. Graham Neubig.</span>
-            </li>
-          </ul>
-        </div>
+            <div className="mt-8 space-y-5 text-base md:text-lg text-text-muted leading-relaxed">
+              <p>
+                I learned operations and finance inside a manufacturing business before I wrote its
+                software. I know what a month-end close feels like from the inside, and what it
+                costs when the stock figure and the ledger disagree.
+              </p>
+              <p>
+                At a textile manufacturer running 27 looms, I was asked to fix the spreadsheets.
+                The spreadsheets were not the problem, so I built the system that replaced them. It
+                took over the work of five back-office roles and has run the mill’s daily
+                operations for more than ten months.
+              </p>
+              <p>
+                Since then I have built the operating platform for a client’s multi-channel
+                ecommerce brand, and a set of products you can open and use yourself.
+              </p>
+              <p>
+                I work the same way every time. I find where manual work is costing the business,
+                build a system around how that business runs, and put AI agents on the routine
+                work so people can spend their time on decisions.
+              </p>
+            </div>
 
-        {/* Narrative Chapter 3: Today's Mission */}
-        <div className="space-y-4">
-          <h2 className="headline text-2xl text-text-primary">
-            03. Forward-Deployed Systems Architecture
-          </h2>
-          <p>
-            Today, I operate as an independent systems builder for high-stakes businesses across manufacturing, multi-channel commerce, freight logistics, and professional services.
-          </p>
-          <p>
-            I embed directly with operators, dissect their highest-drag bottleneck, and build deterministic software and autonomous agents that free capital, eliminate human error, and run reliably in production.
-          </p>
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-3 mt-10">
+              <Link href="/work" className="inline-flex items-center gap-2 text-sm text-text-primary hover:text-text-muted transition-colors min-h-[44px]">
+                <span>See the work</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              {socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-sm text-text-muted hover:text-text-primary transition-colors min-h-[44px]"
+                >
+                  {social.label}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
       <FinalCta />
     </div>

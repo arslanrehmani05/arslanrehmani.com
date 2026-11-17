@@ -25,9 +25,10 @@ export async function insertLead(email: string, source: string, extra?: LeadExtr
   };
 
   if (supabase) {
-    const { data, error } = await supabase.from('leads').insert([row]).select();
+    // No .select(): the anon role may insert but not read, so asking for the row back would fail.
+    const { error } = await supabase.from('leads').insert([row]);
     if (error) throw error;
-    return data;
+    return [row];
   } else {
     console.log(`[MOCK SUPABASE] Saved Lead: Email=${email}, Source=${source}`, extra ?? '');
     return [{ id: 'mock-uuid', ...row }];
@@ -36,18 +37,10 @@ export async function insertLead(email: string, source: string, extra?: LeadExtr
 
 export async function insertToolSubmission(tool: string, inputs: any, report: string, email?: string) {
   if (supabase) {
-    const { data, error } = await supabase
-      .from('tool_submissions')
-      .insert([{ 
-        tool, 
-        inputs, 
-        report, 
-        email: email || null, 
-        created_at: new Date().toISOString() 
-      }])
-      .select();
+    const row = { tool, inputs, report, email: email || null, created_at: new Date().toISOString() };
+    const { error } = await supabase.from('tool_submissions').insert([row]);
     if (error) throw error;
-    return data;
+    return [row];
   } else {
     console.log(`[MOCK SUPABASE] Saved Tool Submission: Tool=${tool}, Email=${email || 'N/A'}`);
     return [{ id: 'mock-uuid', tool, inputs, report, email, created_at: new Date().toISOString() }];

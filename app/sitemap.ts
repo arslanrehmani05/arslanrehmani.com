@@ -1,27 +1,20 @@
 // app/sitemap.ts
 import { MetadataRoute } from 'next';
-import { getArticles, getCaseStudies } from '@/sanity/lib/client';
+import { getArticles } from '@/sanity/lib/client';
+import { caseStudies } from '@/lib/content';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://arslanrehmani.com';
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    // Core Primary Pages
     { url: baseUrl, lastModified: now, priority: 1.0, changeFrequency: 'weekly' },
-    { url: `${baseUrl}/agents`, lastModified: now, priority: 0.95, changeFrequency: 'weekly' },
-    { url: `${baseUrl}/services`, lastModified: now, priority: 0.9, changeFrequency: 'weekly' },
-    { url: `${baseUrl}/work`, lastModified: now, priority: 0.9, changeFrequency: 'weekly' },
-    { url: `${baseUrl}/diagnostics`, lastModified: now, priority: 0.9, changeFrequency: 'weekly' },
-    { url: `${baseUrl}/thinking`, lastModified: now, priority: 0.85, changeFrequency: 'weekly' },
-    { url: `${baseUrl}/security`, lastModified: now, priority: 0.85, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/enterprise`, lastModified: now, priority: 0.85, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/industries`, lastModified: now, priority: 0.85, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/proof-ledger`, lastModified: now, priority: 0.85, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/work`, lastModified: now, priority: 0.9, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/products`, lastModified: now, priority: 0.9, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/services`, lastModified: now, priority: 0.9, changeFrequency: 'monthly' },
     { url: `${baseUrl}/about`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
     { url: `${baseUrl}/contact`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/projects`, lastModified: now, priority: 0.8, changeFrequency: 'weekly' },
-    { url: `${baseUrl}/lab`, lastModified: now, priority: 0.75, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/thinking`, lastModified: now, priority: 0.6, changeFrequency: 'weekly' },
 
     // Interactive Diagnostic & Assessment Tools
     { url: `${baseUrl}/tools`, lastModified: now, priority: 0.85, changeFrequency: 'weekly' },
@@ -32,7 +25,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/tools/cost-estimator`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
     { url: `${baseUrl}/tools/reconciliation`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
     { url: `${baseUrl}/tools/scanner`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/tools/audit`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
     { url: `${baseUrl}/tools/calculator`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
 
     // Legal & Policies
@@ -58,20 +50,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     articleRoutes = [];
   }
 
-  let caseStudyRoutes: MetadataRoute.Sitemap = [];
-  try {
-    const caseStudies = await getCaseStudies();
-    if (Array.isArray(caseStudies)) {
-      caseStudyRoutes = caseStudies.map((cs) => ({
-        url: `${baseUrl}/work/${cs.slug}`,
-        lastModified: cs.publishedAt ? new Date(cs.publishedAt) : now,
-        changeFrequency: 'monthly' as const,
-        priority: 0.8,
-      }));
-    }
-  } catch {
-    caseStudyRoutes = [];
-  }
+  const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies.map((cs) => ({
+    url: `${baseUrl}/work/${cs.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
 
   return [...staticRoutes, ...articleRoutes, ...caseStudyRoutes];
 }

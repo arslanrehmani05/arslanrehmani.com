@@ -323,7 +323,7 @@ export default function OperationalProcessMapperPage() {
             href="/contact"
             className="btn-primary !px-6 !py-3 !text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-2 whitespace-nowrap"
           >
-            <span>Book a 20-minute discovery call</span>
+            <span>Start a conversation</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>

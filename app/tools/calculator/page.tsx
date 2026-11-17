@@ -365,7 +365,7 @@ export default function ManualWorkCostCalculatorPage() {
                   href="/contact"
                   className="btn-primary w-full !py-3 !text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2"
                 >
-                  <span>Book a 20-minute discovery call</span>
+                  <span>Start a conversation</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
                 <span className="text-[11px] text-text-subtle text-center block mt-2 font-mono">

@@ -169,14 +169,14 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
             Have a similar data bottleneck in your business?
           </h3>
           <p className="text-sm text-text-muted max-w-lg mx-auto">
-            Book a 20-minute discovery call to map out whether an audit or custom build is the right path forward.
+            Start a conversation to work out whether an audit or a custom build is the right next step.
           </p>
           <div className="pt-2">
             <Link
               href="/contact"
               className="btn-primary !px-6 !py-3 !text-sm inline-flex items-center gap-2"
             >
-              <span>Book a 20-minute discovery call</span>
+              <span>Start a conversation</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

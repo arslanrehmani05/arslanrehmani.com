@@ -12,6 +12,20 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  // Routes removed in the November 2026 restructure. Keep old links working.
+  async redirects() {
+    return [
+      { source: '/projects', destination: '/products', permanent: true },
+      { source: '/agents', destination: '/services', permanent: true },
+      { source: '/industries', destination: '/work', permanent: true },
+      { source: '/enterprise', destination: '/services', permanent: true },
+      { source: '/security', destination: '/services', permanent: true },
+      { source: '/proof-ledger', destination: '/work', permanent: true },
+      { source: '/lab', destination: '/products', permanent: true },
+      { source: '/diagnostics', destination: '/tools', permanent: true },
+      { source: '/tools/audit', destination: '/tools', permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

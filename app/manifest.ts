@@ -2,9 +2,9 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Arslan Rehmani | Operational AI Systems',
+    name: 'Arslan Rehmani',
     short_name: 'Arslan R.',
-    description: 'Custom operational software and AI systems for manufacturing companies and ecommerce brands.',
+    description: 'Operational systems and AI agents that replace manual work.',
     start_url: '/',
     scope: '/',
     display: 'standalone',
@@ -52,16 +52,9 @@ export default function manifest(): MetadataRoute.Manifest {
         icons: [{ src: '/icons/icon-192.png?v=2', sizes: '192x192' }],
       },
       {
-        name: 'AI Readiness Audit',
-        short_name: 'Audit Tool',
-        description: 'Run operational AI readiness diagnostic',
-        url: '/tools/audit',
-        icons: [{ src: '/icons/icon-192.png?v=2', sizes: '192x192' }],
-      },
-      {
         name: 'Automation ROI Calculator',
         short_name: 'ROI Calc',
-        description: 'Calculate labor cost savings from custom AI systems',
+        description: 'Calculate what manual work costs each year',
         url: '/tools/calculator',
         icons: [{ src: '/icons/icon-192.png?v=2', sizes: '192x192' }],
       },

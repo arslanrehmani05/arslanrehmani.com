@@ -439,9 +439,9 @@ export default function OperationalScan() {
     setIsGenerating(true);
 
     const recs = {
-      rec1: `Replace manual ${answers.schedulingMethod} with a custom Next.js operational portal to eliminate double data entry.`,
-      rec2: `Automate ${answers.inventorySync} via unified API background pipelines for real-time inventory visibility.`,
-      rec3: `Deploy automated daily AI executive briefings to track operational drag without manual report compilation.`,
+      rec1: `Replace manual ${answers.schedulingMethod} with one operational system to eliminate double data entry.`,
+      rec2: `Automate ${answers.inventorySync} so stock figures update on their own, in real time.`,
+      rec3: `Add a daily AI briefing so nobody has to compile the morning report by hand.`,
     };
 
     try {
@@ -472,15 +472,15 @@ export default function OperationalScan() {
   };
 
   return (
-    <section className="bg-bg-primary py-12 md:py-16 border-y border-border-color relative overflow-hidden">
+    <section className="py-12 md:py-16 border-y border-border-color relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl mb-8">
-          <span className="eyebrow mb-3">Homepage Flagship Scanner</span>
+          <span className="eyebrow mb-3">Operational scan</span>
           <h2 className="headline text-3xl md:text-5xl leading-[1.1]">
-            Run an Operational Scan on your business.
+            See what manual work is costing you.
           </h2>
           <p className="text-base md:text-lg text-text-muted leading-relaxed mt-4">
-            Detect your technology stack, expose manual administrative drag, and calculate your annual efficiency gap in under 90 seconds.
+            Answer ten questions about how your business runs and get an estimate of what manual work costs you each year. It takes about 90 seconds.
           </p>
         </div>
 
@@ -819,7 +819,7 @@ export default function OperationalScan() {
             <div className="pt-6 border-t border-border-color flex flex-col sm:flex-row items-center justify-between gap-4">
               <span className="text-xs text-text-muted">Want to walk through implementing these systems?</span>
               <a href="/contact" className="btn-primary !px-6 !py-3 !text-xs shrink-0">
-                Book a 30-Min Discovery Call →
+                Start a conversation →
               </a>
             </div>
           </motion.div>

@@ -7,10 +7,8 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import BrandLogo from '@/components/brand-logo';
 
 const navLinks = [
-  { label: 'Systems', href: '/projects' },
   { label: 'Work', href: '/work' },
-  { label: 'Agents', href: '/agents' },
-  { label: 'Industries', href: '/industries' },
+  { label: 'Products', href: '/products' },
   { label: 'Services', href: '/services' },
   { label: 'Tools', href: '/tools' },
   { label: 'About', href: '/about' },
@@ -37,7 +35,7 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
+        <nav className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -50,9 +48,9 @@ export default function Navigation() {
           <motion.div whileTap={{ scale: 0.96 }}>
             <Link
               href="/contact"
-              className="btn-primary !pl-4 !pr-1.5 !py-1.5 !text-xs font-semibold uppercase tracking-wider flex items-center gap-2 group cursor-pointer"
+              className="btn-primary !pl-4 !pr-1.5 !py-1.5 !text-xs font-semibold flex items-center gap-2 group cursor-pointer"
             >
-              <span>Book 20-min call</span>
+              <span>Start a conversation</span>
               <span className="btn-arrow-badge w-6 h-6">
                 <ArrowRight className="w-3 h-3 text-white" />
               </span>
@@ -67,7 +65,7 @@ export default function Navigation() {
               href="/contact"
               className="btn-primary !pl-3.5 !pr-1.5 !py-1.5 !text-xs mr-1 flex items-center gap-1.5 group cursor-pointer"
             >
-              <span>Book call</span>
+              <span>Contact</span>
               <span className="btn-arrow-badge w-5 h-5">
                 <ArrowRight className="w-2.5 h-2.5 text-white" />
               </span>
@@ -114,7 +112,7 @@ export default function Navigation() {
                   onClick={() => setIsOpen(false)}
                   className="btn-primary w-full text-center !py-2.5 !pl-6 !pr-2 !text-sm flex items-center justify-center gap-3 group cursor-pointer"
                 >
-                  <span>Book a 20-minute discovery call</span>
+                  <span>Start a conversation</span>
                   <span className="btn-arrow-badge w-7 h-7">
                     <ArrowRight className="w-3.5 h-3.5 text-white" />
                   </span>

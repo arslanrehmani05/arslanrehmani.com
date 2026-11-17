@@ -24,7 +24,7 @@ const config: Config = {
         'border-gold': 'var(--border-gold)',
       },
       fontFamily: {
-        sans: ['var(--font-dmsans)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
     },
   },

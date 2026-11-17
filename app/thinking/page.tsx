@@ -72,14 +72,14 @@ export default async function ThinkingIndexPage() {
               Have questions about implementing these patterns?
             </h3>
             <p className="text-sm text-text-muted">
-              Book a 20-minute discovery call to discuss your exact schema and workflow.
+              Start a conversation about your own workflow.
             </p>
           </div>
           <Link
             href="/contact"
             className="btn-primary !px-6 !py-3 !text-sm whitespace-nowrap flex items-center gap-2"
           >
-            <span>Book a 20-minute discovery call</span>
+            <span>Start a conversation</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

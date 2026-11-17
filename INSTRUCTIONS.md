@@ -1,130 +1,121 @@
 # arslanrehmani.com — Project Instructions
 
-## What This Is
-Personal brand website and primary commercial asset for Arslan Rehmani, Forward-Deployed Systems Builder & Operational AI Architect. This is a client conversion tool, not a brochure. Every element must pass the CFO test — a serious buyer landing here from a cold email should conclude within 10 seconds that this person is credible and worth contacting.
+Last updated: 17 November 2026. Read `CONTEXT.md` first for positioning.
+
+## What this is
+
+Arslan Rehmani's personal brand site and main commercial asset. It is a conversion tool, not a brochure. A serious buyer who lands here should conclude within 10 seconds that this person understands their problem and is worth contacting.
 
 ## Stack
+
 - Next.js 14 App Router with TypeScript
-- Sanity v3 for CMS (articles and case studies)
-- Supabase for lead capture and tool outputs
 - Tailwind CSS
-- Vercel deployment
-- Claude API for AI Readiness Audit and ROI Calculator (server-side only, never client-side)
+- Sanity v3 for articles (`/thinking`)
+- Supabase for lead capture and tool outputs
+- Vercel deployment from `main`
+- Claude API for the tools that need it, server-side only
 
 ## Commands
+
 - `npm run dev`
 - `npm run build`
 - `npm run lint`
-- `npx tsc --noEmit`
+- `npx tsc --noEmit` (run after a build; stale files in `.next/types` cause false errors after a route is deleted)
 
-## Design System
-- Background primary: `#0A0A0A`
-- Background cards: `#111111`
-- Text primary: `#F5F5F0`
-- Accent gold: `#C9A84C` — CTAs, hover states, result numbers only
-- Accent gold hover: `#D4B05A`
-- Border: `#2A2A2A`
-- Font: Inter — `font-black` for headlines, regular for body
-- Minimum 140px vertical padding between every section
-- 24px border radius on all cards
-- Zero stock photography anywhere
-- Zero gradients except subtle radial on final CTA section
+## Site structure
 
-## File Structure
 ```
 app/
-  layout.tsx
-  page.tsx (homepage, all 11 sections)
+  page.tsx              Homepage: hero, problems, case studies, products, how I work, about, CTA
+  work/page.tsx         Case studies index
+  work/[slug]/page.tsx  One case study
+  products/page.tsx     The products
+  services/page.tsx     Three ways to work together
   about/page.tsx
-  work/page.tsx (case studies index)
-  work/[slug]/page.tsx
-  thinking/page.tsx (blog index)
-  thinking/[slug]/page.tsx
-  tools/page.tsx
-  tools/audit/page.tsx
-  tools/calculator/page.tsx
-  contact/page.tsx
-  api/
-    audit/route.ts
-    calculator/route.ts
-    leads/route.ts
-components/
-  navigation.tsx
-  hero.tsx
-  credibility-bar.tsx
-  problem-section.tsx
-  services-section.tsx
-  portfolio-section.tsx
-  thinking-section.tsx
-  tools-section.tsx
-  about-section.tsx
-  cta-section.tsx
-  footer.tsx
-sanity/
-  schemaTypes/
-    article.ts
-    caseStudy.ts
-  lib/
-    client.ts
-    queries.ts
+  contact/page.tsx      + contact-form.tsx (client component)
+  tools/page.tsx        Tools index; each tool has its own route under tools/
+  thinking/             Articles from Sanity (not in the main navigation)
+  api/leads, api/audit, api/calculator, api/scan
 lib/
-  supabase.ts
-  types.ts
+  content.ts            Every client figure and product description. Single source of truth.
+  supabase.ts, emails.ts, types.ts, calculators/, pdf/
+components/
+  navigation, footer, hero, problem-section, featured-work, products-grid,
+  how-i-work, about-section, final-cta, operational-scan, pipeline-mini-demo,
+  diagnostics/roi-calculator
 ```
 
-## Architecture Rules
-- All Claude API calls server-side only via API routes
-- All Supabase calls server-side only
-- No API keys ever in client components or exposed to the browser
-- Sanity content fetched with ISR, `revalidate: 3600`
-- Static generation for all content pages
-- Contact form and tool submissions write to Supabase via server-side API routes only
+Navigation: Work, Products, Services, Tools, About, plus a "Start a conversation" button.
 
-## Supabase Tables
-- `leads`: `id`, `email`, `source`, `created_at`
+Removed routes redirect in `next.config.mjs`: `/projects`, `/agents`, `/industries`, `/enterprise`, `/security`, `/proof-ledger`, `/lab`, `/diagnostics`, `/tools/audit`.
+
+## The one rule about numbers
+
+Every client figure and product description lives in `lib/content.ts`. Pages import from it. Never type a client number into a page or component, because that is how two pages end up disagreeing.
+
+Nothing goes into `lib/content.ts` unless it can be shown on a call or opened at a URL. If a figure, a client result, a certification or a guarantee cannot be backed that way, it does not go on the site. No placeholder numbers, ever.
+
+## Content rules
+
+- TextileMode is always the first case study. Never reorder.
+- Belhide is a client, never Arslan's own business. Never "my brand" or "building in public".
+- Lead with the business problem and the outcome. Do not lead with technology.
+- No tool, framework or model names in headlines or hero copy. The channels a client sells through (for example Shopify, Amazon) may be named in body copy.
+- No mention of Vanthrope, ACCA, courses, certificates, age or location. See `CONTEXT.md`.
+- First person singular. Never "we".
+- Every external link must resolve. Check before adding one.
+- One call to action across the site: "Start a conversation", leading to `/contact`. There is no booking link, so do not promise a call length.
+
+## Copy standards
+
+- **Never use:** "passionate", "innovative", "cutting-edge", "journey", "lifelong learner", "enterprise-grade", "guarantee", "zero" as a boast, "swarm", or any years-of-experience claim.
+- **Never use** exclamation marks.
+- **Always use:** specific numbers, specific outcomes, checkable facts, plain words.
+- **Every case study:** the situation, what was going wrong, what was built, the results.
+- If a sentence would make a careful buyer roll their eyes, cut it.
+
+## Design system
+
+The site is monochrome. The colour tokens in `app/globals.css` are the source of truth.
+
+- Background `--bg-primary: #111113`; cards use `--bg-secondary` (5% white)
+- Text `--text-primary: #f0f0f2`, `--text-muted` (55% white), `--text-subtle` (35% white)
+- Borders `--border` (8% white); hover border `--border-gold` (16% white)
+- The `accent-gold` token names are legacy. They now resolve to white. Do not reintroduce gold.
+- Font: Inter, loaded with `next/font` in `app/layout.tsx`
+- Headlines use the `.headline` class (medium weight, tight tracking)
+- Section labels use the `.eyebrow` class
+- Buttons use `.btn-primary` and `.btn-ghost`
+- Cards: `rounded-2xl bg-bg-secondary border border-border-color`, padding `p-6 md:p-8`
+- Sections: `py-20 md:py-28`, container `max-w-6xl mx-auto px-6`, a top border between sections
+- No stock photography. No decorative gradients beyond the page background.
+- No animation beyond hover transitions on new work. Some older tool components still use framer-motion.
+
+## Architecture rules
+
+- All Claude API calls are server-side, in API routes.
+- No API keys in client components.
+- Lead and tool submissions go through API routes to Supabase.
+- `insertLead` does not ask for the inserted row back, because the anon role may insert but not read.
+- `/api/leads` returns a real failure when a lead cannot be saved, and the contact form shows an error with an email fallback. Never report success on failure.
+
+## Supabase tables
+
+- `leads`: `id`, `email`, `source`, `created_at`, and optionally `source_tool`, `tool_data jsonb`
 - `tool_submissions`: `id`, `tool`, `inputs jsonb`, `report text`, `email`, `created_at`
+- RLS: insert only for the anon role, no select. Service role key is server-side only.
+- Never hard delete. Soft delete with a `deleted_at` column.
 
-## RLS Rules
-- `leads`: insert only for anon role, no select
-- `tool_submissions`: insert only for anon role, no select
-- Service role key used server-side only, never exposed
+## Performance and accessibility
 
-## Content Rules
-- TextileMode ERP is always first in portfolio — never reorder this
-- Every claim must be specific and verifiable — no vague statements like "years of experience" or "passionate about AI"
-- Result numbers always in gold, bold, large font
-- Case study numbers always specific, never rounded
-- Never mention n8n, Zapier, or specific tool names in headlines or hero copy
-- Lead with business outcomes, not technology names
-- **Belhide is a client, never Arslan's own business.** Never describe it as
-  "my brand", "my own ecommerce brand", "my leather goods brand", or frame any
-  work on it as "building in public". Refer to it as a client engagement or
-  leave it unnamed.
+- All images through `next/image` with sizes set.
+- Static generation for content pages.
+- Minimum 44px tap targets.
+- All grids collapse to one column on mobile.
+- Every form field has a visible label.
 
-## Copy Standards — Non-Negotiable
-- **NEVER use**: "passionate," "innovative," "cutting-edge," "10 years of learning," "lifelong learner," or any claim that cannot be immediately verified.
-- **ALWAYS use**: specific numbers, specific outcomes, checkable facts.
-- **Every portfolio piece**: problem stated plainly, solution in one sentence, results in hard numbers.
+## Environment variables
 
-## Performance Requirements
-- Lighthouse score 95+ on all metrics
-- All images via `next/image` with proper sizing
-- Page load under 3 seconds on standard connection
-- ISR with `revalidate: 3600` for all content pages
-- No client-side data fetching on initial load
-
-## Loading and Error States
-- Every data component needs all three states: loading skeleton, error with retry, empty state
-- No blank screens ever
-- No unhandled errors visible to users
-
-## Mobile
-- Fully responsive using Tailwind breakpoints
-- Hero stacks vertically on mobile
-- All grids collapse to single column on mobile
-- Minimum 44px tap targets throughout
-
-## Environment Variables Required
 ```env
 NEXT_PUBLIC_SANITY_PROJECT_ID=
 NEXT_PUBLIC_SANITY_DATASET=production
@@ -135,12 +126,9 @@ SUPABASE_SERVICE_ROLE_KEY=
 ANTHROPIC_API_KEY=
 ```
 
-## Don't Do
-- Never use inline styles — Tailwind classes only
-- Never hard delete any Supabase data — soft delete only using `deleted_at` timestamp column
-- Never add animations beyond gold hover transitions
-- Never use colours outside the defined palette
-- Never ship a component without loading, error, and empty states handled
-- Never put API keys in client components
-- Never add stock photography
-- Never add popups, exit-intent modals, or live chat
+## Don't
+
+- Don't add a page, a stat or a claim to fill space.
+- Don't add popups, exit-intent modals or live chat.
+- Don't put API keys in client components.
+- Don't use inline styles. Tailwind classes only.

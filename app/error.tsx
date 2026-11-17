@@ -24,10 +24,10 @@ export default function Error({
 
         <div className="space-y-2">
           <h1 className="text-2xl font-black text-[#F5F5F0]">
-            Operational Exception
+            Something went wrong
           </h1>
           <p className="text-sm text-neutral-400 leading-relaxed">
-            An unexpected error occurred while processing this page request. You can attempt to retry the action or return to the main dashboard.
+            This page failed to load. Try again, or go back to the homepage.
           </p>
         </div>
 
