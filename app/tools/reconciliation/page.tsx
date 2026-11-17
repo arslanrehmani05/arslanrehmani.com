@@ -227,7 +227,7 @@ TXN-107,640.00,2026-03-07`;
         <div className="space-y-4">
           <div className="flex items-center gap-2 text-xs font-mono text-text-muted print:hidden">
             <Link href="/tools" className="hover:text-text-primary transition-colors">
-              Tools Suite
+              Tools
             </Link>
             <span>/</span>
             <span className="text-text-primary">Reconciliation Gap Checker</span>

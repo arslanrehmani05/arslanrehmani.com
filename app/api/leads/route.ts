@@ -26,6 +26,7 @@ export async function POST(req: NextRequest) {
     company: clean(body.company, 160),
     message: clean(body.message ?? body.bottleneck, 4000),
     service: clean(body.service, 60),
+    tool: clean(body.tool, 60),
   };
 
   // Always log first, so a lead is never lost even if the database write fails.

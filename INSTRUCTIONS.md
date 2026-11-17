@@ -33,21 +33,24 @@ app/
   services/page.tsx     Three ways to work together
   about/page.tsx
   contact/page.tsx      + contact-form.tsx (client component)
-  tools/page.tsx        Tools index; each tool has its own route under tools/
+  tools/page.tsx        Tools index, built from lib/tools/registry.ts
+  tools/<slug>/page.tsx Eleven tools. See TOOLS-SYSTEM.md, the full tools specification
   thinking/             Articles from Sanity (not in the main navigation)
   api/leads, api/audit, api/calculator, api/scan
 lib/
   content.ts            Every client figure and product description. Single source of truth.
+  tools/registry.ts     The list of tools
+  tools/calc.ts         Every tool calculation, as pure functions
   supabase.ts, emails.ts, types.ts, calculators/, pdf/
 components/
   navigation, footer, hero, problem-section, featured-work, products-grid,
   how-i-work, about-section, final-cta, operational-scan, pipeline-mini-demo,
-  diagnostics/roi-calculator
+  tools/ui, tools/tool-shell, tools/<slug>
 ```
 
 Navigation: Work, Products, Services, Tools, About, plus a "Start a conversation" button.
 
-Removed routes redirect in `next.config.mjs`: `/projects`, `/agents`, `/industries`, `/enterprise`, `/security`, `/proof-ledger`, `/lab`, `/diagnostics`, `/tools/audit`.
+Removed routes redirect in `next.config.mjs`: `/projects`, `/agents`, `/industries`, `/enterprise`, `/security`, `/proof-ledger`, `/lab`, `/diagnostics`, `/tools/audit`, `/tools/decision`, `/tools/cost-estimator`, `/tools/access-audit`.
 
 ## The one rule about numbers
 

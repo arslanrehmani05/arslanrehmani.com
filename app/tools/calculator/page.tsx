@@ -82,7 +82,7 @@ export default function ManualWorkCostCalculatorPage() {
         <div className="space-y-4">
           <div className="flex items-center gap-2 text-xs font-mono text-text-muted print:hidden">
             <Link href="/tools" className="hover:text-text-primary transition-colors">
-              Tools Suite
+              Tools
             </Link>
             <span>/</span>
             <span className="text-text-primary">Manual-Work Cost Calculator</span>
@@ -369,7 +369,7 @@ export default function ManualWorkCostCalculatorPage() {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
                 <span className="text-[11px] text-text-subtle text-center block mt-2 font-mono">
-                  No pitch decks &bull; Direct conversation with Arslan
+                  Nothing is saved unless you send it
                 </span>
               </div>
             </div>

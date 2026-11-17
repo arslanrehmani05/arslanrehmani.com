@@ -106,11 +106,15 @@ Failure: That did not send. Try again, or email contact@arslanrehmani.com.
 ## /tools
 
 Headline: **Measure the problem before you pay to fix it.**
-Sub: Free tools that put a number on manual work. Use them on your own business, with your own figures.
+Sub: Free tools that put a number on what is slowing your business down. Use them with your own figures. Nothing is saved unless you choose to send it.
+
+Eleven tools, grouped by problem. Each card leads with the buyer's question. The full list and specification are in `TOOLS-SYSTEM.md`.
+
+Every tool ends with: **Want this fixed, not just measured?** Send me your result and I will tell you what I would build first, and what I would leave alone.
 
 ## Open items
 
 - LoomWorks has no working public URL.
 - `/thinking` shows three placeholder articles when Sanity is not configured. They are not linked from the navigation and have not been reviewed.
-- The copy inside the individual tool pages has not been rewritten.
+- Five older tools and the operational scan still need moving onto the shared tool framework. The order is in `TOOLS-SYSTEM.md`.
 - Products and case studies are due a deeper refinement.

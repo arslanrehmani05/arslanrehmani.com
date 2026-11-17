@@ -24,6 +24,9 @@ const nextConfig = {
       { source: '/lab', destination: '/products', permanent: true },
       { source: '/diagnostics', destination: '/tools', permanent: true },
       { source: '/tools/audit', destination: '/tools', permanent: true },
+      { source: '/tools/decision', destination: '/tools/automation-finder', permanent: true },
+      { source: '/tools/cost-estimator', destination: '/tools/hire-buy-build', permanent: true },
+      { source: '/tools/access-audit', destination: '/tools/readiness', permanent: true },
     ];
   },
 };

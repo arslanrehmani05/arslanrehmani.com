@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 import { BUSINESS_EMAILS } from '@/lib/emails';
 
@@ -16,6 +16,16 @@ export default function ContactForm() {
   const [company, setCompany] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<Status>('idle');
+
+  const [tool, setTool] = useState('');
+
+  // A tool hands its result over as ?tool=<slug>&summary=<text>. Put it in the message.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const summary = params.get('summary');
+    setTool(params.get('tool') ?? '');
+    if (summary) setMessage((current) => current || `${summary.slice(0, 1500)}\n\n`);
+  }, []);
 
   const contactEmail = BUSINESS_EMAILS.business.email;
 
@@ -35,7 +45,8 @@ export default function ContactForm() {
           company: company.trim(),
           message: message.trim(),
           service,
-          source: 'contact_page',
+          tool,
+          source: tool ? `tool:${tool}` : 'contact_page',
         }),
       });
       const data = await res.json().catch(() => null);
@@ -104,7 +115,7 @@ export default function ContactForm() {
         <label htmlFor="contact-message" className={labelClass}>What does your operation struggle with?</label>
         <textarea
           id="contact-message"
-          rows={5}
+          rows={7}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className={`${inputClass} leading-relaxed`}

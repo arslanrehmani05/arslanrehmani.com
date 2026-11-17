@@ -2,6 +2,7 @@
 import { MetadataRoute } from 'next';
 import { getArticles } from '@/sanity/lib/client';
 import { caseStudies } from '@/lib/content';
+import { tools } from '@/lib/tools/registry';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://arslanrehmani.com';
@@ -16,16 +17,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/contact`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
     { url: `${baseUrl}/thinking`, lastModified: now, priority: 0.6, changeFrequency: 'weekly' },
 
-    // Interactive Diagnostic & Assessment Tools
     { url: `${baseUrl}/tools`, lastModified: now, priority: 0.85, changeFrequency: 'weekly' },
-    { url: `${baseUrl}/tools/process-mapper`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/tools/readiness`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/tools/decision`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/tools/access-audit`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/tools/cost-estimator`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/tools/reconciliation`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/tools/scanner`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${baseUrl}/tools/calculator`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
+    ...tools.map((t) => ({
+      url: `${baseUrl}/tools/${t.slug}`,
+      lastModified: now,
+      priority: 0.8,
+      changeFrequency: 'monthly' as const,
+    })),
 
     // Legal & Policies
     { url: `${baseUrl}/privacy`, lastModified: now, priority: 0.3, changeFrequency: 'yearly' },
